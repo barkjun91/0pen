@@ -1,0 +1,22 @@
+<h1>Listing post_threads</h1>
+
+<table>
+  <tr>
+    <th>Forum</th>
+    <th>Subject</th>
+  </tr>
+
+<% for post_thread in @post_threads %>
+  <tr>
+    <td><%=h post_thread.forum_id %></td>
+    <td><%=h post_thread.subject %></td>
+    <td><%= link_to 'Show', post_thread %></td>
+    <td><%= link_to 'Edit', edit_post_thread_path(post_thread) %></td>
+    <td><%= link_to 'Destroy', post_thread, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post_thread', new_post_thread_path %>

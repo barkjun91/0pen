@@ -1,0 +1,13 @@
+<p>
+  <b>Forum:</b>
+  <%=h @post_thread.forum_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%=h @post_thread.subject %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_thread_path(@post_thread) %> |
+<%= link_to 'Back', post_threads_path %>

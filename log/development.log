@@ -1,0 +1,228 @@
+  [4;36;1mSQL (0.006977)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000368)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.006033)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.010937)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000397)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000292)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000192)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000189)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20090711105500)
+  [4;35;1mSQL (0.000209)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.004574)[0m   [0;1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT NULL NULL, "password_hash" varchar(255) DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "nick" varchar(255) DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002185)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090711105500')[0m
+Migrating to CreateRevisions (20090711110045)
+  [4;36;1mSQL (0.000381)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002857)[0m   [0mCREATE TABLE "revisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer DEFAULT NULL NULL, "body" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002152)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090711110045')[0m
+Migrating to CreatePosts (20090711111939)
+  [4;35;1mSQL (0.000468)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.005592)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "thread_id" integer DEFAULT NULL NULL, "person_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002148)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090711111939')[0m
+Migrating to CreatePostThreads (20090711114217)
+  [4;36;1mSQL (0.000489)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003409)[0m   [0mCREATE TABLE "post_threads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer DEFAULT NULL NULL, "subject" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002211)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090711114217')[0m
+  [4;35;1mSQL (0.000587)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000614)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000166)[0m   [0mPRAGMA index_list("people")[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mPRAGMA index_list("post_threads")[0m
+  [4;35;1mSQL (0.000131)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mPRAGMA index_list("revisions")[0m
+  [4;36;1mSQL (0.001366)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001388)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPostThread Create (0.000637)[0m   [0mINSERT INTO "post_threads" ("created_at", "updated_at", "forum_id", "subject") VALUES('2009-07-11 12:05:24', '2009-07-11 12:05:24', 1, 'title')[0m
+  [4;36;1mPost Load (0.000000)[0m   [0;1mSQLite3::SQLException: no such column: posts.post_thread_id: SELECT * FROM "posts" WHERE ("posts".post_thread_id = 1) [0m
+  [4;35;1mPostThread Load (0.000569)[0m   [0mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;36;1mPerson Create (0.000480)[0m   [0;1mINSERT INTO "people" ("name", "created_at", "nick", "updated_at", "url", "password_hash", "email") VALUES(NULL, '2009-07-11 12:06:47', NULL, '2009-07-11 12:06:47', NULL, NULL, NULL)[0m
+  [4;35;1mPost Create (0.000454)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "thread_id", "person_id") VALUES('2009-07-11 12:06:47', '2009-07-11 12:06:47', NULL, NULL)[0m
+  [4;36;1mPerson Update (0.000309)[0m   [0;1mUPDATE "people" SET "updated_at" = '2009-07-11 12:06:47' WHERE "id" = 1[0m
+  [4;35;1mPostThread Update (0.000326)[0m   [0mUPDATE "post_threads" SET "updated_at" = '2009-07-11 12:06:47' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.001326)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000549)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001322)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000542)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000326)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000548)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000618)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000167)[0m   [0mPRAGMA index_list("people")[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mPRAGMA index_list("post_threads")[0m
+  [4;35;1mSQL (0.000129)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mPRAGMA index_list("revisions")[0m
+  [4;35;1mSQL (0.000295)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000367)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.005458)[0m   [0mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT NULL NULL, "password_hash" varchar(255) DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "nick" varchar(255) DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000448)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.002685)[0m   [0mCREATE TABLE "post_threads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer DEFAULT NULL NULL, "subject" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000488)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.007280)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "thread_id" integer DEFAULT NULL NULL, "person_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000540)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.002782)[0m   [0mCREATE TABLE "revisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer DEFAULT NULL NULL, "body" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000585)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.003383)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.002790)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.000625)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000262)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (0.003347)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090711114217')[0m
+  [4;36;1mSQL (0.002226)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090711111939')[0m
+  [4;35;1mSQL (0.002213)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090711110045')[0m
+  [4;36;1mSQL (0.002504)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090711105500')[0m
+  [4;36;1mSQL (0.000526)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000360)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.007208)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.002689)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000394)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000290)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000207)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000195)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20090711105500)
+  [4;35;1mSQL (0.000211)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000852)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000296)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000199)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20090711105500)
+  [4;35;1mSQL (0.000208)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000862)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000298)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000211)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000200)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000196)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20090711105500)
+  [4;35;1mSQL (0.000210)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.005355)[0m   [0mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) NOT NULL, "password_hash" varchar(255) NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "nick" varchar(255) NOT NULL, "url" varchar(255) DEFAULT NULL NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [4;36;1mSQL (0.008958)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090711105500')[0m
+Migrating to CreateRevisions (20090711110045)
+  [4;35;1mSQL (0.000375)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002790)[0m   [0;1mCREATE TABLE "revisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer NOT NULL, "body" varchar(255) NOT NULL, "created_at" datetime NOT NULL) [0m
+  [4;35;1mSQL (0.002159)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090711110045')[0m
+Migrating to CreatePosts (20090711111939)
+  [4;36;1mSQL (0.000473)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003542)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "thread_id" integer NOT NULL, "person_id" integer NOT NULL) [0m
+  [4;36;1mSQL (0.002138)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090711111939')[0m
+Migrating to CreatePostThreads (20090711114217)
+  [4;35;1mSQL (0.000491)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003449)[0m   [0;1mCREATE TABLE "post_threads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer NOT NULL, "subject" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.002155)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090711114217')[0m
+  [4;36;1mSQL (0.000591)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000606)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mPRAGMA index_list("people")[0m
+  [4;35;1mSQL (0.000132)[0m   [0mPRAGMA index_list("post_threads")[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.000133)[0m   [0mPRAGMA index_list("revisions")[0m
+  [4;36;1mSQL (0.001335)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPostThread Create (0.000633)[0m   [0mINSERT INTO "post_threads" ("forum_id", "subject") VALUES(1, 'test')[0m
+  [4;36;1mSQL (0.000705)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.000000)[0m   [0mSQLite3::SQLException: people.password_hash may not be NULL: INSERT INTO "people" ("name", "created_at", "nick", "updated_at", "url", "password_hash", "email") VALUES('박영준', '2009-07-11 12:27:10', '고양이', '2009-07-11 12:27:10', 'http://me2day.net/goyange', NULL, 'Goyange@cat-studio.pe.kr')[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mSQL (0.000691)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.000546)[0m   [0mINSERT INTO "people" ("name", "created_at", "nick", "updated_at", "url", "password_hash", "email") VALUES('박영준', '2009-07-11 12:29:10', '고양이', '2009-07-11 12:29:10', 'http://me2day.net/goyange', '1111', 'Goyange@cat-studio.pe.kr')[0m
+  [4;36;1mPostThread Load (0.000554)[0m   [0;1mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;35;1mPost Create (0.000000)[0m   [0mSQLite3::SQLException: posts.thread_id may not be NULL: INSERT INTO "posts" ("thread_id", "person_id") VALUES(NULL, NULL)[0m
+  [4;36;1mPostThread Load (0.000505)[0m   [0;1mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;35;1mPost Create (0.000000)[0m   [0mSQLite3::SQLException: posts.thread_id may not be NULL: INSERT INTO "posts" ("thread_id", "person_id") VALUES(NULL, NULL)[0m
+  [4;36;1mPostThread Load (0.000489)[0m   [0;1mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;35;1mPerson Load (0.000666)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mPostThread Load (0.000452)[0m   [0;1mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;35;1mPost Create (0.000000)[0m   [0mSQLite3::SQLException: posts.thread_id may not be NULL: INSERT INTO "posts" ("thread_id", "person_id") VALUES(NULL, NULL)[0m
+  [4;36;1mPerson Load (0.000648)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mPerson Load (0.000655)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mPostThread Load (0.000451)[0m   [0;1mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;35;1mPost Create (0.000000)[0m   [0mSQLite3::SQLException: posts.thread_id may not be NULL: INSERT INTO "posts" ("thread_id", "person_id") VALUES(NULL, 1)[0m
+  [4;36;1mPerson Load (0.000671)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mPostThread Load (0.000457)[0m   [0mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;36;1mPost Create (0.000446)[0m   [0;1mINSERT INTO "posts" ("thread_id", "person_id") VALUES(1, 1)[0m
+  [4;36;1mPost Load (0.000499)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mPost Load (0.000484)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPostThread Load (0.000000)[0m   [0;1mSQLite3::SQLException: no such column: post_threads.post_id: SELECT * FROM "post_threads" WHERE ("post_threads".post_id = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.000485)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPerson Load (0.000000)[0m   [0;1mSQLite3::SQLException: no such column: people.post_id: SELECT * FROM "people" WHERE ("people".post_id = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.000483)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mPost Load (0.000492)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPost Load (0.000478)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mPostThread Load (0.000477)[0m   [0mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;36;1mPost Load (0.000495)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mPostThread Load (0.000462)[0m   [0mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;36;1mPost Load (0.000471)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".thread_id = 1) [0m
+  [4;35;1mPost Load (0.000494)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPerson Load (0.000625)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mPostThread Load (0.000502)[0m   [0mSELECT * FROM "post_threads" WHERE ("post_threads"."id" = 1) [0m
+  [4;36;1mPerson Load (0.000608)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mPost Create (0.000615)[0m   [0mINSERT INTO "posts" ("thread_id", "person_id") VALUES(1, 1)[0m
+  [4;36;1mSQL (0.000699)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Load (0.000580)[0m   [0mSELECT * FROM "posts" [0m
