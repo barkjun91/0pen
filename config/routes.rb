@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :forums
+
   map.resources :post_threads
 
   map.resources :posts
