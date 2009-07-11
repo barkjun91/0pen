@@ -1,0 +1,24 @@
+<h1>Editing revision</h1>
+
+<% form_for(@revision) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :post %><br />
+    <%= f.text_field :post %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @revision %> |
+<%= link_to 'Back', revisions_path %>
