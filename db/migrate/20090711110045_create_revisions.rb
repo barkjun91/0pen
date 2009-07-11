@@ -1,11 +1,9 @@
 class CreateRevisions < ActiveRecord::Migration
   def self.up
     create_table :revisions do |t|
-      t.integer :post
+      t.integer :post_id
       t.string :body
       t.timestamp :created_at
-
-      t.timestamps
     end
   end
 
