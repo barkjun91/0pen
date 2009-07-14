@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :forums
-
-  map.resources :post_threads
-
-  map.resources :posts
+  map.resources :people, :has_many => :posts
+  map.resources :forums, :has_many => :post_threads
+  map.resources :post_threads, :has_many => :posts
+  map.resources :posts, :has_many => :revisions
+  map.resources :revisions
 
   # The priority is based upon order of creation: first created -> highest priority.
 
