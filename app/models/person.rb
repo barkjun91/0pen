@@ -4,6 +4,13 @@ require 'md5'
 class Person < ActiveRecord::Base
   has_many :posts
 
+  def initialize(map)
+    map[:password_hash] = PasswordHash.hash(map[:email], map[:password])
+    map.delete :password
+    puts map.inspect
+    super(map)
+  end
+
   # 비밀번호 확인 객체를 반환한다. 비밀번호 확인 객체는 비교 연산자 ==를 재정의.
   # 저장된 비밀번호 해시가 32자면 MD5므로 LegacyPasswordHash를 반환.
   # 그렇지 않을 경우 40자 SHA1이므로 PasswordHash 인스턴스 반환.
