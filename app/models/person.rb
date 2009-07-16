@@ -3,11 +3,24 @@ require 'md5'
 
 class Person < ActiveRecord::Base
   has_many :posts
+  validates_uniqueness_of :email
+  validates_presence_of :email
+  validates_presence_of :password
+  validates_presence_of :nick
+  validates_length_of :name, :within => 1..100,
+                      :allow_nil => true, :allow_blank => false
+  validates_format_of :email,
+                      :with => /^\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z$/i
+  validates_format_of :url, :with => %r{^https?://}i, :allow_nil => true
 
-  def initialize(map)
-    map[:password_hash] = PasswordHash.hash(map[:email], map[:password])
-    map.delete :password
-    puts map.inspect
+  def initialize(map = {})
+    if map[:password].to_s.empty?
+      map[:password_hash] = ''
+      map.delete :password
+    elsif map[:password]
+      map[:password_hash] = PasswordHash.hash(map[:email], map[:password])
+      map.delete :password
+    end
     super(map)
   end
 
@@ -15,6 +28,7 @@ class Person < ActiveRecord::Base
   # 저장된 비밀번호 해시가 32자면 MD5므로 LegacyPasswordHash를 반환.
   # 그렇지 않을 경우 40자 SHA1이므로 PasswordHash 인스턴스 반환.
   def password
+    return if password_hash.to_s.empty?
     if password_hash.size <= 32
       LegacyPasswordHash.new(self, password_hash)
     else
@@ -24,7 +38,11 @@ class Person < ActiveRecord::Base
 
   # 비밀번호 변경. 새로 변경되는 비밀번호는 항상 SHA1을 사용한다.
   def password=(password)
-    self.password_hash = PasswordHash.hash(email, password)
+    self.password_hash = if password.to_s.empty?
+                           ''
+                         else
+                           PasswordHash.hash(email, password)
+                         end
   end
 end
 
