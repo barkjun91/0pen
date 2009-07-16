@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Email</th>
-    <th>Password hash</th>
     <th>Name</th>
     <th>Nick</th>
     <th>Url</th>
@@ -13,7 +12,6 @@
 <% for person in @people %>
   <tr>
     <td><%=h person.email %></td>
-    <td><%=h person.password_hash %></td>
     <td><%=h person.name %></td>
     <td><%=h person.nick %></td>
     <td><%=h person.url %></td>
