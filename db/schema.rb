@@ -12,7 +12,9 @@
 ActiveRecord::Schema.define(:version => 20090711130755) do
 
   create_table "forums", :force => true do |t|
+    t.string "name"
     t.string "title"
+    t.text   "description"
   end
 
   create_table "people", :force => true do |t|
