@@ -2,12 +2,16 @@
 
 <table>
   <tr>
+    <th>Name</th>
     <th>Title</th>
+    <th>Description</th>
   </tr>
 
 <% for forum in @forums %>
   <tr>
+    <td><%=h forum.name %></td>
     <td><%=h forum.title %></td>
+    <td><%=h forum.description %></td>
     <td><%= link_to 'Show', forum %></td>
     <td><%= link_to 'Edit', edit_forum_path(forum) %></td>
     <td><%= link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,9 +1,9 @@
 class CreateForums < ActiveRecord::Migration
   def self.up
     create_table :forums do |t|
-      t.string :name
-      t.string :title
-      t.text :description
+      t.string :name, :null => false
+      t.string :title, :null => false
+      t.text :description, :null => false
     end
   end
 
