@@ -1,0 +1,9 @@
+%dl
+  %dt Name
+  %dd&= @forum.name
+  %dt Title
+  %dd&= @forum.title
+  %dt Description
+  %dd&= @forum.description
+#{link_to 'Edit', edit_forum_path(@forum)} |
+= link_to 'Back', forums_path

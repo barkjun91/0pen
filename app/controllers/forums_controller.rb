@@ -13,7 +13,7 @@ class ForumsController < ApplicationController
   # GET /forums/1
   # GET /forums/1.xml
   def show
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_name(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class ForumsController < ApplicationController
 
   # GET /forums/1/edit
   def edit
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_name(params[:id])
   end
 
   # POST /forums
@@ -57,7 +57,7 @@ class ForumsController < ApplicationController
   # PUT /forums/1
   # PUT /forums/1.xml
   def update
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_name(params[:id])
 
     respond_to do |format|
       if @forum.update_attributes(params[:forum])
@@ -74,7 +74,7 @@ class ForumsController < ApplicationController
   # DELETE /forums/1
   # DELETE /forums/1.xml
   def destroy
-    @forum = Forum.find(params[:id])
+    @forum = Forum.find_by_name(params[:id])
     @forum.destroy
 
     respond_to do |format|

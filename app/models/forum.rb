@@ -1,4 +1,5 @@
 class Forum < ActiveRecord::Base
+
   has_many :threads, :class_name => 'PostThread'
 	validates_uniqueness_of :name
   validates_presence_of :name
@@ -8,4 +9,8 @@ class Forum < ActiveRecord::Base
                                          ' periods, underlines and colons.'
 	validates_presence_of :title
   validates_length_of :title, :maximum => 100
+
+  def to_param
+    name
+  end
 end
