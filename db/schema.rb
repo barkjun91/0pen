@@ -9,13 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090711130755) do
+ActiveRecord::Schema.define(:version => 20090718082532) do
 
   create_table "forums", :force => true do |t|
     t.string "name"
     t.string "title"
     t.text   "description"
   end
+
+  add_index "forums", ["name"], :name => "index_forums_on_name", :unique => true
 
   create_table "people", :force => true do |t|
     t.string   "email",         :null => false
@@ -27,20 +29,31 @@ ActiveRecord::Schema.define(:version => 20090711130755) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "people", ["email"], :name => "index_people_on_email", :unique => true
+
   create_table "post_threads", :force => true do |t|
     t.integer "forum_id", :null => false
     t.string  "subject",  :null => false
   end
+
+  add_index "post_threads", ["subject"], :name => "index_post_threads_on_subject"
+  add_index "post_threads", ["forum_id"], :name => "index_post_threads_on_forum_id"
 
   create_table "posts", :force => true do |t|
     t.integer "thread_id", :null => false
     t.integer "person_id", :null => false
   end
 
+  add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
+  add_index "posts", ["thread_id"], :name => "index_posts_on_thread_id"
+
   create_table "revisions", :force => true do |t|
     t.integer  "post_id",    :null => false
     t.string   "body",       :null => false
     t.datetime "created_at", :null => false
   end
+
+  add_index "revisions", ["created_at"], :name => "index_revisions_on_created_at"
+  add_index "revisions", ["post_id"], :name => "index_revisions_on_post_id"
 
 end
