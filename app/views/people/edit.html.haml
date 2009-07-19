@@ -1,0 +1,24 @@
+%h1 Editing Person
+
+- form_for(@person) do |f|
+  
+  %p
+    = f.label :email
+	= f.text_field :email
+  %p
+    = f.label :password
+	= f.password_field :password, :value => ''
+  %p
+    = f.label :name
+	= f.text_field :name
+  %p
+    = f.label :nick
+	= f.text_field :nick
+  %p
+    = f.label :url
+	= f.text_field :url
+  %p 
+    f.submit "Update" 
+
+= link_to 'Show', @person  |
+= link_to 'Back', people_path 
