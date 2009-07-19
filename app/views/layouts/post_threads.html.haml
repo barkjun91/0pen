@@ -1,0 +1,9 @@
+!!! 1.0 Strict
+%html
+  %head
+    %meta(http-equiv="Cntent-type" content="text/html; charset=UTF-8")
+    %title PostTreads: #{controller.action_name}
+    =stylesheet_link_tag 'scafflod'
+  %body
+    %p(style="color: green")= flash[:notice]
+    = yield

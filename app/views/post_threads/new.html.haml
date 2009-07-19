@@ -1,0 +1,15 @@
+%h1 New Post_thread
+- form_for(@post_thread) do |f|
+  = f.error_messages
+  %p
+    = f.label :forum_id
+    %br
+    = f.text_field :forum_id
+    %br
+  %p
+    = f.label :subject
+    %br
+    = f.text_field :subject
+    %br
+  %p= f.submit "Create"
+= link_to 'Back', post_threads_path
