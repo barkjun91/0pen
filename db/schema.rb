@@ -12,9 +12,9 @@
 ActiveRecord::Schema.define(:version => 20090718082532) do
 
   create_table "forums", :force => true do |t|
-    t.string "name"
-    t.string "title"
-    t.text   "description"
+    t.string "name",        :null => false
+    t.string "title",       :null => false
+    t.text   "description", :null => false
   end
 
   add_index "forums", ["name"], :name => "index_forums_on_name", :unique => true

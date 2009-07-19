@@ -1,0 +1,24 @@
+%h1 Listing revisions
+
+%table
+  %thead
+    %tr
+      %th Post
+      %th Body
+      %th Created at
+
+
+- for revision in @revisions 
+  %tbody
+    %tr
+      %td= revision.post 
+      %td= revision.body 
+      %td= revision.created_at 
+      %td= link_to 'Show', revision 
+      %td= link_to 'Edit', edit_revision_path(revision) 
+      %td= link_to 'Destroy', revision, :confirm => 'Are you sure?', :method => :delete 
+  
+
+%br
+
+= link_to 'New revision', new_revision_path 

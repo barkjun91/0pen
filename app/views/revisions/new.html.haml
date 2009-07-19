@@ -1,0 +1,26 @@
+%h1 New revision
+
+- form_for(@revision) do |f| 
+  = f.error_messages 
+
+  %p
+    = f.label :post 
+    %br
+    = f.text_field :post 
+  
+  %p
+    = f.label :body 
+    %br
+    = f.text_field :body 
+  
+  %p
+    = f.label :created_at 
+    %br
+    = f.datetime_select :created_at 
+  
+  %p
+    = f.submit "Create" 
+  
+%br
+
+= link_to 'Back', revisions_path 
