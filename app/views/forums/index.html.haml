@@ -11,6 +11,6 @@
           %a{:href => url_for(forum)}= forum.title
         %td&= forum.description
         %td= link_to 'Edit', edit_forum_path(forum)
-        %td= link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete
+        %td= link_to 'Destroy', forum, :confirm => 'Are you sure?',                                                    :method => :delete
 %br
 = link_to 'New forum', new_forum_path

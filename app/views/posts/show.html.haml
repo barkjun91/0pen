@@ -1,0 +1,8 @@
+%p
+%dl
+  %dt Thread
+  %dd&= @post.thread_id
+  %dt Person
+  %dd&= @post.person_id
+#{link_to 'Edit', edit_post_path(@post)}|
+=link_to 'Back', posts_path

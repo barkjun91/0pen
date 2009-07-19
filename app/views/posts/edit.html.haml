@@ -1,0 +1,14 @@
+- form_for(@post) do |f|
+  = f.error_messages
+  %p
+    = f.label :thread_id
+    %br
+    = f.text_field :thread_id
+  %p 
+    = f.label :person_id
+    %br
+    = f.text_field :person_id
+  %p= f.submit "Update"
+
+#{link_to 'Show', @post}|
+=link_to 'Back', posts_path

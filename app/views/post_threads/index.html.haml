@@ -1,0 +1,17 @@
+%h1 Listing post_thread
+
+%table
+  %thead
+    %tr
+      %th Forum
+      %th Subject
+  %tbody
+    -for post_thread in @post_threads
+      %tr
+        %td&= post_thread.forum_id
+        %td&= post_thread.subject
+        %td= link_to 'Show', post_thread
+        %td= link_to 'Edit', edit_post_thread_path(post_thread)
+        %td= link_to 'Desrtoy', post_thread, :confirm =>'Are you sure?',                                                     :method => :delete
+%br
+= link_to 'New post_thread', new_post_thread_path

@@ -1,0 +1,17 @@
+%h1 Listing posts
+
+%table
+  %thead
+    %th Thread
+    %th Person
+  %tbody
+    -for post in @posts
+      %tr
+        %td&= post.thread_id
+        %td&= post.person_id
+        %td= link_to 'Show', post
+        %td= link_to 'Edit', edit_post_path(post)
+        %td= link_to 'Destroy', post, :confirm => 'Are you sure?',                                                    :method=> :delete
+
+%br
+=link_to 'New post', new_post_path
