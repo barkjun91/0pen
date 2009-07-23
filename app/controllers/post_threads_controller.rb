@@ -2,11 +2,10 @@ class PostThreadsController < ApplicationController
   # GET /post_threads
   # GET /post_threads.xml
   def index
-    @post_threads = PostThread.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @post_threads }
+    if forum = Forum.find_by_name(params[:forum_id])
+      redirect_to forum, :status => :moved_permanently
+    else
+      redirect_to '/', :status => 302
     end
   end
 
@@ -14,6 +13,7 @@ class PostThreadsController < ApplicationController
   # GET /post_threads/1.xml
   def show
     @post_thread = PostThread.find(params[:id])
+    puts request.env.inspect
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +25,7 @@ class PostThreadsController < ApplicationController
   # GET /post_threads/new.xml
   def new
     @post_thread = PostThread.new
+    @post_thread.forum = Forum.find_by_name(params[:forum_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class PostThreadsController < ApplicationController
   # POST /post_threads.xml
   def create
     @post_thread = PostThread.new(params[:post_thread])
+    @post_thread.forum = Forum.find_by_name(params[:forum_id])
 
     respond_to do |format|
       if @post_thread.save

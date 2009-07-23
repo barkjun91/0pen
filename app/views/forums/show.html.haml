@@ -7,3 +7,14 @@
   %dd&= @forum.description
 #{link_to 'Edit', edit_forum_path(@forum)} |
 = link_to 'Back', forums_path
+.threads
+  %table
+    %thead
+      %tr
+        %th 제목
+    %tbody
+      - for thread in @threads
+        %tr
+          %th
+            %a{:href => thread}&= thread
+  %a{:href => new_forum_post_thread_path(@forum)} 글타래 열기
