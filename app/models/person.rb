@@ -2,6 +2,8 @@ require 'sha1'
 require 'md5'
 
 class Person < ActiveRecord::Base
+  PARAM_CODE_TABLE = '@_-.zyxwvutsrqponmlkjihgfedcbaZYX'
+                     'WVUTSRQPONMLKJIHGFEDCBA9876543210'
   has_many :posts
   validates_uniqueness_of :email
   validates_presence_of :email
@@ -12,6 +14,16 @@ class Person < ActiveRecord::Base
   validates_format_of :email,
                       :with => /^\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z$/i
   validates_format_of :url, :with => %r{^https?://}i, :allow_nil => true
+
+  def self.find_by_param(param)
+    point = 1
+    id = 0
+    for c in param.reverse
+      id += PARAM_CODE_TABLE.index(c) * point
+      point *= PARAM_CODE_TABLE.size
+    end
+    find(id)
+  end
 
   def initialize(map = {})
     if map[:password].to_s.empty?
@@ -43,6 +55,17 @@ class Person < ActiveRecord::Base
                          else
                            PasswordHash.hash(email, password)
                          end
+  end
+
+  def to_param
+    base = PARAM_CODE_TABLE.size
+    number = id
+    param = ''
+    while number > 0
+      param << PARAM_CODE_TABLE[number % base]
+      number /= base
+    end
+    param.reverse
   end
 end
 
