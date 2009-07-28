@@ -47,7 +47,7 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       if @subject.save
         flash[:notice] = 'Subject was successfully created.'
-        format.html { redirect_to(@subject) }
+        format.html { redirect_to [@subject.forum, @subject] }
         format.xml  { render :xml => @subject, :status => :created, :location => @subject }
       else
         format.html { render :action => "new" }
