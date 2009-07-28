@@ -1,13 +1,13 @@
 %h1 New Post_tread
-- form_for(@post) do |f|
+- form_for [@post.subject.forum, @post.subject, @post] do |f|
   = f.error_messages
   %p
-    = f.label :thread_id
+    = f.label :subject_id
     %br
-    = f.text_field :thread_id
+    = f.text_field :subject_id
   %p
     = f.label :person_id
     %br
     = f.text_field :person_id
   %p= f.submit "Create"
-= link_to 'Back', posts_path
+= link_to 'Back', [@post.subject.forum, @post.subject]

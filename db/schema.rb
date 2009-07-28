@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090718082532) do
+ActiveRecord::Schema.define(:version => 20090728122028) do
 
   create_table "forums", :force => true do |t|
     t.string "name",        :null => false
@@ -31,21 +31,13 @@ ActiveRecord::Schema.define(:version => 20090718082532) do
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
 
-  create_table "post_threads", :force => true do |t|
-    t.integer "forum_id", :null => false
-    t.string  "subject",  :null => false
-  end
-
-  add_index "post_threads", ["subject"], :name => "index_post_threads_on_subject"
-  add_index "post_threads", ["forum_id"], :name => "index_post_threads_on_forum_id"
-
   create_table "posts", :force => true do |t|
-    t.integer "thread_id", :null => false
-    t.integer "person_id", :null => false
+    t.integer "subject_id", :null => false
+    t.integer "person_id",  :null => false
   end
 
   add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
-  add_index "posts", ["thread_id"], :name => "index_posts_on_thread_id"
+  add_index "posts", ["subject_id"], :name => "index_posts_on_thread_id"
 
   create_table "revisions", :force => true do |t|
     t.integer  "post_id",    :null => false
@@ -55,5 +47,13 @@ ActiveRecord::Schema.define(:version => 20090718082532) do
 
   add_index "revisions", ["created_at"], :name => "index_revisions_on_created_at"
   add_index "revisions", ["post_id"], :name => "index_revisions_on_post_id"
+
+  create_table "subjects", :force => true do |t|
+    t.integer "forum_id", :null => false
+    t.string  "title",    :null => false
+  end
+
+  add_index "subjects", ["title"], :name => "index_post_threads_on_subject"
+  add_index "subjects", ["forum_id"], :name => "index_post_threads_on_forum_id"
 
 end

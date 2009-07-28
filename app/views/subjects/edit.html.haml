@@ -1,0 +1,14 @@
+- form_for [@subject.forum, @subject] do |f|
+  = f.error_messages
+  %p
+    = f.label :forum_id
+    %br
+    = f.text_field :forum_id
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p= f.submit "Update"
+
+#{link_to 'Show', [@subject.forum, @subject]} |
+=link_to 'Back', @subject.forum

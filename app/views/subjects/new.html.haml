@@ -1,0 +1,10 @@
+%h1 New Post_subject
+- form_for(@subject) do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+    %br
+  %p= f.submit "Create"
+= link_to 'Back', @subject.forum

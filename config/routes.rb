@@ -1,10 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :people
   map.resources :forums do |forum|
-    forum.resources :post_threads, :as => '@'
+    forum.resources :subjects, :as => '-' do |subject|
+      subject.resources :posts, :as => '-' do |post|
+        post.resources :revisions, :as => '@'
+      end
+    end
   end
-  map.resources :posts
-  map.resources :revisions
 
   # The priority is based upon order of creation: first created -> highest priority.
 

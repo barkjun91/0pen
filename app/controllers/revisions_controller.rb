@@ -2,11 +2,14 @@ class RevisionsController < ApplicationController
   # GET /revisions
   # GET /revisions.xml
   def index
-    @revisions = Revision.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @revisions }
+    if post = Post.find(params[:post_id])
+      redirect_to [post.forum, post.subject, post], :status => :moved_permanently
+    elsif subject = Subject.find(params[:subject_id])
+      redirect_to [subject.forum, subject], :status => :moved_permanently
+    elsif forum = Forum.find_by_name(params[:forum_id])
+      redirect_to forum, :status => :moved_permanently
+    else
+      redirect_to '/', :status => 302
     end
   end
 
@@ -24,7 +27,7 @@ class RevisionsController < ApplicationController
   # GET /revisions/new
   # GET /revisions/new.xml
   def new
-    @revision = Revision.new
+    @revision = Revision.new(:post_id => params[:post_id])
 
     respond_to do |format|
       format.html # new.html.erb

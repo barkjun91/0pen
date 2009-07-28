@@ -2,11 +2,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
+    if subject = Subject.find(params[:subject_id])
+      redirect_to [subject.forum, subject], :status => :moved_permanently
+    elsif forum = Forum.find_by_name(params[:forum_id])
+      redirect_to forum, :status => :moved_permanently
+    else
+      redirect_to '/', :status => 302
     end
   end
 
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
+    @post = Post.new :subject_id => params[:subject_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to [@post.subject.forum, @post.subject, @post] }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }

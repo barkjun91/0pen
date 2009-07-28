@@ -1,6 +1,6 @@
 %h1 Editing Revision
 
-- form_for(@revision) do |f|
+- form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f|
   = f.error_messages
 
   %p
@@ -20,5 +20,5 @@
     = f.submit "Update" 
   
 
-= link_to 'Show', @revision  |
-= link_to 'Back', revisions_path 
+= link_to 'Show', [@revision.forum, @revision.subject, @revision.post, @revision] |
+= link_to 'Back', [@revision.forum, @revision.subject, @revision.post]

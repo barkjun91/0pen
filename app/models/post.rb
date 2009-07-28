@@ -1,5 +1,9 @@
 class Post < ActiveRecord::Base
   belongs_to :person
-  belongs_to :thread, :class_name => 'PostThread'
+  belongs_to :subject
   has_many :revision
+
+  def forum
+    subject.forum
+  end
 end

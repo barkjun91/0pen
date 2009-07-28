@@ -13,8 +13,8 @@
       %tr
         %th 제목
     %tbody
-      - for thread in @threads
+      - for subject in @subjects
         %tr
           %th
-            %a{:href => thread}&= thread
-  %a{:href => new_forum_post_thread_path(@forum)} 글타래 열기
+            %a{:href => forum_subject_path(@forum, subject)}&= subject
+  %a{:href => new_forum_subject_path(@forum)} 글타래 열기
