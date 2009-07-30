@@ -11,6 +11,6 @@ class Revision < ActiveRecord::Base
   end
 
   def to_param
-    created_at.strftime
+    created_at.strftime("%y-%m-%d_%H:%M")
   end
 end

@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new :subject_id => params[:subject_id]
+    @post = Post.new(:subject_id => params[:subject_id])
 
     respond_to do |format|
       format.html # new.html.erb

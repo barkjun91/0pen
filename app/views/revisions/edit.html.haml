@@ -1,24 +1,19 @@
 %h1 Editing Revision
-
 - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f|
   = f.error_messages
-
   %p
-    = f.label :post
-	%br
-	= f.text_field :post
+    = f.label :post_id
+    %br
+    = f.text_field :post_id
   %p
     = f.label :body
     %br
-    = f.text_field :body
-  %p
+    = f.text_field :body 
+    %p
     = f.label :created_at 
     %br
     = f.datetime_select :created_at 
+  %p= f.submit "Update" 
   
-  %p
-    = f.submit "Update" 
-  
-
-= link_to 'Show', [@revision.forum, @revision.subject, @revision.post, @revision] |
-= link_to 'Back', [@revision.forum, @revision.subject, @revision.post]
+#{link_to 'Show', [@revision.forum, @revision.subject, @revision.post, @revision]} |
+=link_to 'Back', [@revision.forum, @revision.subject, @revision.post]

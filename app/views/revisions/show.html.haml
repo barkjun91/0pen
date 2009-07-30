@@ -1,18 +1,10 @@
-%p
-  %b Post:
-  = @revision.post 
-
-
-%p
-  %b Body:
-  = @revision.body 
-
-
-%p
-  %b Created at:
-  = @revision.created_at 
-
-
-
-= link_to 'Edit', edit_revision_path(@revision.forum, @revision.subject, @revision.post, @revision)  |
+%dl
+  %dt Post_id:
+  %dd&= @revision.post_id 
+  %dt Body:
+  %dd&= @revision.body 
+  %dt Created_at:
+  %dd&= @revision.created_at 
+#{link_to 'Edit', edit_forum_subject_post_revision_path(@revision.forum, @revision.subject, @revision.post, @revision)} |
 = link_to 'Back', [@revision.forum, @revision.subject, @revision.post]
+

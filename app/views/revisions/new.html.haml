@@ -4,9 +4,9 @@
   = f.error_messages 
 
   %p
-    = f.label :post 
+    = f.label :post_id 
     %br
-    = f.text_field :post 
+    = f.text_field :post_id
   
   %p
     = f.label :body 
@@ -18,8 +18,7 @@
     %br
     = f.datetime_select :created_at 
   
-  %p
-    = f.submit "Create" 
+  %p= f.submit "Create" 
   
 %br
 

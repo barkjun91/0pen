@@ -16,7 +16,7 @@ class RevisionsController < ApplicationController
   # GET /revisions/1
   # GET /revisions/1.xml
   def show
-    @revision = Revision.find(params[:id])
+    @revision = Revision.from_param(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class RevisionsController < ApplicationController
 
   # GET /revisions/1/edit
   def edit
-    @revision = Revision.find(params[:id])
+    @revision = Revision.from_param(params[:id])
   end
 
   # POST /revisions
@@ -48,7 +48,7 @@ class RevisionsController < ApplicationController
     respond_to do |format|
       if @revision.save
         flash[:notice] = 'Revision was successfully created.'
-        format.html { redirect_to(@revision) }
+        format.html { redirect_to [@revision.forum, @revision.subject, @revision.post, @revision]  }
         format.xml  { render :xml => @revision, :status => :created, :location => @revision }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class RevisionsController < ApplicationController
   # PUT /revisions/1
   # PUT /revisions/1.xml
   def update
-    @revision = Revision.find(params[:id])
+    @revision = Revision.from_param(params[:id])
 
     respond_to do |format|
       if @revision.update_attributes(params[:revision])
@@ -77,7 +77,7 @@ class RevisionsController < ApplicationController
   # DELETE /revisions/1
   # DELETE /revisions/1.xml
   def destroy
-    @revision = Revision.find(params[:id])
+    @revision = Revision.find_by_created_at(params[:id])
     @revision.destroy
 
     respond_to do |format|
