@@ -5,3 +5,20 @@
   %dd&= @subject.title
 #{link_to 'Edit', edit_forum_subject_path(@subject.forum, @subject)}|
 = link_to 'Back', @subject.forum
+.threads
+  %table
+    %thead
+      %tr
+        %th 내용
+        %th 작성자
+    %tbody
+      - for post in @posts
+        %tr
+          %td= @posts.find(post.id).revision.last.body
+          %td= @person.find(post.person_id).name
+          %th
+            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
+          %th
+            %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
+  %a{:href => new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
+

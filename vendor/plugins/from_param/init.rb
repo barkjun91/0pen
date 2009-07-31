@@ -1,0 +1,1 @@
+require 'from_param'

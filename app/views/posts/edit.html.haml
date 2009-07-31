@@ -1,4 +1,4 @@
-- form_for(@post) do |f|
+- form_for([@post.forum, @post.subject, @post]) do |f|
   = f.error_messages
   %p
     = f.label :subject_id
@@ -10,5 +10,5 @@
     = f.text_field :person_id
   %p= f.submit "Update"
 
-#{link_to 'Show', @post}|
-=link_to 'Back', posts_path
+#{link_to 'Show', [@post.forum, @post.subject, @post]}|
+=link_to 'Back', [@post.forum, @post.subject]

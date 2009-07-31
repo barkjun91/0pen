@@ -2,21 +2,10 @@
 
 - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f| 
   = f.error_messages 
-
-  %p
-    = f.label :post_id 
-    %br
-    = f.text_field :post_id
-  
   %p
     = f.label :body 
     %br
-    = f.text_field :body 
-  
-  %p
-    = f.label :created_at 
-    %br
-    = f.datetime_select :created_at 
+    = f.text_area :body 
   
   %p= f.submit "Create" 
   
