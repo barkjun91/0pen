@@ -1,29 +1,5 @@
-%p
-%dl
-  %dt Thread
-  %dd&= @post.subject_id
-  %dt Person
-  %dd&= @post.person_id
-.thread
-  %table
-    %thread
-      %tr
-        %th 내용
-        %th 작성일
-      %tbody
-        - for revision in @revision
-          %tr
-            %td= revision.body
-            %td= revision.created_at
-- form_for([@revision_add.forum, @revision_add.subject, @revision_add.post, @revision_add]) do |f| 
-  = f.error_messages 
-  %p
-    = f.label :body 
-    %br
-    = f.text_area :body 
-  
-  %p= f.submit "Create" 
-  
-%br
-=link_to 'Back', [@post.subject.forum, @post.subject]
+.post
+  .body= @post
+  = link_to '수정', new_forum_subject_post_revision_path(@post.forum, @post.subject, @post)
+  = link_to '글타래로', [@post.forum, @post.subject]
 

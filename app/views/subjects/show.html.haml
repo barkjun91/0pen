@@ -14,8 +14,8 @@
     %tbody
       - for post in @subject.posts
         %tr
-          %td= post.revisions.find(:last).body
-          %td= post.person
+          %td= post.body
+          %td&= post.person
           %th
             %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
           %th

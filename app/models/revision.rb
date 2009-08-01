@@ -2,6 +2,11 @@ class Revision < ActiveRecord::Base
   belongs_to :post
   validates_presence_of :body
 
+  def self.find_revision_by_created_at(created_at)
+    created_at = Time.xmlschema(created_at) unless created_at.is_a?(Time)
+    Revision.find(:first, :conditions => { :created_at => created_at })
+  end
+
   def subject
     post.subject
   end
@@ -11,14 +16,6 @@ class Revision < ActiveRecord::Base
   end
 
   def to_param
-    created_at.strftime("%y-%m-%d_%H:%M")
-  end
-
-  def self.find_revision_by_created_at(created_at)
-    for rev in Revision.find(:all)  
-      if rev.created_at.strftime('%y-%m-%d_%H:%M') == created_at
-        return rev
-      end
-    end
+    created_at.xmlschema
   end
 end

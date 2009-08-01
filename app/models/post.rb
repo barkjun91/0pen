@@ -6,4 +6,23 @@ class Post < ActiveRecord::Base
   def forum
     subject.forum
   end
+
+  def body
+    last = revisions.last
+    last && last.body
+  end
+
+  def created_at
+    first = revisions.first
+    first && first.created_at
+  end
+
+  def updated_at
+    last = revisions.last
+    last && last.created_at
+  end
+
+  def to_s
+    body || ''
+  end
 end

@@ -57,6 +57,10 @@ class Person < ActiveRecord::Base
                          end
   end
 
+  def to_s
+    nick
+  end
+
   def to_param
     base = PARAM_CODE_TABLE.size
     number = id
