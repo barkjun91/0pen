@@ -16,8 +16,7 @@ class RevisionsController < ApplicationController
   # GET /revisions/1
   # GET /revisions/1.xml
   def show
-    @revision = Revision.from_param(params[:id])
-
+    @revision = Revision.find_revision_by_created_at(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @revision }
