@@ -12,10 +12,10 @@
         %th 내용
         %th 작성자
     %tbody
-      - for post in @posts
+      - for post in @subject.posts
         %tr
-          %td= @posts.find(post.id).revision.last.body
-          %td= @person.find(post.person_id).name
+          %td= post.revisions.find(:last).body
+          %td= post.person
           %th
             %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
           %th

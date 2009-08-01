@@ -13,10 +13,6 @@ class SubjectsController < ApplicationController
   # GET /subjects/1.xml
   def show
     @subject = Subject.find(params[:id])
-    @posts = @subject.posts
-    @person = Person
-
-    puts request.env.inspect
 
     respond_to do |format|
       format.html # show.html.erb
