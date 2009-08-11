@@ -1,0 +1,33 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'NanumGothic', 'Malgun Gothic', '\b9d1\c740 \ace0\b515', sans-serif;
+}
+body > .services { display: block; }
+body > .services > li {
+  display: block;
+  width: 5em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  -webkit-border-top-left-radius: 1em;
+  -webkit-border-top-right-radius: 1em;
+  -moz-border-topleft-radius: 1em;
+  -moz-border-topright-radius: 1em;
+  border: 1px solid #4a1a2c;
+  padding: 0.5em;
+}
+body > .services > li.selected {
+  background-color: #4a1a2c;
+  color: white;
+}
+body > .body {
+  background-color: #4a1a2c;
+  color: white;
+  padding: 1em;
+}
+body > .body > .forum {
+  background-color: white;
+  border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+}

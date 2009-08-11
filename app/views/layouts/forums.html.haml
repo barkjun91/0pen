@@ -2,8 +2,15 @@
 %html
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-    %title Forums: #{controller.action_name}
-    = stylesheet_link_tag 'scaffold'
+    %title 제로픈 포럼
+    = stylesheet_link_tag 'forum'
   %body
-    %p(style="color: green")= flash[:notice]
-    = yield
+    %h1.title 제로픈
+    %ul.services
+      %li.selected 포럼
+      %li 일간 로그
+      %li 코드 조각
+    .body
+      %p(style="color: green")= flash[:notice]
+      = yield
+
