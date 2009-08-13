@@ -1,25 +1,51 @@
-@forground-color: #4A1A2C; /*8E3557*/
+@color1: #4A1A2C;
+@color2: #8E3557;
 
 body { padding: 0; margin: 0;
        font-family: 'NanumGothic', 'Malgun Gothic', sans-serif; }
+a { color: @color2; text-decoration: none; }
 body > h1 { margin: 0 1em; float: left; font-size: medium; }
 body > .services { display: block; margin-bottom: 0; }
 body > .services > li { display: block; float: left; width: 5em;
-                        margin-left: -1px;
+                        margin-right: 0.2em; background-color: @color2;
                         border-top-left-radius: 0.5em;
                         border-top-right-radius: 0.5em;
                         -webkit-border-top-left-radius: 0.5em;
                         -webkit-border-top-right-radius: 0.5em;
                         -moz-border-radius-topleft: 0.5em;
                         -moz-border-radius-topright: 0.5em;
-                        border: 1px solid @forground-color;
                         padding: 0.4em 1em; font-size: small; }
-body > .services > li.selected { background-color: @forground-color;
-                                 color: white; }
-body > .body { clear: left; background-color: @forground-color; color: white;
-               padding: 1em; }
-body > .body h1 { font-size: x-large; margin-top: -0.5em; }
-body > .body > .forum { background-color: white;
-                        border-radius: 1em;
-                        -webkit-border-radius: 1em;
-                        -moz-border-radius: 1em; }
+body > .services > li.selected { background-color: @color1; font-weight: bold; }
+body > .services > li:hover { background-color: @color1; }
+body > .services > li > a { color: white; }
+body > .body { float: left; clear: left; min-width: 100%;
+               background-color: @color1; color: white; }
+body > .body h1 { font-size: x-large; margin: 0 0.5em; }
+.number { background-color: @color2; color: white;
+          font-weight: bolder; font-size: small;
+          font-family: Tahoma, sans-serif;
+          border-radius: 100%; -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          width: 1.5em; text-align: center; }
+body > .body > .forum {
+    background-color: white; width: 30em; float: left;
+    margin: 1em; color: @color1;
+    border-radius: 1em; -webkit-border-radius: 1em; -moz-border-radius: 1em;
+    font-size: small;
+    h2 {
+        margin: 0.5em 0.5em 0 0.5em;
+        font-size: large;
+    }
+    .description { margin: 0; padding: 0.5em 0.7em 0.7em 0.7em;
+                   border-bottom: 1px solid @color2; }
+    table {
+        width: 100%;
+        thead { display: none; }
+        .title { width: 70%; }
+        td.posts { .number; }
+        td.updated-at { text-align: right; }
+    }
+}
+body > .copyright { clear: left;
+                    background-color: @color2; color: white; margin: 0;
+                    padding: 1em; font-family: sans-serif; font-size: small; }

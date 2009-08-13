@@ -15,8 +15,8 @@
           %tr.subject
             %th.title
               %a{:href => forum_subject_path(forum, subject)}&= subject
-            %th.posts&= subject.posts.size
-            %th.updated-at&= subject.updated_at
+            %td.posts&= subject.posts.size
+            %td.updated-at.datetime&= subject.updated_at
     /%p= link_to 'Edit', edit_forum_path(forum)
     /%p= link_to 'Destroy', forum, :confirm => 'Are you sure?',                                                    :method => :delete
 /= link_to 'New forum', new_forum_path
