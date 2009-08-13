@@ -1,20 +1,20 @@
-%dl
-  %dt Name
-  %dd&= @forum.name
-  %dt Title
-  %dd&= @forum.title
-  %dt Description
-  %dd&= @forum.description
-#{link_to 'Edit', edit_forum_path(@forum)} |
-= link_to 'Back', forums_path
+%h1.forum-title&= @forum.title
+%p.description&= @forum.description
+/ #{link_to 'Edit', edit_forum_path(@forum)} |
+/ = link_to 'Back', forums_path
 .threads
   %table
     %thead
       %tr
-        %th 제목
+        %th.subject 주제
+        %th.posts 글수
+        %th.recent-post 마지막글
     %tbody
       - for subject in @subjects
         %tr
-          %th
-            %a{:href => forum_subject_path(@forum, subject)}&= subject
+          %th= link_to h(subject), [@forum, subject]
+          %td
+            &= subject.posts.size
+          %td
+            &= subject.updated_at
   %a{:href => new_forum_subject_path(@forum)} 글타래 열기
