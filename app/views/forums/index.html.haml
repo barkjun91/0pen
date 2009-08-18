@@ -4,19 +4,20 @@
     %h2
       %a{:href => url_for(forum)}= forum.title
     %p.description&= forum.description
-    %table.recent-subjects
-      %thead
-        %tr
-          %th.title 글타래 제목
-          %th.posts 글수
-          %th.updated-at 갱신일
-      %tbody
-        - for subject in forum.subjects[0..2]
-          %tr.subject
-            %th.title
-              %a{:href => forum_subject_path(forum, subject)}&= subject
-            %td.posts&= subject.posts.size
-            %td.updated-at.datetime&= subject.updated_at
-    /%p= link_to 'Edit', edit_forum_path(forum)
-    /%p= link_to 'Destroy', forum, :confirm => 'Are you sure?',                                                    :method => :delete
+    - unless forum.subjects.size.zero?
+      %table.recent-subjects
+        %thead
+          %tr
+            %th.title 글타래 제목
+            %th.posts 글수
+            %th.updated-at 갱신일
+        %tbody
+          - for subject in forum.subjects[0..2]
+            %tr.subject
+              %th.title
+                %a{:href => forum_subject_path(forum, subject)}&= subject
+              %td.posts&= subject.posts.size
+              %td.updated-at.datetime&= subject.updated_at
+      /%p= link_to 'Edit', edit_forum_path(forum)
+      /%p= link_to 'Destroy', forum, :confirm => 'Are you sure?',                                                    :method => :delete
 /= link_to 'New forum', new_forum_path

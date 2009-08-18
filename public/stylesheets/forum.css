@@ -78,11 +78,19 @@ body > .body > .forum h2 {
 body > .body > .forum .description {
   margin: 0;
   padding: 0.5em 0.7em 0.7em 0.7em;
-  border-bottom: 1px solid #8e3557;
 }
-body > .body > .forum table { width: 100%; }
+body > .body > .forum table {
+  width: 100%;
+  border-top: 1px solid #8e3557;
+}
 body > .body > .forum table thead { display: none; }
 body > .body > .forum table .title { width: 70%; }
+body > .body > .forum table tbody tr { border-bottom: 1px solid #ff80f3; }
+body > .body > .forum table tbody th {
+  text-align: left;
+  font-weight: normal;
+  padding-left: 0.5em;
+}
 body > .body > .forum table td.posts {
   background-color: #8e3557;
   color: white;
