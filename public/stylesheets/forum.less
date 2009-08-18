@@ -1,6 +1,6 @@
 @color1: #4A1A2C;
 @color2: #8E3557;
-@color3: #ff80f3;
+@color3: #CCADCC;
 
 body { padding: 0; margin: 0;
        font-family: 'NanumGothic', 'Malgun Gothic', sans-serif; }
@@ -22,12 +22,14 @@ body > .services > li > a { color: white; }
 body > .body { float: left; clear: left; min-width: 100%;
                background-color: @color1; color: white; }
 body > .body h1 { font-size: x-large; margin: 0 0.5em; }
-.number { background-color: @color2; color: white;
+
+.number { display: block; background-color: @color2; color: white;
           font-weight: bolder; font-size: small;
           font-family: Tahoma, sans-serif;
           border-radius: 100%; -webkit-border-radius: 100%;
           -moz-border-radius: 100%;
           width: 1.5em; text-align: center; }
+
 body > .body > .forum {
     background-color: white; width: 30em; float: left;
     margin: 1em; color: @color1;
@@ -40,11 +42,14 @@ body > .body > .forum {
     .description { margin: 0; padding: 0.5em 0.7em 0.7em 0.7em; }
     table {
         width: 100%; border-top: 1px solid @color2;
+        border-collapse: collapse;
         thead { display: none; }
+        th, td { padding: 0.4em 0.5em; }
         .title { width: 70%; }
         tbody tr { border-bottom: 1px solid @color3; }
+        tbody tr:last-child { border-bottom: none; }
         tbody th { text-align: left; font-weight: normal; padding-left: 0.5em; }
-        td.posts { .number; }
+        td.posts span { .number; }
         td.updated-at { text-align: right; }
     }
 }
