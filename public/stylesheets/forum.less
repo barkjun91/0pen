@@ -1,6 +1,7 @@
 @color1: #4A1A2C;
 @color2: #8E3557;
 @color3: #CCADCC;
+@color4: #FDF9AB;
 
 body { padding: 0; margin: 0;
        font-family: 'NanumGothic', 'Malgun Gothic', sans-serif; }
@@ -22,14 +23,14 @@ body > .services > li > a { color: white; }
 body > .body { float: left; clear: left; min-width: 100%;
                background-color: @color1; color: white; }
 body > .body h1 { font-size: x-large; margin: 0 0.5em; }
-
+body > .body .description { font-size: small; color: @color3; 
+                            margin: 1em; margin-top: 0;} 
 .number { display: block; background-color: @color2; color: white;
           font-weight: bolder; font-size: small;
           font-family: Tahoma, sans-serif;
           border-radius: 100%; -webkit-border-radius: 100%;
           -moz-border-radius: 100%;
           width: 1.5em; text-align: center; }
-
 body > .body > .forum {
     background-color: white; width: 30em; float: left;
     margin: 1em; color: @color1;
@@ -51,6 +52,24 @@ body > .body > .forum {
         tbody th { text-align: left; font-weight: normal; padding-left: 0.5em; }
         td.posts span { .number; }
         td.updated-at { text-align: right; }
+    }
+}
+body > .body > .subjects {
+    background-color: white; width: 50em;
+    border-radius: 1em; -webkit-border-radius: 1em; -moz-border-radius: 1em;
+    margin: 1em; color: @color1;
+    font-size: small;
+ 
+    table {
+        width: 100%; border-collapse: collapse;
+        thead { background-color: @color4; 
+                -moz-border-radius-topright: 1em;
+                -webkit-border-top-right-radius: 1em;}
+        th, td { padding: 0.2em 0.2em; }
+        .subject { width: 60%; }
+        tbody th { text-align: left; font-weight: normal; paading-left: 0.5em; }
+        td.posts span { .number; }
+        td.update-at { text-align: right; }
     }
 }
 body > .copyright { clear: left;
