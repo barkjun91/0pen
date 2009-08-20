@@ -85,6 +85,7 @@ body > .body > .forum h2 {
 body > .body > .forum .description {
   margin: 0;
   padding: 0.5em 0.7em 0.7em 0.7em;
+  color: #4a1a2c;
 }
 body > .body > .forum table {
   width: 100%;
@@ -117,32 +118,33 @@ body > .body > .forum table td.posts span {
 }
 body > .body > .forum table td.updated-at { text-align: right; }
 body > .body > .subjects {
-  background-color: white;
+  background-color: #ccadcc;
   width: 50em;
   border-radius: 1em;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   margin: 1em;
   color: #4a1a2c;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
   font-size: small;
 }
 body > .body > .subjects table {
+  color: #4a1a2c;
   width: 100%;
   border-collapse: collapse;
 }
-body > .body > .subjects table thead {
-  background-color: #fdf9ab;
-  -moz-border-radius-topright: 1em;
-  -webkit-border-top-right-radius: 1em;
-}
-body > .body > .subjects table th { padding: 0.2em 0.2em; }
-body > .body > .subjects table td { padding: 0.2em 0.2em; }
+body > .body > .subjects table thead { background-color: #ccadcc; }
+body > .body > .subjects table th { padding: 0.5em 1em; }
+body > .body > .subjects table td { padding: 0.5em 1em; }
 body > .body > .subjects table .subject { width: 60%; }
 body > .body > .subjects table tbody th {
   text-align: left;
   font-weight: normal;
   paading-left: 0.5em;
 }
+body > .body > .subjects table tbody tr:nth-child(odd) { background-color: white; }
+body > .body > .subjects table tbody tr:nth-child(even) { background-color: #fdf9ab; }
 body > .body > .subjects table td.posts span {
   display: block;
   background-color: #8e3557;
@@ -156,7 +158,11 @@ body > .body > .subjects table td.posts span {
   width: 1.5em;
   text-align: center;
 }
-body > .body > .subjects table td.update-at { text-align: right; }
+body > .body > .subjects table td.datetime { text-align: center; }
+body > .body > .subjects table td.page {
+  background-color: #ccadcc;
+  text-align: center;
+}
 body > .copyright {
   clear: left;
   background-color: #8e3557;
