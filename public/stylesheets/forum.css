@@ -144,7 +144,7 @@ body > .body > .subjects table tbody th {
   paading-left: 0.5em;
 }
 body > .body > .subjects table tbody tr:nth-child(odd) { background-color: white; }
-body > .body > .subjects table tbody tr:nth-child(even) { background-color: #fdf9ab; }
+body > .body > .subjects table tbody tr:nth-child(even) { background-color: #ccadcc; }
 body > .body > .subjects table td.posts span {
   display: block;
   background-color: #8e3557;
