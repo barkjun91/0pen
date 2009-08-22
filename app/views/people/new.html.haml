@@ -22,5 +22,7 @@
     %br
     = f.text_field :url 
   %p
+    = recaptcha_tags
+  %p
     = f.submit "Create" 
 = link_to 'Back', people_path 

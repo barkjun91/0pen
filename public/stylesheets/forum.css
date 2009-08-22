@@ -134,10 +134,10 @@ body > .body > .subjects table {
   width: 100%;
   border-collapse: collapse;
 }
+body > .body > .subjects table .subject { width: 60%; }
 body > .body > .subjects table thead { background-color: #ccadcc; }
 body > .body > .subjects table th { padding: 0.5em 1em; }
 body > .body > .subjects table td { padding: 0.5em 1em; }
-body > .body > .subjects table .subject { width: 60%; }
 body > .body > .subjects table tbody th {
   text-align: left;
   font-weight: normal;
@@ -145,7 +145,7 @@ body > .body > .subjects table tbody th {
 }
 body > .body > .subjects table tbody tr:nth-child(odd) { background-color: white; }
 body > .body > .subjects table tbody tr:nth-child(even) { background-color: #ccadcc; }
-body > .body > .subjects table td.posts span {
+body > .body > .subjects table tbody td.posts span {
   display: block;
   background-color: #8e3557;
   color: white;
@@ -158,8 +158,8 @@ body > .body > .subjects table td.posts span {
   width: 1.5em;
   text-align: center;
 }
-body > .body > .subjects table td.datetime { text-align: center; }
-body > .body > .subjects table td.page {
+body > .body > .subjects table tbody td.datetime { text-align: center; }
+body > .body > .subjects table tbody td.page {
   background-color: #ccadcc;
   text-align: center;
 }

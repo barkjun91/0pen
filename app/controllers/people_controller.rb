@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
     @person = Person.new(params[:person])
 
     respond_to do |format|
-      if @person.save
+      if verify_recaptcha(@person) && @person.save
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }

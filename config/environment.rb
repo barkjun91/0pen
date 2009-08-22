@@ -64,4 +64,9 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  
+  #
+  #reCAPTCHA Public and Private key
+  ENV['RECAPTCHA_PUBLIC_KEY'] = '6LcZ8AcAAAAAAKSk6gBXQhjW5TfGmwFod4J_tYnb'
+  ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcZ8AcAAAAAANbWgeSGIanU_ANfopNLt8f5mR0X' 
 end
