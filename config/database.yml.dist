@@ -14,6 +14,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  encoding: utf8
+  database: 0pen_v2
+  username: 0pen
+  password: password_goes_here
   timeout: 5000
