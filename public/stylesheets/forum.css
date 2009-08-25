@@ -37,6 +37,13 @@ body > .services > li.selected {
 }
 body > .services > li:hover { background-color: #4a1a2c; }
 body > .services > li > a { color: white; }
+body > .session {
+  position: absolute;
+  right: 0;
+  top: 0.5em;
+}
+body > .session fieldset { border: none; }
+body > .session fieldset legend { float: left; }
 body > .body {
   float: left;
   clear: left;
