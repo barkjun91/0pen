@@ -41,9 +41,10 @@ class PeopleController < ApplicationController
   # POST /people.xml
   def create
     @person = Person.new(params[:person])
+    prod = ENV['RAILS_ENV'] == 'production'
 
     respond_to do |format|
-      if verify_recaptcha(@person) && @person.save
+      if (!prod || verify_recaptcha(@person)) && @person.save
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
