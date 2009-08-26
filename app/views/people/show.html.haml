@@ -22,7 +22,24 @@
   %b Created at:
   &= @person.created_at 
 
-
-
+.threads
+  %table
+    %thead
+      %tr
+        %th 내용
+        %th 날짜
+        %th 위치
+    %tbody
+      - for post in @person.posts
+        %tr
+          %td= markdown(post.body)
+          %td= post.updated_at
+          %td
+            %a{:href => forum_path(post.forum)}
+              = post.forum.name + '>'
+            %a{:href => forum_subject_path(post.forum,post.subject)}
+              = post.subject.title
+          %th
+            %a{:href => new_forum_subject_post_revision_path(post.forum, post.subject, post)}Edit
 #{link_to 'Edit', edit_person_path(@person)}|
 = link_to 'Back', people_path 
