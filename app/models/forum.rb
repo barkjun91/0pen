@@ -9,6 +9,10 @@ class Forum < ActiveRecord::Base
 	validates_presence_of :title
   validates_length_of :title, :maximum => 100
 
+  def to_s
+    title
+  end
+
   def to_param
     name
   end

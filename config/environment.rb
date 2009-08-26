@@ -25,6 +25,7 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem 'maruku'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -65,8 +66,9 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
   
-  #
-  #reCAPTCHA Public and Private key
+  # reCAPTCHA, mailhide Public and Private key
   ENV['RECAPTCHA_PUBLIC_KEY'] = '6LcZ8AcAAAAAAKSk6gBXQhjW5TfGmwFod4J_tYnb'
   ENV['RECAPTCHA_PRIVATE_KEY'] = '6LcZ8AcAAAAAANbWgeSGIanU_ANfopNLt8f5mR0X' 
+  ENV['MAILHIDE_PUBLIC_KEY'] = '018oLZ5mWza1xzyswLCaRZLQ=='
+  ENV['MAILHIDE_PRIVATE_KEY'] = '15AF824596B4195AF58892DBA9554D60'
 end

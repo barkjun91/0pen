@@ -4,7 +4,11 @@ require 'md5'
 class Person < ActiveRecord::Base
   PARAM_CODE_TABLE = '@_-.zyxwvutsrqponmlkjihgfedcbaZYX'
                      'WVUTSRQPONMLKJIHGFEDCBA9876543210'
-  has_many :posts
+
+  has_many :posts, :dependent => :destroy, :include => :revisions,
+                   :group => "posts.id, posts.subject_id, posts.person_id",
+                   :order => "max(revisions.created_at) desc"
+
   validates_uniqueness_of :email
   validates_presence_of :email
   validates_presence_of :password

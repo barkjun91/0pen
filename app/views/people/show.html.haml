@@ -1,7 +1,4 @@
-%p
-  %b Email:
-  &= @person.email 
-
+%h1= link_to_email(@person.email)
 
 %p
   %b Name:
@@ -22,24 +19,20 @@
   %b Created at:
   &= @person.created_at 
 
-.threads
-  %table
+- unless @person.posts.count.zero?
+  %table.posts
     %thead
       %tr
         %th 내용
         %th 날짜
-        %th 위치
+        %th 포럼
+        %th 글타래
     %tbody
       - for post in @person.posts
         %tr
           %td= markdown(post.body)
           %td= post.updated_at
-          %td
-            %a{:href => forum_path(post.forum)}
-              = post.forum.name + '>'
-            %a{:href => forum_subject_path(post.forum,post.subject)}
-              = post.subject.title
-          %th
-            %a{:href => new_forum_subject_post_revision_path(post.forum, post.subject, post)}Edit
+          %td= link_to(post.forum, post.forum)
+          %th= link_to(post.subject,forum_subject_path(post.forum,post.subject))
 #{link_to 'Edit', edit_person_path(@person)}|
 = link_to 'Back', people_path 
