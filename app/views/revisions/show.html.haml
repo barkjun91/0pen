@@ -2,7 +2,7 @@
   %dt Post:
   %dd= @revision.post_id
   %dt Body:
-  %dd&= @revision.body
+  %dd&= markdown(@revision.body)
   %dt Created_at:
   %dd= @revision.created_at
 /#{link_to 'Edit', edit_forum_subject_post_revision_path(@revision.forum, @revision.subject, @revision.post, @revision)} |
