@@ -19,4 +19,5 @@
           %td.upated-at.datetime&= subject.updated_at
       %tr
         %td.page{:colspan => "3"} &#60; 1  2  3  4  5 &#62;
-%a{:href => new_forum_subject_path(@forum)} 글타래 열기
+  - if @person_log 
+    %a{:href => new_forum_subject_path(@forum)} 글타래 열기

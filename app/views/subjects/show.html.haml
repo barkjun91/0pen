@@ -20,5 +20,6 @@
             %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
           %th
             %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
-  %a{:href => new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
-
+  - if @person_log 
+    %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
+  %p

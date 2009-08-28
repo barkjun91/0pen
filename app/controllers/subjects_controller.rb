@@ -13,7 +13,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/1.xml
   def show
     @subject = Subject.find(params[:id])
-
+    @person_log = self.person || nil
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @subject }
@@ -24,8 +24,8 @@ class SubjectsController < ApplicationController
   # GET /subjects/new.xml
   def new
     @subject = Subject.new
+    @person_log = self.person  
     @subject.forum = Forum.find_by_name(params[:forum_id])
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @subject }
@@ -42,7 +42,6 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(params[:subject])
     @subject.forum = Forum.find_by_name(params[:forum_id])
-
     respond_to do |format|
       if @subject.save
         flash[:notice] = 'Subject was successfully created.'

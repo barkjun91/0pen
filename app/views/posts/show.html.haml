@@ -1,5 +1,5 @@
 .post
-  .body= @post
+  .body= markdown(@post.body)
   = link_to '수정', new_forum_subject_post_revision_path(@post.forum, @post.subject, @post)
   = link_to '글타래로', [@post.forum, @post.subject]
 

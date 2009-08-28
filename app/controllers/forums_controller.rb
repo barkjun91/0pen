@@ -15,7 +15,7 @@ class ForumsController < ApplicationController
   def show
     @forum = Forum.find_by_name(params[:id])
     @subjects = @forum.subjects
-
+    @person_log = self.person
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @forum }
