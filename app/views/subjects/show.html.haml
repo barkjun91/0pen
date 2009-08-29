@@ -1,25 +1,22 @@
-%dl
-  %dt Name
-  %dd&= @subject.forum_id
-  %dt Subject
-  %dd&= @subject.title
-#{link_to 'Edit', edit_forum_subject_path(@subject.forum, @subject)}|
-= link_to 'Back', @subject.forum
-.threads
+%h1&= @subject.title
+.subject
   %table
     %thead
       %tr
-        %th 내용
-        %th 작성자
     %tbody
+      %tr
+        %td.edit{:colspan => "2"}
+          글타래 추가
       - for post in @subject.posts
         %tr
-          %td= markdown(post.body)
-          %td&= post.person
-          %th
-            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
-          %th
+          %td.body= markdown(post.body)
+          %td.people&= post.person
+        %tr
+          %td.edit{:colspan => "2"}
+            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}내용 수정
             %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
   - if @person_log 
     %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
-  %p
+
+= link_to '목록으로', @subject.forum
+

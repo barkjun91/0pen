@@ -63,6 +63,7 @@ body > .body > .subjects {
     margin: 1em; color: @color1; padding-top: 0.9em; padding-bottom: 0.9em;
     font-size: small;
     table {
+        background-color: white;
         .subject { width: 60%; }
         color: @color1; width: 100%; 
         border-collapse: collapse;
@@ -70,8 +71,8 @@ body > .body > .subjects {
         th, td { padding: 0.5em 1em; }
         tbody {
             th { text-align: left; font-weight: normal; paading-left: 0.5em; }
-            tr:nth-child(odd) { background-color: white; }
-            tr:nth-child(even) { background-color: @color3; }
+            tr { border-bottom: 1px solid @color3; }
+            tr:last-child { border-bottom: none; }
             td.posts span { .number; } 
             td.datetime { text-align: center; }
             td.page { background-color: @color3; text-align: center; }

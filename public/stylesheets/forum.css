@@ -137,6 +137,7 @@ body > .body > .subjects {
   font-size: small;
 }
 body > .body > .subjects table {
+  background-color: white;
   color: #4a1a2c;
   width: 100%;
   border-collapse: collapse;
@@ -150,8 +151,8 @@ body > .body > .subjects table tbody th {
   font-weight: normal;
   paading-left: 0.5em;
 }
-body > .body > .subjects table tbody tr:nth-child(odd) { background-color: white; }
-body > .body > .subjects table tbody tr:nth-child(even) { background-color: #ccadcc; }
+body > .body > .subjects table tbody tr { border-bottom: 1px solid #ccadcc; }
+body > .body > .subjects table tbody tr:last-child { border-bottom: none; }
 body > .body > .subjects table tbody td.posts span {
   display: block;
   background-color: #8e3557;
