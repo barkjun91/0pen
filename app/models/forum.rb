@@ -11,6 +11,9 @@ class Forum < ActiveRecord::Base
                         ) as s
                         group by s.id, s.forum_id, s.title
                         order by max(first_rev) desc
+                      },
+                      :counter_sql => %q{
+                        select count(*) from subjects where forum_id = #{id}
                       }
 
 	validates_uniqueness_of :name
