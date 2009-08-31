@@ -14,8 +14,8 @@ class ForumsController < ApplicationController
   # GET /forums/1.xml
   def show
     @forum = Forum.find_by_name(params[:id])
-    @subjects = @forum.subjects
-    @person_log = self.person
+    @subjects = @forum.subjects.find(:all, :limit => 10)
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @forum }
