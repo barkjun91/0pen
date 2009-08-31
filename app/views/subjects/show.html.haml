@@ -5,16 +5,14 @@
       %tr
     %tbody
       %tr
-        %td.edit{:colspan => "2"}
-          글타래 추가
       - for post in @subject.posts
+        %tr
+          %td.edit{:colspan => "2"}
+            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}고치기
+            %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
         %tr
           %td.body= markdown(post.body)
           %td.people&= post.person
-        %tr
-          %td.edit{:colspan => "2"}
-            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}내용 수정
-            %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
   - if @person_log 
     %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
 
