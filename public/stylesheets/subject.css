@@ -53,7 +53,7 @@ body > .body {
 }
 body > .body h1 {
   font-size: x-large;
-  margin: 0.5em 0.5em 0 0.5em;
+  margin: 2em 0.5em 0.5em 0.5em;
 }
 body > .body .description {
   font-size: small;
@@ -65,6 +65,7 @@ body > .body > .subject {
   background-color: white;
   width: 45em;
   float: left;
+  margin: 0 0.5em 0.5em 1em;
   color: #4a1a2c;
 }
 body > .body > .subject table {
