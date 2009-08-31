@@ -4,7 +4,7 @@ body {
   font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
 }
 a {
-  color: #8e3557;
+  color: #2e2d6b;
   text-decoration: none;
 }
 body > h1 {
@@ -21,7 +21,7 @@ body > .services > li {
   float: left;
   width: 5em;
   margin-right: 0.2em;
-  background-color: #8e3557;
+  background-color: #2e2d6b;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
   -webkit-border-top-left-radius: 0.5em;
@@ -38,10 +38,10 @@ body > .services > li {
   font-size: small;
 }
 body > .services > li.selected {
-  background-color: #4a1a2c;
+  background-color: #030928;
   font-weight: bold;
 }
-body > .services > li:hover { background-color: #4a1a2c; }
+body > .services > li:hover { background-color: #030928; }
 body > .services > li > a { color: white; }
 body > .session {
   position: absolute;
@@ -54,7 +54,7 @@ body > .body {
   float: left;
   clear: left;
   min-width: 100%;
-  background-color: #4a1a2c;
+  background-color: #030928;
   color: white;
 }
 body > .body h1 {
@@ -63,34 +63,83 @@ body > .body h1 {
 }
 body > .body .description {
   font-size: small;
-  color: #ccadcc;
+  color: #979eeb;
   margin: 1em;
   margin-top: 0;
 }
-body > .body > .subject {
+body > .body > .subject .setBorder_item {
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  -webkit-border-top-left-radius: 1em;
+  -webkit-border-top-right-radius: 1em;
+  -moz-border-radius-topleft: 1em;
+  -moz-border-radius-topright: 1em;
+  -o-border-radius-topleft: 1em;
+  -o-border-radius-topleft: 1em;
+  -khtml-border-radius-topleft: 1em;
+  -khtml-border-radius-topright: 1em;
+  -icap-border-radius-topleft: 1em;
+  -icap-border-radius-topright: 1em;
+  background-color: #cc0000;
+  width: 45em;
+  float: left;
+  margin: 0 0 0em 1em;
+  color: #030928;
+}
+body > .body > .subject .item {
+  float: right;
+  margin: -0.3em 0.5em 0.5em 0;
+}
+body > .body > .subject .setBorder_body {
+  -border-radius-bottom-left: 1em;
+  -border-radius-bottom-right: 1em;
+  -webkit-border-bottom-left-radius: 1em;
+  -webkit-border-bottom-right-radius: 1em;
+  -moz-border-radius-bottomleft: 1em;
+  -moz-border-radius-bottomright: 1em;
+  -o-border-radius-bottomleft: 1em;
+  -o-border-radius-bottomright: 1em;
+  -khtml-border-radius-bottomleft: 1em;
+  -khtml-border-radius-bottomright: 1em;
+  -icap-border-radius-bottomleft: 1em;
+  -icap-border-radius-bottomright: 1em;
   background-color: white;
   width: 45em;
   float: left;
-  margin: 0 0.5em 0.5em 1em;
-  color: #4a1a2c;
+  margin: 0 0 2em 1em;
+  color: #030928;
 }
-body > .body > .subject table {
-  width: 100%;
-  border-collapse: collapse;
+body > .body > .subject .info {
+  -border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  -khtml-border-radius: 0.3em;
+  -icap-border-radius: 0.3em;
+  float: right;
+  background-color: #979eeb;
+  margin: -0.5em 0.5em 0.5em 0.5em;
 }
-body > .body > .subject table .body {
-  width: 70%;
-  height: 13em;
+body > .body > .subject .avata {
+  display: block;
+  width: 4em;
+  padding: 3em;
+  margin-top: -0.5em;
+  margin-right: 0.5em;
 }
-body > .body > .subject table .people { text-align: center; }
-body > .body > .subject table .edit {
-  text-align: right;
-  background-color: #ccadcc;
-  height: 2.5em;
+body > .body > .subject .user {
+  color: white;
+  margin: 0.5em;
+}
+body > .body > .subject .body {
+  float: left;
+  padding: 0 2em 0 0em;
+  margin-left: 1em;
+  width: 65%;
 }
 body > .copyright {
   clear: left;
-  background-color: #8e3557;
+  background-color: #2e2d6b;
   color: white;
   margin: 0;
   padding: 1em;

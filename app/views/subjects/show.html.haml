@@ -1,21 +1,17 @@
 %h1&= @subject.title
 .subject
-  %table
-    %thead
-      %tr
-    %tbody
-      %tr
-      - for post in @subject.posts
-        %tr
-          %td.edit{:colspan => "2"}
-            - if post.author?
-              %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}고치기
-            %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
-        %tr
-          %td.body= markdown(post.body)
-          %td.people&= post.person
-  - if @person_log 
-    %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
-
-= link_to '목록으로', @subject.forum
-
+  - for post in @subject.posts
+    %li.setBorder_item
+      %dl
+        %dd.item
+          - if post.author?
+            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}고치기
+          %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정내역
+    %li.setBorder_body
+      %dl
+        %span.info
+          %dt.avata 사진
+          %dt.user&= post.person
+        %dd.body= markdown(post.body)
+/- if @person_log 
+%a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
