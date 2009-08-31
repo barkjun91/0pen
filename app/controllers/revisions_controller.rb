@@ -28,9 +28,13 @@ class RevisionsController < ApplicationController
   def new
     @revision = Revision.new(:post_id => params[:post_id])
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @revision }
+    if self.person
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @revision }
+      end
+    else
+     render :text => 'please log in', :status => 401.1
     end
   end
 

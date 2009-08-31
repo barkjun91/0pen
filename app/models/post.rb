@@ -25,4 +25,8 @@ class Post < ActiveRecord::Base
   def to_s
     body || ''
   end
+
+  def author?
+    true # person.id == session[:user_id]
+  end
 end

@@ -8,7 +8,8 @@
       - for post in @subject.posts
         %tr
           %td.edit{:colspan => "2"}
-            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}고치기
+            - if post.author?
+              %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}고치기
             %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정 내역
         %tr
           %td.body= markdown(post.body)

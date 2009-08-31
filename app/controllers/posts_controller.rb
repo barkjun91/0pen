@@ -26,10 +26,13 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new(:subject_id => params[:subject_id])
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post }
+    if self.person
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @post }
+      end
+    else
+      render :text => 'please log in', :status => 401.1
     end
   end
 
@@ -44,7 +47,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     respond_to do |format|
-      if @post.save
+      if @post.save && self.person
         flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to [@post.subject.forum, @post.subject, @post] }
         format.xml  { render :xml => @post, :status => :created, :location => @post }

@@ -15,7 +15,7 @@ class ForumsController < ApplicationController
   def show
     @forum = Forum.find_by_name(params[:id])
     @subjects = @forum.subjects.find(:all, :limit => 10)
-
+    @person_log = self.person
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @forum }
@@ -27,10 +27,14 @@ class ForumsController < ApplicationController
   def new
     @forum = Forum.new
 
+    #if @admin
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @forum }
     end
+    #else
+    # rendor :text => 'you are not admin', :status => 401.4 
+    #end
   end
 
   # GET /forums/1/edit
@@ -44,7 +48,7 @@ class ForumsController < ApplicationController
     @forum = Forum.new(params[:forum])
 
     respond_to do |format|
-      if @forum.save
+      if @forum.save #and admin
         flash[:notice] = 'Forum was successfully created.'
         format.html { redirect_to(@forum) }
         format.xml  { render :xml => @forum, :status => :created, :location => @forum }
