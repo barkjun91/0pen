@@ -28,6 +28,12 @@ body > .services > li {
   -webkit-border-top-right-radius: 0.5em;
   -moz-border-radius-topleft: 0.5em;
   -moz-border-radius-topright: 0.5em;
+  -o-border-radius-topleft: 0.5em;
+  -o-border-radius-topright: 0.5em;
+  -khtml-border-radius-topleft: 0.5em;
+  -khtml-border-radius-topright: 0.5em;
+  -icap-border-radius-topleft: 0.5em;
+  -icap-border-radius-topright: 0.5em;
   padding: 0.4em 1em;
   font-size: small;
 }
@@ -71,6 +77,9 @@ body > .body .description {
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  -khtml-border-radius: 100%;
+  -icap-border-radius: 100%;
   width: 1.5em;
   text-align: center;
 }
@@ -83,6 +92,9 @@ body > .body > .forum {
   border-radius: 1em;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
   font-size: small;
 }
 body > .body > .forum h2 {
@@ -120,6 +132,9 @@ body > .body > .forum table td.posts span {
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  -khtml-border-radius: 100%;
+  -icap-border-radius: 100%;
   width: 1.5em;
   text-align: center;
 }
@@ -130,6 +145,9 @@ body > .body > .subjects {
   border-radius: 1em;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
   margin: 1em;
   color: #4a1a2c;
   padding-top: 0.9em;
@@ -163,6 +181,9 @@ body > .body > .subjects table tbody td.posts span {
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  -khtml-border-radius: 100%;
+  -icap-border-radius: 100%;
   width: 1.5em;
   text-align: center;
 }

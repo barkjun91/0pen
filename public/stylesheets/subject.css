@@ -28,6 +28,12 @@ body > .services > li {
   -webkit-border-top-right-radius: 0.5em;
   -moz-border-radius-topleft: 0.5em;
   -moz-border-radius-topright: 0.5em;
+  -o-border-radius-topleft: 0.5em;
+  -o-border-radius-topleft: 0.5em;
+  -khtml-border-radius-topleft: 0.5em;
+  -khtml-border-radius-topright: 0.5em;
+  -icap-border-radius-topleft: 0.5 em;
+  -icap-border-radius-topright: 0.5em;
   padding: 0.4em 1em;
   font-size: small;
 }
