@@ -71,10 +71,10 @@ body > .body > .subject .setBorder_body {
   background-color: white;
   width: 45em;
   float: left;
-  margin: 0 0 2em 1em;
+  margin: 0 0 1em 1em;
   color: #030928;
 }
-body > .body > .subject .created {
+body > .body > .subject .created_at {
   margin-top: -1.3em;
   font-size: small;
   color: white;
@@ -107,6 +107,12 @@ body > .body > .subject .body {
   padding-right: 2em;
   margin-left: 1em;
   width: 65%;
+}
+body > .body > .subject .updated_at {
+  color: #2e2d6b;
+  font-size: small;
+  float: right;
+  margin: 0 1em 1em 0;
 }
 body > .copyright {
   clear: left;
