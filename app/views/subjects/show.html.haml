@@ -20,6 +20,6 @@
             %div.updated_at&= post.updated_at.strftime('최종 수정 : %m-%d-%Y, %l:%M %p')
       %div.functions
         %a.button{:href=>forum_path(@subject.forum)} 목록으로
-        %a.button{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
-/- if @person_log 
+        - if @person_log 
+          %a.button{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
     
