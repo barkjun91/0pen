@@ -24,11 +24,11 @@ body > .services > li {
   background-color: #2e2d6b;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
-  -webkit-border-top-left-radius: 0.5em;
-  -webkit-border-top-right-radius: 0.5em;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 0.5em;
   -moz-border-radius-topright: 0.5em;
-  -o-border-radius-topleft: 0.5em;
+  -o-border-radius-topleft: 0.5px;
   -o-border-radius-topleft: 0.5em;
   -khtml-border-radius-topleft: 0.5em;
   -khtml-border-radius-topright: 0.5em;
