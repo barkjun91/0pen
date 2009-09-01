@@ -16,7 +16,7 @@
           %th.subject= link_to h(subject), [@forum, subject]
           %td.posts
             %span= subject.posts.size
-          %td.upated-at.datetime&= subject.updated_at.strftime('%Y-%m-%d')
+          %td.upated-at.datetime&= subject.updated_at && subject.updated_at.strftime('%Y-%m-%d')
       %tr
         %td.page{:colspan => "3"} &#60; 1  2  3  4  5 &#62;
   %div.functions
