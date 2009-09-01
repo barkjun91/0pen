@@ -1,21 +1,22 @@
-%h1&= @subject.title
-.subject
-  - for post in @subject.posts
-    %li.setBorder_item
-      %dl
-        %dd.item
-          - if post.author?
-            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}고치기
-          %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정내역
-    %li.setBorder_body
-      %dl
-        %dt.created_at&= post.created_at.strftime('%m-%d-%Y, %l:%M %p')
-      %dl.info
-        %dt.avata 사진
-        %dt.nick&= post.person.nick
-        %dt.name&= post.person.name
-      %dl
-        %dd.body= markdown(post.body)
-        %dd.updated_at.datetime&= post.updated_at.strftime('최종 수정 : %m-%d-%Y, %l:%M %p')
+%html
+  %body
+    %h1&= @subject.title
+    .subject
+      - for post in @subject.posts
+        %div.setBorder_body
+          %div.created_at&= post.created_at.strftime('%m-%d-%Y, %l:%M %p')
+          %div.info
+            %div.avata 사진
+            %div.nick&= post.person.nick
+            %div.name&= post.person.name
+          %div.content
+            %div.item 
+              - if post.author?
+                %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
+              %b
+                |
+              %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}Histroy  
+            %div.body= markdown(post.body)
+            %div.updated_at&= post.updated_at.strftime('최종 수정 : %m-%d-%Y, %l:%M %p')
 /- if @person_log 
 %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가

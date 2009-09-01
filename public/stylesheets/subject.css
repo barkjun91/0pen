@@ -71,7 +71,7 @@ body > .body > .subject .setBorder_body {
   background-color: white;
   width: 45em;
   float: left;
-  margin: 0 0 1em 1em;
+  margin: 1em;
   color: #030928;
 }
 body > .body > .subject .created_at {
@@ -84,7 +84,7 @@ body > .body > .subject .created_at {
 body > .body > .subject .info {
   float: left;
   border: 1px solid #979eeb;
-  margin: 0 0 0.5em 0.5em;
+  margin: 0.5em;
   width: 10em;
 }
 body > .body > .subject .avata {
@@ -102,6 +102,11 @@ body > .body > .subject .name {
   margin: 0 0.5em 0 0.5em;
   font-size: small;
 }
+body > .body > .subject .item {
+  font-size: small;
+  float: right;
+  margin: 0.5em;
+}
 body > .body > .subject .body {
   float: left;
   padding-right: 2em;
@@ -112,7 +117,7 @@ body > .body > .subject .updated_at {
   color: #2e2d6b;
   font-size: small;
   float: right;
-  margin: 0 1em 1em 0;
+  margin: 1em;
 }
 body > .copyright {
   clear: left;
