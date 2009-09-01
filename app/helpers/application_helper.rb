@@ -34,4 +34,22 @@ module ApplicationHelper
             :title => 'Reveal this e-mail address') + \
     email.sub(/^[^@]*/, '')
   end
+
+  def pager(length, selection = 1, step = 9)
+    length = length.to_i
+    selection = selection.to_i
+    step = step.to_i
+    half = step / 2
+    if length > step && selection > half + 2
+      yield("first", 1)
+      i = selection + half >= length ? length - step + 1 : selection - half
+    else
+      i = 1
+    end
+    to = [i + step, 1 + length].min
+    for i in i...to
+      yield(i == selection ? "selected" : i, i)
+    end
+    yield("last", length) if [selection, to].max + 1 < length
+  end
 end

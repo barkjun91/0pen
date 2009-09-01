@@ -17,8 +17,14 @@
           %td.posts
             %span= subject.posts.size
           %td.upated-at.datetime&= subject.updated_at.strftime('%Y-%m-%d')
-      %tr
-        %td.page{:colspan => "3"} &#60; 1  2  3  4  5 &#62;
-  %div.functions
+  - if @total_pages > 1
+    %ul.pager
+      - pager(@total_pages, @selected_page) do |flag, page|
+        - if flag == 'selected'
+          %li.selected= page
+        - else
+          %li{:class => flag.is_a?(String) ? flag : ''}
+            %a{:href => "?page=#{page}"}= page
+  .functions
     - if @person_log 
       %a.button{:href => new_forum_subject_path(@forum)} 주제 열기

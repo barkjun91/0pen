@@ -1,4 +1,6 @@
 class ForumsController < ApplicationController
+  SUBJECTS_PER_PAGE = 30
+
   # GET /forums
   # GET /forums.xml
   def index
@@ -14,7 +16,14 @@ class ForumsController < ApplicationController
   # GET /forums/1.xml
   def show
     @forum = Forum.find_by_name(params[:id])
-    @subjects = @forum.subjects.find(:all, :limit => 10)
+    @total_pages = @forum.subjects.size / SUBJECTS_PER_PAGE
+    @selected_page = [[1, params[:page].to_i].max, @total_pages].min
+    @subjects = @forum.subjects.find(
+                  :all,
+                  :offset => (@selected_page - 1) * SUBJECTS_PER_PAGE,
+                  :limit => SUBJECTS_PER_PAGE
+                )
+
     @person_log = self.person
     respond_to do |format|
       format.html # show.html.erb

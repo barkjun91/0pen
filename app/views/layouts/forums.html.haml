@@ -1,5 +1,5 @@
 !!! 1.0 Strict
-%html
+%html(xmlns="http://www.w3.org/1999/xhtml")
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     %title 제로픈 포럼
@@ -16,7 +16,7 @@
       %li
         %a(href="#pastes") 코드 조각
       %li
-        %a(herf="#irc") IRC
+        %a(href="irc://irc.ozinger.org:8080/levdev%2B0pen") IRC
     - if controller.person
       - form_tag({:controller => :session}, :method => :delete, :class => "logout session") do
         %fieldset
