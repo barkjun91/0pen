@@ -37,63 +37,33 @@ body > .body h1 { font-size: x-large; margin: 2em 0.5em 0.5em 0.5em; }
 body > .body .description { font-size: small; color: @color3; 
                             margin: 1em; margin-top: 0;} 
 body > .body > .subject{
-    .setBorder_item{
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
-        -webkit-border-top-left-radius: 1em;
-        -webkit-border-top-right-radius: 1em;
-        -moz-border-radius-topleft: 1em;
-        -moz-border-radius-topright: 1em;
-        -o-border-radius-topleft: 1em;
-        -o-border-radius-topleft: 1em;
-        -khtml-border-radius-topleft: 1em;
-        -khtml-border-radius-topright: 1em;
-        -icap-border-radius-topleft: 1em;
-        -icap-border-radius-topright: 1em;
-        background-color: @color4; width: 45em; float: left;
-        margin: 0 0 0em 1em ;
-        color: @color1;
-    }
-    .item{
-        float: right;
-        margin: -0.3em 0.5em 0.5em 0;
-    }
     .setBorder_body{
-        -border-radius-bottom-left: 1em;
-        -border-radius-bottom-right: 1em;
-        -webkit-border-bottom-left-radius: 1em;
-        -webkit-border-bottom-right-radius: 1em;
-        -moz-border-radius-bottomleft: 1em;
-        -moz-border-radius-bottomright: 1em;
-        -o-border-radius-bottomleft: 1em;
-        -o-border-radius-bottomright: 1em; 
-        -khtml-border-radius-bottomleft: 1em;
-        -khtml-border-radius-bottomright: 1em;
-        -icap-border-radius-bottomleft: 1em;
-        -icap-border-radius-bottomright: 1em;
         background-color: white; width: 45em; float: left;
         margin: 0 0 2em 1em ;
         color: @color1;
     }
+    .created{
+        margin-top: -1.3em;
+        font-size: small; color: white;
+        background-color: @color3; padding: 0.5em;
+    }
     .info{
-        -border-radius: 0.3em;
-        -webkit-border-radius: 0.3em;
-        -moz-border-radius: 0.3em;
-        -o-border-radius: 0.3em;
-        -khtml-border-radius: 0.3em;
-        -icap-border-radius: 0.3em;
-        float:right; background-color: @color3;
-        margin: -0.5em 0.5em 0.5em 0.5em;
+        float:left; border: 1px solid @color3;
+        margin: 0 0 0.5em 0.5em; width: 10em;
     }
     .avata{
-        display: block; width:4em;
-        padding: 3em; margin-top: -0.5em; margin-right: 0.5em;
+        margin: 0.5em; text-align: center;
     }
-    .user{
-        color: white; margin: 0.5em;
+    .nick{
+        color: @color1; margin: 0 0.5em 0 0.5em;
+        font-size: small; font-weight: bold;
     }
+    .name{
+        color: @color2; margin: 0 0.5em 0 0.5em;
+        font-size: small;
+    }    
     .body{
-        float:left; padding: 0 2em 0 0em;
+        float:left; padding-right: 2em;
         margin-left: 1em;
         width: 65%;
     }

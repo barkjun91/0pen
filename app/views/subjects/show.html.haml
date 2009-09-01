@@ -9,9 +9,12 @@
           %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}수정내역
     %li.setBorder_body
       %dl
-        %span.info
-          %dt.avata 사진
-          %dt.user&= post.person
+        %dt.created&= post.created_at
+      %dl.info
+        %dt.avata 사진
+        %dt.nick&= post.person.nick
+        %dt.name&= post.person.name
+      %dl
         %dd.body= markdown(post.body)
 /- if @person_log 
 %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글타래 추가
