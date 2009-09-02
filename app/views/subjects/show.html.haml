@@ -2,7 +2,6 @@
 .subject
   - for post in @subject.posts
     .setBorder_body
-      .created_at&= post.created_at.strftime('%m-%d-%Y, %l:%M %p')
       .info
         .avata 사진
         .nick&= post.person.nick
@@ -15,7 +14,9 @@
             |
           %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}Histroy  
         .body= markdown(post.body)
-        .updated_at&= post.updated_at.strftime('최종 수정 : %m-%d-%Y, %l:%M %p')
+        %ol.history
+          %li&= post.created_at.strftime('작성일 : %m-%d-%Y, %l:%M %p')
+          %li&= post.updated_at.strftime('갱신일 : %m-%d-%Y, %l:%M %p')
   .functions
     %a.button{:href=>forum_path(@subject.forum)} 목록으로
     - if @person_log 

@@ -1,7 +1,8 @@
-@color1: #030928;
-@color2: #2E2D6B;
-@color3: #979EEB;
-@color4: #CC0000;
+@color1: #671F9C;
+@color2: #905EBC;
+@color3: #A075C5;
+@color4: #AE9BD3;
+@color5: #CBACF1;
 
 
 
@@ -39,16 +40,17 @@ body > .body .description { font-size: small; color: @color3;
 body > .body > .subject{
     .setBorder_body{
         background-color: white; width: 45em; float: left;
-        margin: 1em ;
+        margin: 1em ; padding: 1em;
         color: @color1;
-    }
-    .created_at{
-        margin-top: -1.3em;
-        font-size: small; color: white;
-        background-color: @color3; padding: 0.5em;
+        border-radius : 0.5em;
+        -moz-border-radius: 0.5em;
+        -webkit-border-radius: 5px;
+        -o-border-radius: 0.5em;
+        -khtml-border-radius: 0.5em;
+        -icap-border-radius: 0.5em;
     }
     .info{
-        float:left; border: 1px solid @color3;
+        float:left; border-right: 1px solid @color5;
         margin: 0.5em; width: 10em;
     }
     .avata{
@@ -67,18 +69,18 @@ body > .body > .subject{
         margin: 0.5em;
     }
     .body{
-        float:left; padding-right: 2em;
+        float:left; padding-right: 2em; color: black;
         margin-left: 1em;
         width: 65%;
         overflow: auto;
     }
-    .updated_at{
+    .history{
         color: @color2;
         font-size: small; float: right;
         margin:1em;
     }
     .functions{
-        margin: 1em; clear:left; text-align:right; width: 45em;
+        margin: 1em; clear:left; text-align:right; width: 47em;
     }
     .button{
         background-color: @color2;
