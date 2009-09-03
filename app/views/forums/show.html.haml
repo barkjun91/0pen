@@ -16,8 +16,7 @@
           %th.subject= link_to h(subject), [@forum, subject]
           %td.posts
             %span= subject.posts.size
-<<<<<<< HEAD:app/views/forums/show.html.haml
-          %td.upated-at.datetime&= subject.updated_at.strftime('%Y-%m-%d')
+          %td.upated-at.datetime&= subject.updated_at && subject.updated_at.strftime('%Y-%m-%d')
   - if @total_pages > 1
     %ul.pager
       - pager(@total_pages, @selected_page) do |flag, page|
@@ -27,11 +26,5 @@
           %li{:class => flag.is_a?(String) ? flag : ''}
             %a{:href => "?page=#{page}"}= page
   .functions
-=======
-          %td.upated-at.datetime&= subject.updated_at && subject.updated_at.strftime('%Y-%m-%d')
-      %tr
-        %td.page{:colspan => "3"} &#60; 1  2  3  4  5 &#62;
-  %div.functions
->>>>>>> 334fa6ed0186084b3562df9adf3424b454ae3424:app/views/forums/show.html.haml
     - if @person_log 
       %a.button{:href => new_forum_subject_path(@forum)} 주제 열기
