@@ -9,14 +9,17 @@
       .content
         .item 
           - if post.author?
-            %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
-          %b
-            |
-          %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}Histroy  
+            %ul
+              - if @person_log
+                %li
+                  %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
+              %li
+                %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}Histroy  
         .body= markdown(post.body)
-        %ol.history
-          %li&= post.created_at.strftime('작성일 : %m-%d-%Y, %l:%M %p')
-          %li&= post.updated_at.strftime('갱신일 : %m-%d-%Y, %l:%M %p')
+        %ul.history
+          %li&= post.created_at.strftime('%m-%d-%Y, %l:%M %p에 작성하셨습니다.')
+          - for revision in post.revisions
+            %li&= revision.created_at.strftime('%m-%d-%Y, %l:%M %p에 수정하셨습니다.')
   .functions
     %a.button{:href=>forum_path(@subject.forum)} 목록으로
     - if @person_log 
