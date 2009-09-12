@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     @rev.body = params[:body]
     @post = Post.new(params[:post])
     @post.subject_id = params[:subject_id]
-    @post.person_id = self.person
+    @post.person_id = self.person.id
     respond_to do |format|
       if @post.save && self.person
         @rev.post_id = @post.id
