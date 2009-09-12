@@ -8,11 +8,11 @@
         .name&= post.person.name
       .content
         .item 
-          - if post.author?
-            %ul
-              - if @person_log
-                %li
-                  %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
+          %ul
+            - if post.author? @person_log
+              %li
+                %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
+            - if @person_log
               %li
                 %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}Histroy  
         .body= markdown(post.body)

@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
     body || ''
   end
 
-  def author?
-    true # person.id == session[:user_id]
+  def author?(p)
+    person.id == p.id 
   end
 end
