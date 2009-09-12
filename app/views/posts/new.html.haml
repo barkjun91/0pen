@@ -1,6 +1,6 @@
 %h1 New Post_tread
 - form_for [@post.subject.forum, @post.subject, @post] do |f|
   = f.error_messages
-  
+  %textarea{:id => "body", :name => "body"}
   %p= f.submit "Create"
 = link_to 'Back', [@post.subject.forum, @post.subject]

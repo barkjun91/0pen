@@ -44,14 +44,24 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
+    @rev = Revision.new
+    @rev.body = params[:body]
     @post = Post.new(params[:post])
     @post.subject_id = params[:subject_id]
     @post.person_id = self.person
     respond_to do |format|
       if @post.save && self.person
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to [@post.subject.forum, @post.subject, @post] }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
+        @rev.post_id = @post.id
+        if @rev.save
+          flash[:notice] = 'Post was successfully created.'
+          format.html {redirect_to [@post.subject.forum, @post.subject, @post] }
+          format.xml  {render :xml => @post, 
+                              :status => :created, :location => @post }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @post.errors,
+                               :status => :unprocessable_entity }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }

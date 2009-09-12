@@ -5,6 +5,7 @@
   %dd= markdown(@revision.body)
   %dt Created_at:
   %dd= @revision.created_at
+= link_to 'History', [@revision.forum, @revision.subject, @revision.post]
 /#{link_to 'Edit', edit_forum_subject_post_revision_path(@revision.forum, @revision.subject, @revision.post, @revision)} |
 /= link_to 'Back', [@revision.forum, @revision.subject]
 
