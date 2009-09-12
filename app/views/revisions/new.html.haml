@@ -1,14 +1,12 @@
-%h1 New revision
+%h1&= @revision.subject.title
+%h2 고치기 
 
-- form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f| 
-  = f.error_messages 
-  %p
-    = f.label :body 
-    %br
-    = f.text_area :body 
-  
-  %p= f.submit "Create" 
-  
-%br
+.revision
+  - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f| 
+    = f.error_messages 
+    %p
+      %textarea{:id => "body", :name => "body", :style => "width: 40em; height:20em;" } 
+    %p= f.submit "Create" 
+  %br
 
 = link_to 'Back', [@revision.forum, @revision.subject, @revision.post]
