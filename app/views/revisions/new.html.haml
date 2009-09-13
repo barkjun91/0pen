@@ -3,7 +3,7 @@
 
 .revision
   - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f| 
-    = f.error_messages 
+    = f.error_messages ( :header_message => '저장을 할 수 없습니다. 다음의 내용을 확인해 주세요.')
     %p
       %textarea{:id => "body", :name => "body", :style => "width: 600px; height:300px;" } 
     %p= f.submit "Create" 
