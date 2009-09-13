@@ -98,6 +98,12 @@ body > .body > .revision .errorExplanation ul {
   font-size: small;
   color: #671f9c;
 }
+body > .body > .revision fieldset { border: none; }
+body > .body > .revision legend {
+  color: #671f9c;
+  font-weight: bold;
+  font-size: small;
+}
 body > .copyright {
   clear: left;
   background-color: #905ebc;
