@@ -70,13 +70,33 @@ body > .body > .revision {
   background-color: white;
   padding: 2em;
   margin: 0.5em;
-  width: 40em;
+  width: 38em;
   border-radius: 1.5em;
   -moz-border-radius: 1.5em;
   -webkit-border-radius: 15px;
   -o-border-radius: 1.5em;
   -khtml-border-radius: 1.5em;
   -icap-border-radius: 1.5em;
+}
+body > .body > .revision .errorExplanation {
+  background-color: #cbacf1;
+  padding: 5px 12px;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  -icap-border-radius: 0.5em;
+}
+body > .body > .revision .errorExplanation h2 {
+  font-size: small;
+  color: red;
+  font-weight: bold;
+}
+body > .body > .revision .errorExplanation p { display: none; }
+body > .body > .revision .errorExplanation ul {
+  font-size: small;
+  color: #671f9c;
 }
 body > .copyright {
   clear: left;

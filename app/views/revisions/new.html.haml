@@ -5,7 +5,7 @@
   - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f| 
     = f.error_messages 
     %p
-      %textarea{:id => "body", :name => "body", :style => "width: 40em; height:20em;" } 
+      %textarea{:id => "body", :name => "body", :style => "width: 600px; height:300px;" } 
     %p= f.submit "Create" 
   %br
 

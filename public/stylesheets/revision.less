@@ -37,13 +37,25 @@ body > .body h1 { font-size: x-large; margin-top: 2em; margin-left: 0.5em;}
 body > .body h2 { font-size: large; margin-left: 0.5em;}
 body > .body > .revision{
     background-color: white; padding : 2em; margin: 0.5em;
-    width: 40em;
+    width: 38em;
     border-radius : 1.5em;
    -moz-border-radius: 1.5em;
    -webkit-border-radius: 15px;
    -o-border-radius: 1.5em;
    -khtml-border-radius: 1.5em;
    -icap-border-radius: 1.5em;
+   .errorExplanation{
+        background-color: @color5; padding: 5px 12px;
+        border-radius : 0.5em;
+       -moz-border-radius: 0.5em;
+        -webkit-border-radius: 5px;
+       -o-border-radius: 0.5em;
+       -khtml-border-radius: 0.5em;
+       -icap-border-radius: 0.5em;
+        h2 { font-size: small; color: red; font-weight: bold;}
+        p { display: none; }
+        ul { font-size: small; color: @color1;  }
+    }
 }
 body > .copyright { clear: left;
                     background-color: @color2; color: white; margin: 0;
