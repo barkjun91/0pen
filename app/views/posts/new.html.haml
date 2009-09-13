@@ -1,4 +1,5 @@
-%h1 New Post_tread
+%h1&= @post.subject.title
+%h2 글쓰기
 - form_for [@post.subject.forum, @post.subject, @post] do |f|
   = f.error_messages
   %textarea{:id => "body", :name => "body"}
