@@ -12,6 +12,9 @@
             - if post.author? @person_log
               %li
                 %a{:href => new_forum_subject_post_revision_path(@subject.forum, @subject, post)}Edit
+              %li
+                %b
+                  | 
             - if @person_log
               %li
                 %a{:href => forum_subject_post_path(@subject.forum, @subject ,post)}Histroy  

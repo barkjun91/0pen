@@ -105,7 +105,13 @@ body > .body > .subject .name {
 body > .body > .subject .item {
   font-size: small;
   float: right;
-  margin: 0.5em;
+  margin-right: 1em;
+}
+body > .body > .subject .item li {
+  display: block;
+  width: 2em;
+  float: left;
+  text-align: center;
 }
 body > .body > .subject .body {
   float: left;
