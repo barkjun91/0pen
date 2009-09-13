@@ -27,6 +27,6 @@ class Post < ActiveRecord::Base
   end
 
   def author?(p)
-    person.id == p.id 
+    p && person.id == p.id  
   end
 end
