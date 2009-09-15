@@ -1,4 +1,3 @@
-require 'maruku'
 require 'openssl'
 require 'base64'
 

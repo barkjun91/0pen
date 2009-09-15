@@ -3,7 +3,7 @@
   - for post in @subject.posts
     .setBorder_body
       .info
-        .avata 사진
+        .avatar= gravatar_for post.person 
         .nick&= post.person.nick
         .name&= post.person.name
       .content

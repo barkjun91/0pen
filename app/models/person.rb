@@ -10,6 +10,7 @@ class Person < ActiveRecord::Base
                    :order => "max(revisions.created_at) desc"
 
   validates_uniqueness_of :email
+  validates_uniqueness_of :validation_key
   validates_presence_of :email
   validates_presence_of :password
   validates_presence_of :nick
@@ -59,6 +60,19 @@ class Person < ActiveRecord::Base
                          else
                            PasswordHash.hash(email, password)
                          end
+  end
+
+  def valid_email?
+    validation_key.nil?
+  end
+
+  def validate_email!
+    self.validation_key = nil
+    self
+  end
+
+  def regen_validation_key
+    self.validation_key = SHA1.new("#{Time.now}\n#{email}").to_s
   end
 
   def to_s

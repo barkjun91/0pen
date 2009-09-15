@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   # GET /people.xml
   def index
     @people = Person.find(:all)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @people }
@@ -40,12 +40,14 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.xml
   def create
+    prod = ENV['RAILS_ENV'] == 'production'
     params[:person][:url] = nil if params[:person][:url].blank?
     @person = Person.new(params[:person])
-    prod = ENV['RAILS_ENV'] == 'production'
+    url = %<#{request.protocol}#{request.host}#{request.port ? ":#{request.port}" : ''}/?validation_key=#{@person.regen_validation_key}>
 
     respond_to do |format|
       if (!prod || verify_recaptcha(@person)) && @person.save
+        EmailValidater.deliver_signup_notification(@person, url)
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
