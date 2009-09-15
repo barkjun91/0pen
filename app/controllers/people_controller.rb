@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   # GET /people.xml
   def index
     @people = Person.find(:all)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @people }
@@ -46,6 +46,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if (!prod || verify_recaptcha(@person)) && @person.save
+        EmailValidater.deliver_signup_notification(@person)
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
