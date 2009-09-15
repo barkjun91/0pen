@@ -8,4 +8,4 @@
       = f.text_area :body, :cols=>80, :rows=>15, :value => @revision.post.body
     .function
       = f.submit "수정" 
-      =link_to 'Back', [@revision.forum, @revision.subject, @revision.post]
+      =link_to 'Back', [@revision.forum, @revision.subject]
