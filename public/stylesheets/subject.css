@@ -61,6 +61,10 @@ body > .body h1 {
   font-size: x-large;
   margin: 2em 0.5em 0.5em 0.5em;
 }
+body > .body h2 {
+  font-size: large;
+  margin: 0 0.5em 0.5em 0.5em;
+}
 body > .body .description {
   font-size: small;
   color: #a075c5;
@@ -148,6 +152,35 @@ body > .body > .subject .button {
   font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   font-size: small;
   font-weight: bold;
+}
+body > .body > .create {
+  background-color: white;
+  color: #671f9c;
+  margin: 0.5em 0.5em 1.5em 0.5em;
+  padding: 0.5em;
+  width: 15.5em;
+  border-radius: 2em;
+  -moz-border-radius: 2em;
+}
+body > .body > .create fieldset { border: none; }
+body > .body > .create legned { font-weight: bold; }
+body > .body > .create .function {
+  text-align: right;
+  margin-right: 1em;
+}
+body > .body > .create .function a {
+  font-size: small;
+  background-color: #905ebc;
+  font-weight: bold;
+  color: #671f9c;
+  padding: 0.3em 0.6em;
+  background-color: #cbacf1;
+  border-radius: 0.7em;
+  -moz-border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
 }
 body > .copyright {
   clear: left;

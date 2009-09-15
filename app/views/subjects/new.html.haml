@@ -1,10 +1,11 @@
 %h1 새로운 주제열기 
-- form_for [@subject.forum, @subject] do |f|
-  = f.error_messages
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title
-    %br
-  %p= f.submit "Create"
-= link_to 'Back', @subject.forum
+.create
+  - form_for [@subject.forum, @subject] do |f|
+    = f.error_messages
+    %fieldset
+      %legned
+        주제
+      = f.text_field :title
+    .function
+      = f.submit "열기"
+      = link_to '뒤로', @subject.forum
