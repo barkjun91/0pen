@@ -1,6 +1,6 @@
 class Revision < ActiveRecord::Base
   belongs_to :post
-  validates_presence_of :body, :message => "의 내용을 채워주시기 바랍니다."
+  validates_presence_of :body
 
   def self.find_revision_by_created_at(created_at)
     created_at = Time.xmlschema(created_at) unless created_at.is_a?(Time)
