@@ -68,9 +68,9 @@ body > .body h2 {
 }
 body > .body > .revision {
   background-color: white;
-  padding: 2em;
+  padding: 1em;
   margin: 0.5em;
-  width: 38em;
+  width: 38.5em;
   border-radius: 1.5em;
   -moz-border-radius: 1.5em;
   -webkit-border-radius: 15px;
@@ -80,7 +80,6 @@ body > .body > .revision {
 }
 body > .body > .revision .errorExplanation {
   background-color: #cbacf1;
-  padding: 5px 12px;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 5px;
@@ -99,10 +98,13 @@ body > .body > .revision .errorExplanation ul {
   color: #671f9c;
 }
 body > .body > .revision fieldset { border: none; }
-body > .body > .revision legend {
+body > .body > .revision .function {
+  text-align: right;
+  width: 37.5em;
+}
+body > .body > .revision a {
+  background-color: #905ebc;
   color: #671f9c;
-  font-weight: bold;
-  font-size: small;
 }
 body > .copyright {
   clear: left;
