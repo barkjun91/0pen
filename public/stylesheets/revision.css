@@ -91,13 +91,13 @@ body > .body > .revision .errorExplanation {
 }
 body > .body > .revision .errorExplanation h2 {
   font-size: small;
-  color: red;
+  color: #671f9c;
   font-weight: bold;
 }
 body > .body > .revision .errorExplanation p { display: none; }
 body > .body > .revision .errorExplanation ul {
   font-size: small;
-  color: #671f9c;
+  color: #905ebc;
 }
 body > .body > .revision fieldset { border: none; }
 body > .body > .revision .function {
