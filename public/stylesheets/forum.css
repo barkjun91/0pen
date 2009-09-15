@@ -4,7 +4,7 @@ body {
   font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
 }
 a {
-  color: #7c1e6a;
+  color: #905ebc;
   text-decoration: none;
 }
 body > h1 {
@@ -20,28 +20,29 @@ body > .services > li {
   display: block;
   float: left;
   width: 5em;
+  height: 1em;
   margin-right: 0.2em;
-  background-color: #7c1e6a;
+  background-color: #905ebc;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 0.5em;
   -moz-border-radius-topright: 0.5em;
+  -o-border-radius-topleft: 0.5px;
   -o-border-radius-topleft: 0.5em;
-  -o-border-radius-topright: 0.5em;
   -khtml-border-radius-topleft: 0.5em;
   -khtml-border-radius-topright: 0.5em;
-  -icap-border-radius-topleft: 0.5em;
+  -icap-border-radius-topleft: 0.5 em;
   -icap-border-radius-topright: 0.5em;
   padding: 0.4em 1em;
   font-size: small;
 }
 body > .services > li.selected {
-  background-color: #5f0c54;
+  background-color: #671f9c;
   font-weight: bold;
 }
-body > .services > li:hover { background-color: #5f0c54; }
+body > .services > li:hover { background-color: #671f9c; }
 body > .services > li > a { color: white; }
 body > .session {
   position: absolute;
@@ -50,6 +51,15 @@ body > .session {
 }
 body > .session fieldset { border: none; }
 body > .session fieldset legend { float: left; }
+body > .copyright {
+  clear: left;
+  background-color: #905ebc;
+  color: white;
+  margin: 0;
+  padding: 1em;
+  font-family: sans-serif;
+  font-size: small;
+}
 body > .body {
   float: left;
   clear: left;
