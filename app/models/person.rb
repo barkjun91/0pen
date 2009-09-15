@@ -2,7 +2,7 @@ require 'sha1'
 require 'md5'
 
 class Person < ActiveRecord::Base
-  PARAM_CODE_TABLE = '@_-.zyxwvutsrqponmlkjihgfedcbaZYX'
+  PARAM_CODE_TABLE = '@_-zyxwvutsrqponmlkjihgfedcbaZYX'
                      'WVUTSRQPONMLKJIHGFEDCBA9876543210'
 
   has_many :posts, :dependent => :destroy, :include => :revisions,

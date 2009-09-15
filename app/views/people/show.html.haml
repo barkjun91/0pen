@@ -1,5 +1,7 @@
 %h1= link_to_email(@person.email)
 
+%p= gravatar_for @person
+  
 %p
   %b Name:
   &= @person.name 

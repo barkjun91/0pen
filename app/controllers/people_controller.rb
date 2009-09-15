@@ -40,6 +40,7 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.xml
   def create
+    params[:person][:url] = nil if params[:person][:url].blank?
     @person = Person.new(params[:person])
     prod = ENV['RAILS_ENV'] == 'production'
 
@@ -59,6 +60,7 @@ class PeopleController < ApplicationController
   # PUT /people/1.xml
   def update
     @person = Person.find_by_param(params[:id])
+    params[:person][:url] = nil if params[:person][:url].blank?
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
