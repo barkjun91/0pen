@@ -1,8 +1,8 @@
-@color1: #5F0C54;
-@color2: #7C1E6A;
-@color3: #A13976;
-@color4: #CC6583;
-@color5: #F0B28B; 
+@color1: #671F9C;
+@color2: #905EBC;
+@color3: #A075C5;
+@color4: #AE9BD3;
+@color5: #CBACF1;
 
 @import url(application.less);
 
@@ -57,14 +57,13 @@ body > .body > .subjects {
         color: @color1; width: 100%; 
         border-collapse: collapse;
         thead { background-color: @color5; }
-        th, td { padding: 0.5em 1em; }
+        th, td { padding: 1em; }
         tbody {
             th { text-align: left; font-weight: normal; paading-left: 0.5em; }
             tr { border-bottom: 1px solid @color3; }
             tr:last-child { border-bottom: none; }
-            td.posts span { .number; } 
+            td.posts span { .number; text-align: center;} 
             td.datetime { text-align: center; }
-            td.page { background-color: @color5; text-align: center; }
         }
     }
     .pager {

@@ -64,7 +64,7 @@ body > .body {
   float: left;
   clear: left;
   min-width: 100%;
-  background-color: #5f0c54;
+  background-color: #671f9c;
   color: white;
 }
 body > .body h1 {
@@ -73,13 +73,13 @@ body > .body h1 {
 }
 body > .body .description {
   font-size: small;
-  color: #a13976;
+  color: #a075c5;
   margin: 1em;
   margin-top: 0;
 }
 .number {
   display: block;
-  background-color: #7c1e6a;
+  background-color: #905ebc;
   color: white;
   font-weight: bolder;
   font-size: small;
@@ -98,7 +98,7 @@ body > .body > .forum {
   width: 30em;
   float: left;
   margin: 1em;
-  color: #5f0c54;
+  color: #671f9c;
   border-radius: 1em;
   -webkit-border-radius: 1px;
   -moz-border-radius: 1em;
@@ -114,18 +114,18 @@ body > .body > .forum h2 {
 body > .body > .forum .description {
   margin: 0;
   padding: 0.5em 0.7em 0.7em 0.7em;
-  color: #5f0c54;
+  color: #671f9c;
 }
 body > .body > .forum table {
   width: 100%;
-  border-top: 1px solid #7c1e6a;
+  border-top: 1px solid #905ebc;
   border-collapse: collapse;
 }
 body > .body > .forum table thead { display: none; }
 body > .body > .forum table th { padding: 0.4em 0.5em; }
 body > .body > .forum table td { padding: 0.4em 0.5em; }
 body > .body > .forum table .title { width: 70%; }
-body > .body > .forum table tbody tr { border-bottom: 1px solid #a13976; }
+body > .body > .forum table tbody tr { border-bottom: 1px solid #a075c5; }
 body > .body > .forum table tbody tr:last-child { border-bottom: none; }
 body > .body > .forum table tbody th {
   text-align: left;
@@ -134,7 +134,7 @@ body > .body > .forum table tbody th {
 }
 body > .body > .forum table td.posts span {
   display: block;
-  background-color: #7c1e6a;
+  background-color: #905ebc;
   color: white;
   font-weight: bolder;
   font-size: small;
@@ -150,7 +150,7 @@ body > .body > .forum table td.posts span {
 }
 body > .body > .forum table td.updated-at { text-align: right; }
 body > .body > .subjects {
-  background-color: #f0b28b;
+  background-color: #cbacf1;
   width: 50em;
   border-radius: 1em;
   -webkit-border-radius: 1px;
@@ -159,31 +159,31 @@ body > .body > .subjects {
   -khtml-border-radius: 1em;
   -icap-border-radius: 1em;
   margin: 1em;
-  color: #5f0c54;
+  color: #671f9c;
   padding-top: 0.9em;
   padding-bottom: 0.9em;
   font-size: small;
 }
 body > .body > .subjects table {
   background-color: white;
-  color: #5f0c54;
+  color: #671f9c;
   width: 100%;
   border-collapse: collapse;
 }
 body > .body > .subjects table .subject { width: 60%; }
-body > .body > .subjects table thead { background-color: #f0b28b; }
-body > .body > .subjects table th { padding: 0.5em 1em; }
-body > .body > .subjects table td { padding: 0.5em 1em; }
+body > .body > .subjects table thead { background-color: #cbacf1; }
+body > .body > .subjects table th { padding: 1em; }
+body > .body > .subjects table td { padding: 1em; }
 body > .body > .subjects table tbody th {
   text-align: left;
   font-weight: normal;
   paading-left: 0.5em;
 }
-body > .body > .subjects table tbody tr { border-bottom: 1px solid #a13976; }
+body > .body > .subjects table tbody tr { border-bottom: 1px solid #a075c5; }
 body > .body > .subjects table tbody tr:last-child { border-bottom: none; }
 body > .body > .subjects table tbody td.posts span {
   display: block;
-  background-color: #7c1e6a;
+  background-color: #905ebc;
   color: white;
   font-weight: bolder;
   font-size: small;
@@ -196,12 +196,9 @@ body > .body > .subjects table tbody td.posts span {
   -icap-border-radius: 100%;
   width: 1.5em;
   text-align: center;
-}
-body > .body > .subjects table tbody td.datetime { text-align: center; }
-body > .body > .subjects table tbody td.page {
-  background-color: #f0b28b;
   text-align: center;
 }
+body > .body > .subjects table tbody td.datetime { text-align: center; }
 body > .body > .subjects .pager {
   margin: 1em 0 0 1em;
   padding: 0;
@@ -211,8 +208,8 @@ body > .body > .subjects .pager li {
   font-size: x-small;
 }
 body > .body > .subjects .pager li.selected {
-  background-color: #5f0c54;
-  color: #f0b28b;
+  background-color: #671f9c;
+  color: #cbacf1;
 }
 body > .body > .subjects .pager li.last:before { content: '\22ef'; }
 body > .body > .subjects .pager li.first:after { content: '\22ef'; }
@@ -221,7 +218,7 @@ body > .body > .subjects .functions {
   margin: 0 0.5em;
 }
 body > .body > .subjects .button {
-  background-color: #7c1e6a;
+  background-color: #905ebc;
   border: 0;
   margin: 0.2em;
   padding: 0.5em 2em;
@@ -238,7 +235,7 @@ body > .body > .subjects .button {
 }
 body > .copyright {
   clear: left;
-  background-color: #7c1e6a;
+  background-color: #905ebc;
   color: white;
   margin: 0;
   padding: 1em;
