@@ -6,6 +6,8 @@
       %legend
         주제
       = f.text_field :title
+      글쓰기
+      %textarea{:id=>"revision_body",:name=>"revision[body]",:cols=>80,:rows=>21}
     .function
       = f.submit "열기"
       = link_to '뒤로', @subject.forum

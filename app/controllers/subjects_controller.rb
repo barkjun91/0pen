@@ -45,12 +45,20 @@ class SubjectsController < ApplicationController
   # POST /subjects.xml
   def create
     @subject = Subject.new(params[:subject])
+    @post = Post.new(:person_id => self.person.id)
+    @revision = Revision.new(params[:revision])
     @subject.forum = Forum.find_by_name(params[:forum_id])
     respond_to do |format|
       if @subject.save
-        flash[:notice] = 'Subject was successfully created.'
-        format.html { redirect_to [@subject.forum, @subject] }
-        format.xml  { render :xml => @subject, :status => :created, :location => @subject }
+        @post.subject_id = @subject.id 
+        if @post.save
+          @revision.post_id = @post.id 
+          if @revision.save
+          flash[:notice] = 'Subject was successfully created.'
+          format.html { redirect_to [@subject.forum, @subject] }
+          format.xml  { render :xml => @subject, :status => :created, :location => @subject }
+          end
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @subject.errors, :status => :unprocessable_entity }
