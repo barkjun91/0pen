@@ -16,7 +16,7 @@
           %th.subject= link_to h(subject), [@forum, subject]
           %td.posts
             %span= subject.posts.size
-          %td.upated-at.datetime&= subject.updated_at && subject.updated_at.strftime('%Y-%m-%d'),subject.posts.last.person.nick
+          %td.upated-at.datetime&= subject.updated_at && subject.updated_at.strftime('%Y-%m-%d'), subject.posts.last.person.nick
   - if @total_pages > 1
     %ul.pager
       - pager(@total_pages, @selected_page) do |flag, page|
@@ -27,4 +27,4 @@
             %a{:href => "?page=#{page}"}= page
   .functions
     - if @person_log 
-      %a.button{:href => new_forum_subject_path(@forum)} 주제 열기
+      %a.button{:href => new_forum_subject_path(@forum)} 글타래 열기
