@@ -140,7 +140,7 @@ body > .copyright {
   font-size: small;
   background-color: #905ebc;
   color: #671f9c;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.7em;
   background-color: #cbacf1;
   border-radius: 0.7em;
   -moz-border-radius: 0.7em;
@@ -148,6 +148,13 @@ body > .copyright {
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+}
+.button:hover { border: 3px solid #671f9c; }
+.button:active {
+  background-color: #671f9c;
+  color: white;
 }
 body > .body > .register {
   color: #671f9c;
@@ -201,7 +208,7 @@ body > .body > .register .function button {
   font-size: small;
   background-color: #905ebc;
   color: #671f9c;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.7em;
   background-color: #cbacf1;
   border-radius: 0.7em;
   -moz-border-radius: 0.7em;
@@ -209,12 +216,19 @@ body > .body > .register .function button {
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+}
+body > .body > .register .function button:hover { border: 3px solid #671f9c; }
+body > .body > .register .function button:active {
+  background-color: #671f9c;
+  color: white;
 }
 body > .body > .register .function a {
   font-size: small;
   background-color: #905ebc;
   color: #671f9c;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.7em;
   background-color: #cbacf1;
   border-radius: 0.7em;
   -moz-border-radius: 0.7em;
@@ -222,4 +236,31 @@ body > .body > .register .function a {
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+}
+body > .body > .register .function a:hover { border: 3px solid #671f9c; }
+body > .body > .register .function a:active {
+  background-color: #671f9c;
+  color: white;
+}
+body > .body > .register .function input[type=submit] {
+  font-size: small;
+  background-color: #905ebc;
+  color: #671f9c;
+  padding: 0.3em 0.7em;
+  background-color: #cbacf1;
+  border-radius: 0.7em;
+  -moz-border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+}
+body > .body > .register .function input[type=submit]:hover { border: 3px solid #671f9c; }
+body > .body > .register .function input[type=submit]:active {
+  background-color: #671f9c;
+  color: white;
 }

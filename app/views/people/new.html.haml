@@ -21,9 +21,9 @@
       = f.label :url, '홈페이지 주소'
       = f.text_field :url 
     %p
-    %fieldset.recaptcha
+    %fieldset.recatcha
       = recaptcha_tags
     .function
-      = f.submit "확인", :class => "button"
+      = f.submit "확인"
       = link_to '취소', people_path
 
