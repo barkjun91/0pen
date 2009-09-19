@@ -180,6 +180,7 @@ body > .body > .register .uer-info {
 }
 body > .body > .register .uer-info label {
   font-size: small;
+  font-weight: bold;
   display: block;
   padding-right: 1em;
   width: 7em;
