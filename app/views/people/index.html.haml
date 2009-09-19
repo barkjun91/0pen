@@ -1,4 +1,3 @@
-%head= stylesheet_link_tag "scaffold" 
 %h1 Listing people
 
 %table
@@ -12,7 +11,8 @@
   %body 
     - for person in @people 
       %tr
-        %td&= person.email
+        %td
+          %a{:href => person_path(person)}= link_to_email(person.email)
         %td&= person.name 
         %td&= person.nick
         %td&= person.url

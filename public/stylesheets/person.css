@@ -1,0 +1,8 @@
+.error-message-box {
+  border: solid 2px #ffcc66;
+  background-color: #ffffcc;
+}
+body > .register > form > .error-msg-box {
+  border: solid 2px #ffcc66;
+  background-color: #ffffcc;
+}

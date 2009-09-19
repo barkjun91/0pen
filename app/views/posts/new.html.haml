@@ -1,7 +1,10 @@
 %h1&= @post.subject.title
 %h2 글쓰기
-- form_for [@post.subject.forum, @post.subject, @post] do |f|
-  = f.error_messages
-  %textarea{:id => "body", :name => "body"}
-  %p= f.submit "Create"
-= link_to 'Back', [@post.subject.forum, @post.subject]
+.posts
+  - form_for [@post.subject.forum, @post.subject, @post] do |f|
+    = f.error_messages
+    %fieldset
+      = f.text_area :body, :cols => 80, :rows => 15
+    .function
+      = f.submit "Create"
+      = link_to 'Back', [@post.subject.forum, @post.subject]

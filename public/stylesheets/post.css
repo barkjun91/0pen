@@ -132,7 +132,7 @@ body > .copyright {
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
 }
-body > .body > .revision {
+body > .body > .posts {
   background-color: white;
   padding: 1em;
   margin: 0.5em;
@@ -144,7 +144,7 @@ body > .body > .revision {
   -khtml-border-radius: 1.5em;
   -icap-border-radius: 1.5em;
 }
-body > .body > .revision .errorExplanation {
+body > .body > .posts .errorExplanation {
   background-color: #cbacf1;
   padding: 0.5em;
   margin: 0 0.5em 0.5em 0.5em;
@@ -155,22 +155,22 @@ body > .body > .revision .errorExplanation {
   -khtml-border-radius: 0.5em;
   -icap-border-radius: 0.5em;
 }
-body > .body > .revision .errorExplanation h2 {
+body > .body > .posts .errorExplanation h2 {
   font-size: small;
   color: #671f9c;
   font-weight: bold;
 }
-body > .body > .revision .errorExplanation p { display: none; }
-body > .body > .revision .errorExplanation ul {
+body > .body > .posts .errorExplanation p { display: none; }
+body > .body > .posts .errorExplanation ul {
   font-size: small;
   color: #905ebc;
 }
-body > .body > .revision fieldset { border: none; }
-body > .body > .revision .function {
+body > .body > .posts fieldset { border: none; }
+body > .body > .posts .function {
   text-align: right;
   width: 37.5em;
 }
-body > .body > .revision a {
+body > .body > .posts a {
   font-size: small;
   background-color: #905ebc;
   color: #671f9c;
