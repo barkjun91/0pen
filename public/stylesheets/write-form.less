@@ -3,6 +3,9 @@
 @color3: #A075C5;
 @color4: #AE9BD3;
 @color5: #CBACF1;
+
+@import url(application.less);
+
 .write-form {
     background-color: white; padding: 1em; margin: 0.5em;
     width: 38.5em;
@@ -31,15 +34,10 @@
     .function{
         text-align: right; width: 37.5em;
     }
-    a{
-        font-size: small; background-color: @color2; 
-        color: @color1; padding: 0.3em 0.5em;
-        background-color: @color5;
-        border-radius : 0.7em;
-        -moz-border-radius: 0.7em;
-        -webkit-border-radius: 8px;
-        -o-border-radius: 0.7em;
-        -khtml-border-radius: 0.7em;
-        -icap-border-radius: 0.7em;
+    input{
+		.submit-button;
     }
+	a{
+		.a-button;
+	}
 }
