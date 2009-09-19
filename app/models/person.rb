@@ -62,19 +62,6 @@ class Person < ActiveRecord::Base
                          end
   end
 
-  def valid_email?
-    validation_key.nil?
-  end
-
-  def validate_email!
-    self.validation_key = nil
-    self
-  end
-
-  def regen_validation_key
-    self.validation_key = SHA1.new("#{Time.now}\n#{email}").to_s
-  end
-
   def to_s
     nick
   end

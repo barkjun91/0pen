@@ -53,6 +53,8 @@ Rails::Initializer.run do |config|
     :secret      => '1653b95f6ef586ceb92b69fcba47be8ef9fd92e63c145e24c90d7260762c15c3e0a774cd0b90e22ffa84873bfd4e4cc49c7c517b6902cf2104b95ed625b5559c'
   }
 
+  config.action_mailer.default_url_options = { :host => '0pen.us' }
+
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090915115102) do
+ActiveRecord::Schema.define(:version => 20090919083502) do
 
   create_table "forums", :force => true do |t|
     t.string "name",        :null => false
@@ -20,14 +20,13 @@ ActiveRecord::Schema.define(:version => 20090915115102) do
   add_index "forums", ["name"], :name => "index_forums_on_name", :unique => true
 
   create_table "people", :force => true do |t|
-    t.string   "email",          :null => false
-    t.string   "password_hash",  :null => false
+    t.string   "email",         :null => false
+    t.string   "password_hash", :null => false
     t.string   "name"
-    t.string   "nick",           :null => false
+    t.string   "nick",          :null => false
     t.string   "url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.text     "validation_key"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
@@ -56,5 +55,13 @@ ActiveRecord::Schema.define(:version => 20090915115102) do
 
   add_index "subjects", ["title"], :name => "index_post_threads_on_subject"
   add_index "subjects", ["forum_id"], :name => "index_post_threads_on_forum_id"
+
+  create_table "validation_tickets", :force => true do |t|
+    t.string   "email",      :null => false
+    t.string   "key",        :null => false
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

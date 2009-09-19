@@ -25,6 +25,7 @@ class PeopleController < ApplicationController
   # GET /people/new.xml
   def new
     @person = Person.new
+    @validation_ticket = ValidationTicket.find_by_key(params[:key])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,19 +42,29 @@ class PeopleController < ApplicationController
   # POST /people.xml
   def create
     prod = ENV['RAILS_ENV'] == 'production'
-    params[:person][:url] = nil if params[:person][:url].blank?
-    @person = Person.new(params[:person])
-    url = %<#{request.protocol}#{request.host}#{request.port ? ":#{request.port}" : ''}/?validation_key=#{@person.regen_validation_key}>
+    validation_ticket = ValidationTicket.find_by_key(params[:key])
 
-    respond_to do |format|
-      if (!prod || verify_recaptcha(@person)) && @person.save
-        EmailValidater.deliver_signup_notification(@person, url)
-        flash[:notice] = 'Person was successfully created.'
-        format.html { redirect_to(@person) }
-        format.xml  { render :xml => @person, :status => :created, :location => @person }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
+    if validation_ticket
+      params[:person][:url] = nil if params[:person][:url].blank?
+      @person = Person.new(params[:person])
+      respond_to do |format|
+        if (!prod || verify_recaptcha(@person)) && @person.save
+          flash[:notice] = '계정이 만들어졌습니다!'
+          format.html { redirect_to(@person) }
+          format.xml  { render :xml => @person, :status => :created,
+                               :location => @person }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @person.errors,
+                               :status => :unprocessable_entity }
+        end
+      end
+    else
+      @validation_ticket = ValidationTicket.new(:email => params[:email])
+      @validation_ticket.deliver
+      respond_to do |format|
+        format.html
+        format.xml  { render :xml => @validation_ticket, :status => :created }
       end
     end
   end
