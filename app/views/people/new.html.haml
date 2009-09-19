@@ -1,29 +1,29 @@
+%h1 아이디 만들기
+
 .register
-  %h1 New Person
-  %p.note Require fields are marked with an asterisk(*)
   - form_for(@person) do |f| 
     -if not f.error_messages
       .error-message-box
         =f.error_messages
-    %fieldset
-      %legend User Detail
-      %dl
-        %dt= f.label :email, 'Email *'
-        %dd= f.text_field :email
+    %fieldset.uer-info
+      = f.label :email, '이메일'
+      = f.text_field :email
+      %p
+      = f.label :password, '비밀번호' 
+      = f.password_field :password, :value => '' 
+      %p
+      = f.label :name, '이름'
+      = f.text_field :name 
+      %p
+      = f.label :nick, '닉네임' 
+      = f.text_field :nick 
+      %p
+      = f.label :url, '홈페이지 주소'
+      = f.text_field :url 
+    %p
+    %fieldset.recaptcha
+      = recaptcha_tags
+    .function
+      = f.submit "확인", :class => "button"
+      = link_to '취소', people_path
 
-        %dt= f.label :password, 'password *' 
-        %dd= f.password_field :password, :value => '' 
-
-        %dt= f.label :name 
-        %dd= f.text_field :name 
-
-        %dt= f.label :nick, 'nickname *' 
-        %dd= f.text_field :nick 
-
-        %dt= f.label :url 
-        %dd= f.text_field :url 
-
-        %dt reCAPTCHA *
-        %dd= recaptcha_tags
-    = f.submit "Create" 
-  = link_to 'Back', people_path 
