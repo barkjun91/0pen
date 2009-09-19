@@ -46,9 +46,11 @@ class PeopleController < ApplicationController
 
     if validation_ticket
       params[:person][:url] = nil if params[:person][:url].blank?
+      params[:person][:email] = validation_ticket.email 
       @person = Person.new(params[:person])
       respond_to do |format|
         if (!prod || verify_recaptcha(@person)) && @person.save
+          validation_ticket.destroy
           flash[:notice] = '계정이 만들어졌습니다!'
           format.html { redirect_to(@person) }
           format.xml  { render :xml => @person, :status => :created,
@@ -60,7 +62,8 @@ class PeopleController < ApplicationController
         end
       end
     else
-      @validation_ticket = ValidationTicket.new(:email => params[:email])
+      @validation_ticket = ValidationTicket.find_by_email(params[:email]) ||
+                           ValidationTicket.new(:email => params[:email])
       @validation_ticket.deliver
       respond_to do |format|
         format.html

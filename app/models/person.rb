@@ -10,7 +10,6 @@ class Person < ActiveRecord::Base
                    :order => "max(revisions.created_at) desc"
 
   validates_uniqueness_of :email
-  validates_uniqueness_of :validation_key
   validates_presence_of :email
   validates_presence_of :password
   validates_presence_of :nick

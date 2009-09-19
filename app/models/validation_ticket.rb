@@ -1,13 +1,10 @@
 require 'sha1'
 
 class ValidationTicket < ActiveRecord::Base
-  has_one :person
-
   validates_presence_of :key
   validates_presence_of :email
   validates_uniqueness_of :key
   validates_uniqueness_of :email
-  validates_uniqueness_of :person_id, :allow_nil => true
   validates_format_of :email,
                       :with => /^\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z$/i
 
@@ -17,7 +14,8 @@ class ValidationTicket < ActiveRecord::Base
   end
 
   def deliver
-    Notification.deliver_validation_ticket(regen_key)
+    regen_key.save! unless self.key
+    Notification.deliver_validation_ticket(self)
     self
   end
 end
