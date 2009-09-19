@@ -1,3 +1,23 @@
+.button {
+  font-size: small;
+  background-color: #905ebc;
+  color: #671f9c;
+  padding: 0.3em 0.7em;
+  background-color: #cbacf1;
+  border-radius: 0.7em;
+  -moz-border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+}
+.button:hover { border: 3px solid #671f9c; }
+.button:active {
+  background-color: #671f9c;
+  color: white;
+}
 body {
   padding: 0;
   margin: 0;
@@ -154,7 +174,7 @@ body > .body > .forum table td.posts span {
 }
 body > .body > .forum table td.updated-at { text-align: right; }
 body > .body > .subjects {
-  background-color: #cbacf1;
+  background-color: #8d5dde;
   width: 50em;
   border-radius: 1em;
   -webkit-border-radius: 1px;
@@ -175,7 +195,10 @@ body > .body > .subjects table {
   border-collapse: collapse;
 }
 body > .body > .subjects table .subject { width: 60%; }
-body > .body > .subjects table thead { background-color: #cbacf1; }
+body > .body > .subjects table thead {
+  background-color: #8d5dde;
+  color: white;
+}
 body > .body > .subjects table th { padding: 1em; }
 body > .body > .subjects table td { padding: 1em; }
 body > .body > .subjects table tbody th {
@@ -209,7 +232,7 @@ body > .body > .subjects .pager {
 }
 body > .body > .subjects .pager li {
   display: inline;
-  font-size: x-small;
+  font-size: small;
 }
 body > .body > .subjects .pager li.selected {
   background-color: #671f9c;
@@ -222,20 +245,24 @@ body > .body > .subjects .functions {
   margin: 0 0.5em;
 }
 body > .body > .subjects .button {
-  background-color: #905ebc;
-  border: 0;
-  margin: 0.2em;
-  padding: 0.5em 2em;
-  border-radius: 10px 9px;
-  -webkit-border-radius: 10px 9px;
-  -moz-border-raius: 10px 9px;
-  -o-border-radius: 10px 9px;
-  -khtml-border-radius: 10px 9px;
-  -icap-border-radius: 10px 9px;
-  color: white;
-  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   font-size: small;
-  font-weight: bold;
+  background-color: #905ebc;
+  color: #671f9c;
+  padding: 0.3em 0.7em;
+  background-color: #cbacf1;
+  border-radius: 0.7em;
+  -moz-border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+}
+body > .body > .subjects .button:hover { border: 3px solid #671f9c; }
+body > .body > .subjects .button:active {
+  background-color: #671f9c;
+  color: white;
 }
 body > .copyright {
   clear: left;
