@@ -2,12 +2,12 @@
 @import url(error.less);
 
 .box-form{
-	color: @color1; padding: 2em; margin: 1em; background-color: white; 
+	color: @color1; background-color: white; 
     border-radius: 1em; -webkit-border-radius: 1px; -moz-border-radius: 1em;
     -o-border-radius: 1em; -khtml-border-radius: 1em; -icap-border-radius:1em;
 }
 body > .body > .register {
-    .box-form; width: 16em;
+    width: 16em; color: @color5;
 	form > .error-msg-box {
 	}
 
@@ -16,13 +16,15 @@ body > .body > .register {
         label{
             font-weight: bold;
         }
-        input[type=text]{
-            width: 20em;
+        input[type=text], input[type=password]{
+            width: 20em; .box-form;
+            padding: 1em; margin-bottom: 2em;
+            border: none;  
         }
 	}
 	
 	.functions{
-		margin-top: 1em; text-align: right; padding-right:0.3333335em;
+		margin: 1em -0.2em; text-align: right; padding-right:0.3333335em;
 	    input[type=submit]{
             .submit-form;
 		}
@@ -34,5 +36,6 @@ body > .body > .register {
 
 body > .body > .email-send {
     .box-form; font-size: small; width: 20em;
+    padding: 2em; margin: 1em;
 }
 
