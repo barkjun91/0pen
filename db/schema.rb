@@ -57,11 +57,8 @@ ActiveRecord::Schema.define(:version => 20090919083502) do
   add_index "subjects", ["forum_id"], :name => "index_post_threads_on_forum_id"
 
   create_table "validation_tickets", :force => true do |t|
-    t.string   "email",      :null => false
-    t.string   "key",        :null => false
-    t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "email", :null => false
+    t.string "key",   :null => false
   end
 
 end
