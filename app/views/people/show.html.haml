@@ -32,7 +32,7 @@
     %tbody
       - for post in @person.posts
         %tr
-          %td= markdown(post.body)
+          /%td= markdown(post.body)
           %td= post.updated_at
           %td= link_to(post.forum, post.forum)
           %th= link_to(post.subject,forum_subject_path(post.forum,post.subject))

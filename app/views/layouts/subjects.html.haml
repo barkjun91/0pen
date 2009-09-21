@@ -19,6 +19,12 @@
         %a(href="#pastes") 코드 조각
       %li
         %a(href="#irc") IRC
+      - if controller.person
+        %li
+          %a= link_to '내 정보', person_path(controller.person)
+      - else
+        %li
+          %a= link_to '회원 가입', people_path+"/new"
     - if controller.person
       - form_tag({:controller => :session}, :method => :delete, :class => "logout session") do
         %fieldset

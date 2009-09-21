@@ -1,12 +1,10 @@
 .button {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
+  font-size: 0.8em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
@@ -15,6 +13,45 @@
 }
 .button:hover { border: 3px solid #671f9c; }
 .button:active {
+  background-color: #671f9c;
+  color: white;
+}
+.a-form {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  padding: 2.5px 1em;
+}
+.a-form:hover { border: 3px solid #671f9c; }
+.a-form:active {
+  background-color: #671f9c;
+  color: white;
+}
+.submit-form {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
+}
+.submit-form:hover { border: 3px solid #671f9c; }
+.submit-form:active {
   background-color: #671f9c;
   color: white;
 }
@@ -245,14 +282,12 @@ body > .body > .subjects .functions {
   margin: 0 0.5em;
 }
 body > .body > .subjects .button {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
+  font-size: 0.8em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
