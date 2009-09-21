@@ -408,3 +408,15 @@ body > .body > .posts a:active {
   background-color: #671f9c;
   color: white;
 }
+body > .body > .posts .output {
+  border: solid 7px #671f9c;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  -icap-border-radius: 0.5em;
+  color: #000000;
+  padding-top: 0.8em;
+  padding-left: 0.3em;
+}
