@@ -1,12 +1,10 @@
 .button {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
+  font-size: 0.8em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
@@ -15,6 +13,45 @@
 }
 .button:hover { border: 3px solid #671f9c; }
 .button:active {
+  background-color: #671f9c;
+  color: white;
+}
+.a-form {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  padding: 2.5px 1em;
+}
+.a-form:hover { border: 3px solid #671f9c; }
+.a-form:active {
+  background-color: #671f9c;
+  color: white;
+}
+.submit-form {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
+}
+.submit-form:hover { border: 3px solid #671f9c; }
+.submit-form:active {
   background-color: #671f9c;
   color: white;
 }
@@ -105,162 +142,105 @@ body > .copyright {
   border: solid 2px #ffcc66;
   background-color: #ffffcc;
 }
-.write-form {
+.box-form {
+  color: #671f9c;
   background-color: white;
-  padding: 1em;
-  margin: 0.5em;
-  width: 38.5em;
-  border-radius: 1.5em;
-  -moz-border-radius: 1.5em;
-  -webkit-border-radius: 15px;
-  -o-border-radius: 1.5em;
-  -khtml-border-radius: 1.5em;
-  -icap-border-radius: 1.5em;
-}
-.write-form .errorExplanation {
-  background-color: #cbacf1;
-  padding: 0.5em;
-  margin: 0 0.5em 0.5em 0.5em;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 0.5em;
-  -khtml-border-radius: 0.5em;
-  -icap-border-radius: 0.5em;
-}
-.write-form .errorExplanation h2 {
-  font-size: small;
-  color: #671f9c;
-  font-weight: bold;
-}
-.write-form .errorExplanation p { display: none; }
-.write-form .errorExplanation ul {
-  font-size: small;
-  color: #905ebc;
-}
-.write-form fieldset { border: none; }
-.write-form .function {
-  text-align: right;
-  width: 37.5em;
-}
-.write-form a {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.5em;
-  background-color: #cbacf1;
-  border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
-  -webkit-border-radius: 8px;
-  -o-border-radius: 0.7em;
-  -khtml-border-radius: 0.7em;
-  -icap-border-radius: 0.7em;
+  border-radius: 1em;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
 }
 body > .body > .register {
+  width: 16em;
+  color: #cbacf1;
+}
+body > .body > .register fieldset { border: none; }
+body > .body > .register fieldset label { font-weight: bold; }
+body > .body > .register fieldset input[type=text] {
+  width: 20em;
   color: #671f9c;
+  background-color: white;
+  border-radius: 1em;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+}
+body > .body > .register fieldset input[type=password] {
+  width: 20em;
+  color: #671f9c;
+  background-color: white;
+  border-radius: 1em;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+}
+body > .body > .register .functions {
+  margin: 1em -0.2em;
+  text-align: right;
+  padding-right: 0.3333335em;
+}
+body > .body > .register .functions input[type=submit] {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
+}
+body > .body > .register .functions input[type=submit]:hover { border: 3px solid #671f9c; }
+body > .body > .register .functions input[type=submit]:active {
+  background-color: #671f9c;
+  color: white;
+}
+body > .body > .register .functions a {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  padding: 2.5px 1em;
+}
+body > .body > .register .functions a:hover { border: 3px solid #671f9c; }
+body > .body > .register .functions a:active {
+  background-color: #671f9c;
+  color: white;
+}
+body > .body > .email-send {
+  color: #671f9c;
+  background-color: white;
+  border-radius: 1em;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
+  font-size: small;
+  width: 20em;
   padding: 2em;
   margin: 1em;
-  width: 25em;
-  background-color: white;
-  float: left;
-  border-radius: 1em;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1em;
-  -o-border-radius: 1em;
-  -khtml-border-radius: 1em;
-  -icap-border-radius: 1em;
-}
-body > .body > .register form > .error-msg-box {
-  border: solid 2px #ffcc66;
-  background-color: #ffffcc;
-}
-body > .body > .register .uer-info {
-  border: none;
-  background-color: #cbacf1;
-  padding: 2em;
-  border-radius: 1em;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1em;
-  -o-border-radius: 1em;
-  -khtml-border-radius: 1em;
-  -icap-border-radius: 1em;
-}
-body > .body > .register .uer-info label {
-  font-size: small;
-  font-weight: bold;
-  display: block;
-  padding-right: 1em;
-  width: 7em;
-  float: left;
-  text-align: right;
-  position: relative;
-}
-body > .body > .register .recaptcha {
-  border: none;
-  padding-left: 2.5em;
-}
-body > .body > .register .function {
-  margin-top: 1em;
-  text-align: right;
-}
-body > .body > .register .function input { border: none; }
-body > .body > .register .function button {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
-  background-color: #cbacf1;
-  border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
-  -webkit-border-radius: 8px;
-  -o-border-radius: 0.7em;
-  -khtml-border-radius: 0.7em;
-  -icap-border-radius: 0.7em;
-  cursor: pointer;
-  border: 3px solid #cbacf1;
-}
-body > .body > .register .function button:hover { border: 3px solid #671f9c; }
-body > .body > .register .function button:active {
-  background-color: #671f9c;
-  color: white;
-}
-body > .body > .register .function a {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
-  background-color: #cbacf1;
-  border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
-  -webkit-border-radius: 8px;
-  -o-border-radius: 0.7em;
-  -khtml-border-radius: 0.7em;
-  -icap-border-radius: 0.7em;
-  cursor: pointer;
-  border: 3px solid #cbacf1;
-}
-body > .body > .register .function a:hover { border: 3px solid #671f9c; }
-body > .body > .register .function a:active {
-  background-color: #671f9c;
-  color: white;
-}
-body > .body > .register .function input[type=submit] {
-  font-size: small;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
-  background-color: #cbacf1;
-  border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
-  -webkit-border-radius: 8px;
-  -o-border-radius: 0.7em;
-  -khtml-border-radius: 0.7em;
-  -icap-border-radius: 0.7em;
-  cursor: pointer;
-  border: 3px solid #cbacf1;
-}
-body > .body > .register .function input[type=submit]:hover { border: 3px solid #671f9c; }
-body > .body > .register .function input[type=submit]:active {
-  background-color: #671f9c;
-  color: white;
 }

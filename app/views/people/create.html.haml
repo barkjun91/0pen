@@ -1,3 +1,5 @@
 %h1 계정 생성 메일이 전송되었습니다. 메일을 확인해보세요!
-%p #{h @validation_ticket.email}로 전송되었습니다.
-
+%p
+  .email-send
+    #{h @validation_ticket.email}(으)로
+    %br 전송되었습니다.

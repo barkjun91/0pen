@@ -17,16 +17,16 @@
         = f.label :url, '홈페이지 주소'
         = f.text_field :url 
         = hidden_field_tag 'key', @validation_ticket.key
-      %fieldset.recatcha
+      %fieldset
         = recaptcha_tags
-      .function
+      .functions
         = f.submit "확인"
   - else
     - form_tag(people_path) do
       %fieldset
         = label_tag 'email', '이메일'
         = text_field_tag 'email'
-        .function
+        .functions
           = submit_tag '계정 만들기'
           = link_to '취소', people_path
 
