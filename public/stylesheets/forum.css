@@ -61,7 +61,7 @@ body {
   font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
 }
 a {
-  color: #905ebc;
+  color: #671f9c;
   text-decoration: none;
 }
 body > h1 {
@@ -155,11 +155,12 @@ body > .copyright {
   text-align: center;
 }
 body > .body > .forum {
-  background-color: white;
+  background-color: #905ebc;
   width: 30em;
-  float: left;
+  height: 15em;
   margin: 1em;
   color: #671f9c;
+  float: left;
   border-radius: 1em;
   -webkit-border-radius: 1px;
   -moz-border-radius: 1em;
@@ -175,12 +176,13 @@ body > .body > .forum h2 {
 body > .body > .forum .description {
   margin: 0;
   padding: 0.5em 0.7em 0.7em 0.7em;
-  color: #671f9c;
+  color: #cbacf1;
 }
 body > .body > .forum table {
   width: 100%;
   border-top: 1px solid #905ebc;
   border-collapse: collapse;
+  background-color: white;
 }
 body > .body > .forum table thead { display: none; }
 body > .body > .forum table th { padding: 0.4em 0.5em; }
