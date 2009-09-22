@@ -5,8 +5,9 @@
 @color5: #CBACF1;
 
 .button{
-    font-size: 0.8em; background-color: @color5;
-    color: @color1;  
+    background-color: @color5; 
+    font-weight: bold; color: @color1; border: 0;
+    font-size: small; font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
     border-radius : 0.7em;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 0.7em;
@@ -18,8 +19,8 @@
 	:hover { border: 3px solid @color1; }
 	:active { background-color: @color1; color: white; }
 }
-.a-form { .button; padding: 2.5px 0.7em; }
-.submit-form { .button; height:2em; padding-bottom:1px }
+.a-form { .button; padding: 2.5px 1.5em; }
+.submit-form { .button; height:2.1em; padding: 0 1.3em 3px 1.3em;}
 
 body { padding: 0; margin: 0;
        font-family: 'NanumGothic', 'Malgun Gothic', sans-serif; }

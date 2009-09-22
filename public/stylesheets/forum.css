@@ -1,7 +1,10 @@
 .button {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -17,9 +20,12 @@
   color: white;
 }
 .a-form {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -28,7 +34,7 @@
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  padding: 2.5px 1em;
+  padding: 2.5px 1.5em;
 }
 .a-form:hover { border: 3px solid #671f9c; }
 .a-form:active {
@@ -36,9 +42,12 @@
   color: white;
 }
 .submit-form {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -47,8 +56,8 @@
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  height: 2em;
-  padding-bottom: 1px;
+  height: 2.1em;
+  padding: 0 1.3em 3px 1.3em;
 }
 .submit-form:hover { border: 3px solid #671f9c; }
 .submit-form:active {
@@ -284,9 +293,12 @@ body > .body > .subjects .functions {
   margin: 0 0.5em;
 }
 body > .body > .subjects .button {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -295,6 +307,7 @@ body > .body > .subjects .button {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  padding: 2.5px 1.5em;
 }
 body > .body > .subjects .button:hover { border: 3px solid #671f9c; }
 body > .body > .subjects .button:active {

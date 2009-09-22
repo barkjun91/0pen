@@ -1,7 +1,10 @@
 .button {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -17,9 +20,12 @@
   color: white;
 }
 .a-form {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -28,7 +34,7 @@
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  padding: 2.5px 0.7em;
+  padding: 2.5px 1.5em;
 }
 .a-form:hover { border: 3px solid #671f9c; }
 .a-form:active {
@@ -36,9 +42,12 @@
   color: white;
 }
 .submit-form {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -47,8 +56,8 @@
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  height: 2em;
-  padding-bottom: 1px;
+  height: 2.1em;
+  padding: 0 1.3em 3px 1.3em;
 }
 .submit-form:hover { border: 3px solid #671f9c; }
 .submit-form:active {
@@ -139,9 +148,12 @@ body > .copyright {
   font-size: small;
 }
 .button {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -157,9 +169,12 @@ body > .copyright {
   color: white;
 }
 .a-form {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -168,7 +183,7 @@ body > .copyright {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  padding: 2.5px 0.7em;
+  padding: 2.5px 1.5em;
 }
 .a-form:hover { border: 3px solid #671f9c; }
 .a-form:active {
@@ -176,9 +191,12 @@ body > .copyright {
   color: white;
 }
 .submit-form {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -187,8 +205,8 @@ body > .copyright {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  height: 2em;
-  padding-bottom: 1px;
+  height: 2.1em;
+  padding: 0 1.3em 3px 1.3em;
 }
 .submit-form:hover { border: 3px solid #671f9c; }
 .submit-form:active {
@@ -322,9 +340,12 @@ body > .copyright {
   width: 33em;
 }
 .write-form .function input[type=submit] {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -333,8 +354,8 @@ body > .copyright {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  height: 2em;
-  padding-bottom: 1px;
+  height: 2.1em;
+  padding: 0 1.3em 3px 1.3em;
 }
 .write-form .function input[type=submit]:hover { border: 3px solid #671f9c; }
 .write-form .function input[type=submit]:active {
@@ -342,9 +363,12 @@ body > .copyright {
   color: white;
 }
 .write-form .function a {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -353,7 +377,7 @@ body > .copyright {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  padding: 2.5px 0.7em;
+  padding: 2.5px 1.5em;
 }
 .write-form .function a:hover { border: 3px solid #671f9c; }
 .write-form .function a:active {
@@ -418,9 +442,12 @@ body > .body > .posts .function {
   width: 33em;
 }
 body > .body > .posts .function input[type=submit] {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -429,8 +456,8 @@ body > .body > .posts .function input[type=submit] {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  height: 2em;
-  padding-bottom: 1px;
+  height: 2.1em;
+  padding: 0 1.3em 3px 1.3em;
 }
 body > .body > .posts .function input[type=submit]:hover { border: 3px solid #671f9c; }
 body > .body > .posts .function input[type=submit]:active {
@@ -438,9 +465,12 @@ body > .body > .posts .function input[type=submit]:active {
   color: white;
 }
 body > .body > .posts .function a {
-  font-size: 0.8em;
   background-color: #cbacf1;
+  font-weight: bold;
   color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
   border-radius: 0.7em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 0.7em;
@@ -449,7 +479,7 @@ body > .body > .posts .function a {
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
-  padding: 2.5px 0.7em;
+  padding: 2.5px 1.5em;
 }
 body > .body > .posts .function a:hover { border: 3px solid #671f9c; }
 body > .body > .posts .function a:active {
