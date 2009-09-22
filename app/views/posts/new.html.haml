@@ -9,8 +9,8 @@
       %select#converter-selector
         %option(value="preview") Preview
         %option(value="HTML output") HTML output
-      = f.submit "Create"
-      = link_to 'Back', [@post.subject.forum, @post.subject]
-      
-  .output
-    %h2 미리보기 
+      = f.submit "작성"
+      = link_to '뒤로', [@post.subject.forum, @post.subject]
+    %fieldset    
+    .output
+      %h2 미리보기 

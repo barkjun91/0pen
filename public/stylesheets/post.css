@@ -1,42 +1,57 @@
-.a-button {
-  font-family: sans-serif;
+.button {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
 }
-.a-button:hover { border: 3px solid #671f9c; }
-.a-button:active {
+.button:hover { border: 3px solid #671f9c; }
+.button:active {
   background-color: #671f9c;
   color: white;
 }
-.submit-button {
-  font-family: sans-serif;
+.a-form {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.22em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  padding: 2.5px 0.7em;
 }
-.submit-button:hover { border: 3px solid #671f9c; }
-.submit-button:active {
+.a-form:hover { border: 3px solid #671f9c; }
+.a-form:active {
+  background-color: #671f9c;
+  color: white;
+}
+.submit-form {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
+}
+.submit-form:hover { border: 3px solid #671f9c; }
+.submit-form:active {
   background-color: #671f9c;
   color: white;
 }
@@ -46,7 +61,7 @@ body {
   font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
 }
 a {
-  color: #905ebc;
+  color: #671f9c;
   text-decoration: none;
 }
 body > h1 {
@@ -123,45 +138,60 @@ body > .copyright {
   font-family: sans-serif;
   font-size: small;
 }
-.a-button {
-  font-family: sans-serif;
+.button {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
 }
-.a-button:hover { border: 3px solid #671f9c; }
-.a-button:active {
+.button:hover { border: 3px solid #671f9c; }
+.button:active {
   background-color: #671f9c;
   color: white;
 }
-.submit-button {
-  font-family: sans-serif;
+.a-form {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.22em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  padding: 2.5px 0.7em;
 }
-.submit-button:hover { border: 3px solid #671f9c; }
-.submit-button:active {
+.a-form:hover { border: 3px solid #671f9c; }
+.a-form:active {
+  background-color: #671f9c;
+  color: white;
+}
+.submit-form {
+  font-size: 0.8em;
+  background-color: #cbacf1;
+  color: #671f9c;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
+}
+.submit-form:hover { border: 3px solid #671f9c; }
+.submit-form:active {
   background-color: #671f9c;
   color: white;
 }
@@ -171,7 +201,7 @@ body {
   font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
 }
 a {
-  color: #905ebc;
+  color: #671f9c;
   text-decoration: none;
 }
 body > h1 {
@@ -252,7 +282,7 @@ body > .copyright {
   background-color: white;
   padding: 1em;
   margin: 0.5em;
-  width: 38.5em;
+  width: 34em;
   border-radius: 1.5em;
   -moz-border-radius: 1.5em;
   -webkit-border-radius: 15px;
@@ -282,57 +312,73 @@ body > .copyright {
   color: #905ebc;
 }
 .write-form fieldset { border: none; }
+.write-form fieldset textarea {
+  font-size: 12px;
+  resize: none;
+  width: 43em;
+}
 .write-form .function {
   text-align: right;
-  width: 37.5em;
+  width: 33em;
 }
-.write-form input {
-  font-family: sans-serif;
+.write-form .function input[type=submit] {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.22em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
 }
-.write-form input:hover { border: 3px solid #671f9c; }
-.write-form input:active {
+.write-form .function input[type=submit]:hover { border: 3px solid #671f9c; }
+.write-form .function input[type=submit]:active {
   background-color: #671f9c;
   color: white;
 }
-.write-form a {
-  font-family: sans-serif;
+.write-form .function a {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  padding: 2.5px 0.7em;
 }
-.write-form a:hover { border: 3px solid #671f9c; }
-.write-form a:active {
+.write-form .function a:hover { border: 3px solid #671f9c; }
+.write-form .function a:active {
   background-color: #671f9c;
   color: white;
+}
+.write-form .output {
+  background-color: #cbacf1;
+  padding: 1em;
+  width: 32em;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  -icap-border-radius: 0.5em;
+  color: #000000;
+  padding-top: 0.8em;
+  padding-left: 0.3em;
 }
 body > .body > .posts {
   background-color: white;
   padding: 1em;
   margin: 0.5em;
-  width: 38.5em;
+  width: 34em;
   border-radius: 1.5em;
   -moz-border-radius: 1.5em;
   -webkit-border-radius: 15px;
@@ -362,54 +408,58 @@ body > .body > .posts .errorExplanation ul {
   color: #905ebc;
 }
 body > .body > .posts fieldset { border: none; }
+body > .body > .posts fieldset textarea {
+  font-size: 12px;
+  resize: none;
+  width: 43em;
+}
 body > .body > .posts .function {
   text-align: right;
-  width: 37.5em;
+  width: 33em;
 }
-body > .body > .posts input {
-  font-family: sans-serif;
+body > .body > .posts .function input[type=submit] {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.22em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  height: 2em;
+  padding-bottom: 1px;
 }
-body > .body > .posts input:hover { border: 3px solid #671f9c; }
-body > .body > .posts input:active {
+body > .body > .posts .function input[type=submit]:hover { border: 3px solid #671f9c; }
+body > .body > .posts .function input[type=submit]:active {
   background-color: #671f9c;
   color: white;
 }
-body > .body > .posts a {
-  font-family: sans-serif;
+body > .body > .posts .function a {
   font-size: 0.8em;
-  background-color: #905ebc;
-  color: #671f9c;
-  padding: 0.3em 0.7em;
   background-color: #cbacf1;
+  color: #671f9c;
   border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
   -o-border-radius: 0.7em;
   -khtml-border-radius: 0.7em;
   -icap-border-radius: 0.7em;
   cursor: pointer;
   border: 3px solid #cbacf1;
+  padding: 2.5px 0.7em;
 }
-body > .body > .posts a:hover { border: 3px solid #671f9c; }
-body > .body > .posts a:active {
+body > .body > .posts .function a:hover { border: 3px solid #671f9c; }
+body > .body > .posts .function a:active {
   background-color: #671f9c;
   color: white;
 }
 body > .body > .posts .output {
-  border: solid 7px #671f9c;
+  background-color: #cbacf1;
+  padding: 1em;
+  width: 32em;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 10px;

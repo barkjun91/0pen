@@ -8,7 +8,7 @@
 
 .write-form {
     background-color: white; padding: 1em; margin: 0.5em;
-    width: 38.5em;
+    width: 34em;
     border-radius : 1.5em;
     -moz-border-radius: 1.5em;
     -webkit-border-radius: 15px;
@@ -30,14 +30,26 @@
     }
     fieldset{
         border: none;
+        textarea{
+            font-size: 12px; resize: none; width: 43em;
+        }
     }
     .function{
-        text-align: right; width: 37.5em;
+        text-align: right; width: 33em;
+        input[type=submit]{ .submit-form; }
+        a{ .a-form; }
     }
-    input{
-		.submit-button;
+    .output{ 
+        background-color: @color5; padding: 1em;
+        width: 32em; 
+        border-radius : 0.5em;
+        -moz-border-radius: 0.5em;
+        -webkit-border-radius: 10px;
+        -o-border-radius: 0.5em;
+        -khtml-border-radius: 0.5em;
+        -icap-border-radius: 0.5em;
+        color: #000000;
+        padding-top: 0.8em;
+        padding-left: 0.3em;
     }
-	a{
-		.a-button;
-	}
 }
