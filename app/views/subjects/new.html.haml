@@ -11,5 +11,11 @@
         글쓰기
       %textarea{:id=>"revision_body",:name=>"revision[body]",:cols=>80,:rows=>21}
     .function
-      = f.submit "열기"
-      = link_to '뒤로', @subject.forum
+      %select#converter-selector
+        %option(value="preview") Preview
+        %option(value="HTML output") HTML output
+      = f.submit "작성"
+      = link_to '뒤로', @subject.forum 
+    %fieldset    
+      .output
+        %h2 미리보기 

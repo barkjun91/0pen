@@ -7,5 +7,11 @@
     %fieldset
       = f.text_area :body, :cols=>80, :rows=>15, :value => @revision.post.body
     .function
+      %select#converter-selector
+        %option(value="preview") Preview
+        %option(value="HTML output") HTML output
       = f.submit "수정" 
       =link_to '뒤로', [@revision.forum, @revision.subject]
+    %fieldset    
+      .output
+        %h2 미리보기 
