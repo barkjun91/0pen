@@ -4,7 +4,8 @@
   - form_for [@post.subject.forum, @post.subject, @post] do |f|
     = f.error_messages
     %fieldset
-      = f.text_area :body, :cols => 80, :rows => 15
+      %textarea{:id=>"revision_body",:name=>"revision[body]",:cols=>80,:rows=>21}
+ 
     .function
       %select#converter-selector
         %option(value="preview") Preview

@@ -44,8 +44,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @rev = Revision.new
-    @rev.body = params[:body]
+    @rev = Revision.new(params[:revision])
     @post = Post.new(params[:post])
     @post.subject_id = params[:subject_id]
     @post.person_id = self.person.id

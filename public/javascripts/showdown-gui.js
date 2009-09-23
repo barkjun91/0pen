@@ -3,7 +3,7 @@ var preview;
 var converter = new Showdown.converter();
 var converterSelector,text;
 $("document").ready(function(){
-  input = $("#post_body");
+  input = $("#revision_body");
   output = $(".output");
   converterSelector = "preview"
   $("#converter-selector option").each(function(){
