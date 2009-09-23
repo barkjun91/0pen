@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
   def self.find_by_param(param)
     point = 1
     id = 0
-    for c in param.reverse
+    for c in param.reverse.split('')
       id += PARAM_CODE_TABLE.index(c) * point
       point *= PARAM_CODE_TABLE.size
     end
