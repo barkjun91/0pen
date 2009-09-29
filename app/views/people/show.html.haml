@@ -1,25 +1,16 @@
 %h1= link_to_email(@person.email)
+.info
+  %fieldset
+    = gravatar_for @person
+    = label :Name, '이름'
+    = @person.name
+    = label :Nick, '닉네임'
+    = @person.nick     
+    = label :URL, 'URL'
+    = @person.url 
+    = label :Created, '가입일'
+    = @person.created_at.strftime('%Y년 %m월 %d일')
 
-%p= gravatar_for @person
-  
-%p
-  %b Name:
-  &= @person.name 
-
-
-%p
-  %b Nick:
-  &= @person.nick 
-
-
-%p
-  %b Url:
-  &= @person.url 
-
-
-%p
-  %b Created at:
-  &= @person.created_at 
 
 - unless @person.posts.count.zero?
   %table.posts
