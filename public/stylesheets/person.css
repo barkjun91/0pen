@@ -271,6 +271,7 @@ body > .body > .info {
   width: 30em;
   padding: 1em;
   font-size: small;
+  float: left;
 }
 body > .body > .info fieldset {
   text-align: right;
@@ -288,4 +289,64 @@ body > .body > .info fieldset label {
   padding-right: 10px;
   width: 150px;
   text-align: right;
+}
+body > .body > .info fieldset a {
+  background-color: #cbacf1;
+  font-weight: bold;
+  color: #671f9c;
+  border: 0;
+  font-size: small;
+  font-family: 'NanumGothic', 'Malgun Gothic', sans-serif;
+  border-radius: 0.7em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.7em;
+  -o-border-radius: 0.7em;
+  -khtml-border-radius: 0.7em;
+  -icap-border-radius: 0.7em;
+  cursor: pointer;
+  border: 3px solid #cbacf1;
+  padding: 2.5px 1.5em;
+}
+body > .body > .info fieldset a:hover { border: 3px solid #671f9c; }
+body > .body > .info fieldset a:active {
+  background-color: #671f9c;
+  color: white;
+}
+body > .body > .post {
+  color: #671f9c;
+  width: 35em;
+  padding: 1em 0 2em 0;
+  color: #671f9c;
+  background-color: white;
+  border-radius: 1em;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1em;
+  -o-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  -icap-border-radius: 1em;
+  background-color: #a075c5;
+  float: left;
+}
+body > .body > .post table {
+  border-collapse: collapse;
+  width: 100%;
+}
+body > .body > .post table thead { display: none; }
+body > .body > .post table a {
+  display: block;
+  color: #671f9c;
+  text-align: left;
+}
+body > .body > .post table .post-head {
+  background-color: #a075c5;
+  height: 2.5em;
+}
+body > .body > .post table .subject-title {
+  padding-left: 1em;
+  width: 80%;
+}
+body > .body > .post table .forum-title { font-size: small; }
+body > .body > .post table .post-body {
+  font-size: small;
+  background-color: white;
 }

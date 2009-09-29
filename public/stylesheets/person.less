@@ -41,6 +41,7 @@ body > .body > .email-send {
 
 body > .body > .info {
     .box-form; width: 30em; padding: 1em; font-size: small;
+    float:left;
     fieldset{
         text-align: right;
         .gravatar{
@@ -52,6 +53,20 @@ body > .body > .info {
             margin-right: 10px; padding-right: 10px;
             width: 150px; text-align: right;
         }
+        a{ .a-form; }
     }
 }
-
+body > .body > .post {
+    color: @color1; width: 35em; padding: 1em 0 2em 0;
+    .box-form; background-color: @color3;
+    float: left;
+    table{
+        border-collapse: collapse; width: 100%;
+        thead{ display: none; }
+        a{ display: block; color: @color1; text-align: left;}
+        .post-head{ background-color: @color3; height: 2.5em;}
+        .subject-title{ padding-left: 1em; width: 80%;}
+        .forum-title{ font-size: small;}
+        .post-body{ font-size: small; background-color: white;}
+    }
+}

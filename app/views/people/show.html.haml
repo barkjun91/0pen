@@ -10,22 +10,31 @@
     = @person.url 
     = label :Created, '가입일'
     = @person.created_at.strftime('%Y년 %m월 %d일')
+    %p
+    = link_to '정보 수정', edit_person_path(@person)
 
-
-- unless @person.posts.count.zero?
-  %table.posts
-    %thead
-      %tr
-        %th 내용
-        %th 날짜
-        %th 포럼
-        %th 글타래
-    %tbody
-      - for post in @person.posts
+.post
+  - unless @person.posts.count.zero?
+    %table.posts
+      %thead
         %tr
-          /%td= markdown(post.body)
-          %td= post.updated_at
-          %td= link_to(post.forum, post.forum)
-          %th= link_to(post.subject,forum_subject_path(post.forum,post.subject))
-#{link_to 'Edit', edit_person_path(@person)}|
-= link_to 'Back', people_path 
+          %th 내용
+          %th 날짜
+          %th 포럼
+          %th 글타래
+      
+      %tbody
+        - for post in @person.posts
+          %tr.post-head
+            %th.subject-title
+              =link_to(post.subject,forum_subject_path(post.forum,post.subject))
+            %td.forum-title
+              = link_to(post.forum, post.forum)
+          %tr.post-body
+            %td.body
+            /%td= markdown(post.body)
+            %td= post.updated_at.strftime('%Y/%m/%d')
+
+            
+
+/= link_to 'Back', people_path 
