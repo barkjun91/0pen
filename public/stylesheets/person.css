@@ -271,7 +271,7 @@ body > .body > .info {
   width: 30em;
   padding: 1em;
   font-size: small;
-  float: left;
+  margin: 1em;
 }
 body > .body > .info fieldset {
   text-align: right;
@@ -313,9 +313,10 @@ body > .body > .info fieldset a:active {
   color: white;
 }
 body > .body > .post {
+  margin: 1em;
   color: #671f9c;
-  width: 35em;
   padding: 1em 0 2em 0;
+  width: 34em;
   color: #671f9c;
   background-color: white;
   border-radius: 1em;
@@ -325,7 +326,6 @@ body > .body > .post {
   -khtml-border-radius: 1em;
   -icap-border-radius: 1em;
   background-color: #a075c5;
-  float: left;
 }
 body > .body > .post table {
   border-collapse: collapse;
@@ -340,13 +340,17 @@ body > .body > .post table a {
 body > .body > .post table .post-head {
   background-color: #a075c5;
   height: 2.5em;
+  padding: 0.5em;
 }
-body > .body > .post table .subject-title {
-  padding-left: 1em;
-  width: 80%;
-}
+body > .body > .post table .post-head .forums { font-size: small; }
 body > .body > .post table .forum-title { font-size: small; }
 body > .body > .post table .post-body {
   font-size: small;
   background-color: white;
 }
+body > .body > .post table .post-body .date {
+  padding: 0.5em 1em;
+  color: #905ebc;
+  text-align: right;
+}
+body > .body > .post table .post-body .body { padding: 1em; }
