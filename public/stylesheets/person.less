@@ -63,7 +63,6 @@ body > .body > .post {
     table{
         border-collapse: collapse; width: 100%;
         thead{ display: none; }
-        a{ display: block; color: @color1; text-align: left;}
         .post-head{ 
             background-color: @color3; 
             height: 2.5em; padding: 0.5em;
@@ -71,6 +70,8 @@ body > .body > .post {
                 font-size: small;
             }
         }
+        tbody tr:first-child { padding-top: 0; }
+        a{ display: block; color: @color1; text-align: left;}
         .forum-title{ font-size: small;}
         .post-body{ 
             font-size: small; background-color: white;             

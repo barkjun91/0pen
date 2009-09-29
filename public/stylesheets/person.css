@@ -332,17 +332,18 @@ body > .body > .post table {
   width: 100%;
 }
 body > .body > .post table thead { display: none; }
-body > .body > .post table a {
-  display: block;
-  color: #671f9c;
-  text-align: left;
-}
 body > .body > .post table .post-head {
   background-color: #a075c5;
   height: 2.5em;
   padding: 0.5em;
 }
 body > .body > .post table .post-head .forums { font-size: small; }
+body > .body > .post table tbody tr:first-child { padding-top: 0; }
+body > .body > .post table a {
+  display: block;
+  color: #671f9c;
+  text-align: left;
+}
 body > .body > .post table .forum-title { font-size: small; }
 body > .body > .post table .post-body {
   font-size: small;
