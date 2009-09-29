@@ -23,11 +23,12 @@ class ForumsController < ApplicationController
                   :offset => (@selected_page - 1) * SUBJECTS_PER_PAGE,
                   :limit => SUBJECTS_PER_PAGE
                 )
-
+    @posts = @forum.posts.find(:all, :limit => SUBJECTS_PER_PAGE)
     @person_log = self.person
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @forum }
+      format.atom
     end
   end
 

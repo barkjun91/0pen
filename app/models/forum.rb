@@ -12,6 +12,15 @@ class Forum < ActiveRecord::Base
                         ) desc
                       }
 
+  has_many :posts, :through => :subjects,
+                   :order => %{
+                     (
+                       select min(created_at)
+                       from revisions
+                       where post_id = posts.id
+                     ) desc
+                   }
+
 	validates_uniqueness_of :name
   validates_presence_of :name
   validates_length_of :name, :in => 3..50
@@ -28,4 +37,5 @@ class Forum < ActiveRecord::Base
   def to_param
     name
   end
+
 end
