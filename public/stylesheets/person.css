@@ -178,7 +178,7 @@ body > .body > .register fieldset input[type=text] {
   -khtml-border-radius: 1em;
   -icap-border-radius: 1em;
   padding: 1em;
-  margin-bottom: 2em;
+  margin: 1em;
   border: none;
 }
 body > .body > .register fieldset input[type=password] {
@@ -192,8 +192,12 @@ body > .body > .register fieldset input[type=password] {
   -khtml-border-radius: 1em;
   -icap-border-radius: 1em;
   padding: 1em;
-  margin-bottom: 2em;
+  margin: 1em;
   border: none;
+}
+body > .body > .register .email {
+  color: white;
+  margin: 0.5em 0 2em 1em;
 }
 body > .body > .register .functions {
   margin: 1em -0.2em;

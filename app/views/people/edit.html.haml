@@ -6,7 +6,7 @@
       .error-message-box = f.error_messages
     %fieldset
       = f.label :email, '이메일'
-      = f.text_field :email
+      .email= @person.email
       = f.label :password, '비밀번호'
       = f.password_field :password, :value => ''
       = f.label :name, '이름'
