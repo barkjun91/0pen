@@ -268,10 +268,11 @@ body > .body > .info {
   -o-border-radius: 1em;
   -khtml-border-radius: 1em;
   -icap-border-radius: 1em;
-  width: 30em;
+  width: 33em;
   padding: 1em;
   font-size: small;
   margin: 1em;
+  margin-bottom: 0;
 }
 body > .body > .info fieldset {
   text-align: right;
@@ -281,16 +282,18 @@ body > .body > .info fieldset .gravatar {
   float: left;
   padding: 1em;
   padding-top: 3em;
+  width: 8em;
+  height: 8em;
 }
 body > .body > .info fieldset label {
   display: block;
   font-weight: bold;
   margin-right: 10px;
   padding-right: 10px;
-  width: 150px;
+  width: 15em;
   text-align: right;
 }
-body > .body > .info fieldset a {
+body > .body > .info fieldset .functions a {
   background-color: #cbacf1;
   font-weight: bold;
   color: #671f9c;
@@ -307,16 +310,17 @@ body > .body > .info fieldset a {
   border: 3px solid #cbacf1;
   padding: 2.5px 1.5em;
 }
-body > .body > .info fieldset a:hover { border: 3px solid #671f9c; }
-body > .body > .info fieldset a:active {
+body > .body > .info fieldset .functions a:hover { border: 3px solid #671f9c; }
+body > .body > .info fieldset .functions a:active {
   background-color: #671f9c;
   color: white;
 }
 body > .body > .post {
-  margin: 1em;
+  margin: 1.35em;
+  margin-top: 0;
   color: #671f9c;
-  padding: 1em 0 2em 0;
-  width: 34em;
+  padding: 0 0 2em 0;
+  width: 27.2em;
   color: #671f9c;
   background-color: white;
   border-radius: 1em;
@@ -326,6 +330,18 @@ body > .body > .post {
   -khtml-border-radius: 1em;
   -icap-border-radius: 1em;
   background-color: #a075c5;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  -o-border-radius-topleft: 0;
+  -o-border-radius-topleft: 0;
+  -khtml-border-radius-topleft: 0;
+  -khtml-border-radius-topright: 0;
+  -icap-border-radius-topleft: 0;
+  -icap-border-radius-topright: 0;
 }
 body > .body > .post table {
   border-collapse: collapse;

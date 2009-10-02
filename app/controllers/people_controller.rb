@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  POSTS_PER_PAGE = 3
+
   # GET /people
   # GET /people.xml
   def index
@@ -14,7 +16,13 @@ class PeopleController < ApplicationController
   # GET /people/1.xml
   def show
     @person = Person.find_by_param(params[:id])
-
+    @total_pages = @person.posts.size / POSTS_PER_PAGE
+    @selected_page = [[1, params[:page].to_i].max, @total_pages].min
+    @posts = @person.posts.find(
+      :all,
+      :offset => (@selected_page - 1) * POSTS_PER_PAGE,
+      :limit => POSTS_PER_PAGE
+    )
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @person }

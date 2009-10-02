@@ -40,26 +40,42 @@ body > .body > .email-send {
 }
 
 body > .body > .info {
-    .box-form; width: 30em; padding: 1em; font-size: small;
-    margin: 1em;
+    .box-form; width: 33em; padding: 1em; font-size: small;
+    margin: 1em; margin-bottom: 0;
     fieldset{
         text-align: right;
         .gravatar{
-        float: left; padding: 1em; padding-top: 3em;
+            float: left; padding: 1em; padding-top: 3em;
+            width: 8em; height: 8em;
         }
         border: none;
         label{
             display:block;  font-weight: bold;
             margin-right: 10px; padding-right: 10px;
-            width: 150px; text-align: right;
+            width: 15em; text-align: right;
         }
-        a{ .a-form; }
+        .functions{
+            a{ .a-form; }
+        }
     }
 }
 body > .body > .post {
-    margin: 1em;
-    color: @color1; padding: 1em 0 2em 0; width: 34em;
+    margin: 1.35em; margin-top:0;
+    color: @color1; padding: 0 0 2em 0; width: 27.2em;
     .box-form; background-color: @color3;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    -o-border-radius-topleft: 0;
+    -o-border-radius-topleft: 0;
+    -khtml-border-radius-topleft: 0;
+    -khtml-border-radius-topright: 0;
+    -icap-border-radius-topleft: 0;
+    -icap-border-radius-topright: 0;
+
     table{
         border-collapse: collapse; width: 100%;
         thead{ display: none; }
