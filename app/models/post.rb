@@ -29,4 +29,13 @@ class Post < ActiveRecord::Base
   def author?(p)
     p && person.id == p.id  
   end
+  
+  def self.find_order_by_created_at(val = {})
+    Post.find(:all, :order => %{
+                                 ( select min(created_at)
+                                   from revisions
+                                   where post_id == posts.id
+                                 ) desc
+                                }, :limit => val[:limit])
+  end
 end

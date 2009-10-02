@@ -13,10 +13,12 @@ class SubjectsController < ApplicationController
   # GET /subjects/1.xml
   def show
     @subject = Subject.find(params[:id])
+    @posts = @subject.posts.find_order_by_created_at(:limit => 30)
     @person_log = self.person or false
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @subject }
+      format.atom
     end
   end
 
