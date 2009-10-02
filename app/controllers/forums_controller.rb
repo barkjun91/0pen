@@ -5,7 +5,7 @@ class ForumsController < ApplicationController
   # GET /forums.xml
   def index
     @forums = Forum.find(:all)
-    @posts=@subject.posts.find_order_by_created_at(:limit => SUBJECTS_PER_PAGE)
+    @posts=Posts.find_order_by_created_at(:limit => SUBJECTS_PER_PAGE)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @forums }
