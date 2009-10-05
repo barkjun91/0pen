@@ -1,10 +1,13 @@
-.post
+%h2&= @post.person.nick + "의 수정 내역"
+
+.revisions
   - for post in @post.revisions.find(:all, :order => "created_at DESC")
     .body
       = markdown(post.body)
-    %p.created-at  
-      &= post.created_at.strftime('작성일 : %m-%d-%Y, %l:%M %p')
+      .created-at  
+        &= post.created_at.strftime('작성일 : %m-%d-%Y, %l:%M %p')
 
-  = link_to '수정', new_forum_subject_post_revision_path(@post.forum, @post.subject, @post)
+/ = link_to '수정', new_forum_subject_post_revision_path(@post.forum, @post.subject, @post)
+.functions
   = link_to '글타래로', [@post.forum, @post.subject]
 

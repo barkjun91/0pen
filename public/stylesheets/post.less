@@ -1,11 +1,31 @@
 @import url(application.less);
 @import url(write-form.less);
 
-@color1: #671F9C;
-@color2: #905EBC;
-@color3: #A075C5;
-@color4: #AE9BD3;
-@color5: #CBACF1;
+@color1: #0E3F05;
+@color2: #58A248;
+@color3: #A5DE7F;
+@color4: #C1EDA0;
+@color5: #DEF2C9;
+
+.functions{
+    margin: 1em; clear:left; text-align:right; width: 34em; 
+    a{ .a-form; }
+}
+
 body > .body > .posts{
     .write-form;
-} 
+}
+
+body > .body > .revisions{
+    .body{
+        background-color: white; width: 40em;
+        margin: 1em; color: @color1; padding: 1em;
+        border-radius: 1em; -webkit-border-radius: 1px; -moz-border-radius: 1em;
+        -o-border-radius: 1em; -khtml-border-radius: 1em;
+        -icap-border-radius:1em; font-size: small;
+        .created-at{
+            text-align:right; color: @color2;
+        }
+    }
+}
+

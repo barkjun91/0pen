@@ -1,6 +1,6 @@
 @import url(application.less);
 
-.number { display: block; background-color: @color2; color: white;
+.number { display: block; background-color: @color1; color: white;
           font-weight: bolder; font-size: small;
           font-family: Tahoma, sans-serif;
           border-radius: 100%;
@@ -10,9 +10,10 @@
           -khtml-border-radius: 100%;
           -icap-border-radius: 100%;
           width: 1.5em; text-align: center; }
+
 body > .body > .forum {
     background-color: @color2; width: 30em; height: 15em;
-    margin: 1em; color: @color1; float: left;
+    margin: 1em; color: white; float: left;
     border-radius: 1em; -webkit-border-radius: 1px; -moz-border-radius: 1em;
     -o-border-radius: 1em; -khtml-border-radius: 1em; -icap-border-radius:1em;
     font-size: small;
@@ -20,14 +21,14 @@ body > .body > .forum {
         margin: 0.5em 0.5em 0 0.5em;
         font-size: large;
     }
-    .description { margin: 0; padding: 0.5em 0.7em 0.7em 0.7em; color: @color5;}
+    .description { margin: 0; padding: 0.5em 0.7em 0.7em 0.7em; color: white;}
     table {
         width: 100%; border-top: 1px solid @color2;
         border-collapse: collapse; background-color: white;
         thead { display: none; }
         th, td { padding: 0.4em 0.5em; }
         .title { width: 70%; }
-        tbody tr { border-bottom: 1px solid @color3; }
+        tbody tr { border-bottom: 1px solid @color5; }
         tbody tr:last-child { border-bottom: none; }
         tbody th { text-align: left; font-weight: normal; padding-left: 0.5em; }
         td.posts span { .number; }
@@ -35,17 +36,17 @@ body > .body > .forum {
     }
 }
 body > .body > .subjects {
-    background-color: @color4; width: 50em;
+    background-color: @color2; width: 50em;
     border-radius: 1em; -webkit-border-radius: 1px; -moz-border-radius: 1em;
     -o-border-radius: 1em; -khtml-border-radius: 1em; -icap-border-radius:1em;
-    margin: 1em; color: @color1; padding-top: 0.9em; padding-bottom: 0.9em;
+    margin: 1em; padding-top: 0.9em; padding-bottom: 0.9em;
     font-size: small;
     table{
         background-color: white;
         .subject { width: 60%; }
         color: @color1; width: 100%; 
         border-collapse: collapse;
-        thead { background-color: @color4; color: white;}
+        thead { background-color: @color2; color: white;}
         th, td { padding: 1em; }
         tbody {
             th { text-align: left; font-weight: normal; paading-left: 0.5em; }
@@ -69,6 +70,3 @@ body > .body > .subjects {
 		.a-form;
     }
 }
-body > .copyright { clear: left;
-                    background-color: @color2; color: white; margin: 0;
-                    padding: 1em; font-family: sans-serif; font-size: small; }
