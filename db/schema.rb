@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090919083502) do
+ActiveRecord::Schema.define(:version => 20091006114342) do
 
   create_table "forums", :force => true do |t|
     t.string "name",        :null => false
@@ -20,13 +20,14 @@ ActiveRecord::Schema.define(:version => 20090919083502) do
   add_index "forums", ["name"], :name => "index_forums_on_name", :unique => true
 
   create_table "people", :force => true do |t|
-    t.string   "email",         :null => false
-    t.string   "password_hash", :null => false
+    t.string   "email",                             :null => false
+    t.string   "password_hash",                     :null => false
     t.string   "name"
-    t.string   "nick",          :null => false
+    t.string   "nick",                              :null => false
     t.string   "url"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "roles",         :default => "'\n'", :null => false
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true

@@ -61,6 +61,16 @@ class Person < ActiveRecord::Base
                          end
   end
 
+  # 역할들을 가져온다.
+  def roles
+    read_attribute(:roles).split.map(&:to_sym)
+  end
+
+  # 역할을 지정한다.
+  def roles=(roles)
+    write_attribute(:roles, %{\n#{roles.join("\n")}\n})
+  end
+
   def to_s
     nick
   end
