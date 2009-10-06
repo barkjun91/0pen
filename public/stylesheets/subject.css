@@ -396,6 +396,7 @@ body > .copyright {
 .write-form .output p {
   background-color: white;
   margin: 0 1em;
+  padding: 0.3em 1em;
 }
 body > .body > .subject .setBorder_body {
   background-color: white;
@@ -417,19 +418,17 @@ body > .body > .subject .info {
   margin: 0.5em;
   width: 10em;
 }
-body > .body > .subject .avata {
+body > .body > .subject .info .avata {
   margin: 0.5em;
   text-align: center;
 }
-body > .body > .subject .nick {
+body > .body > .subject .info .nick {
   color: #0e3f05;
-  margin: 0 0.5em 0 0.5em;
   font-size: small;
   font-weight: bold;
 }
-body > .body > .subject .name {
+body > .body > .subject .info .name {
   color: #58a248;
-  margin: 0 0.5em 0 0.5em;
   font-size: small;
 }
 body > .body > .subject .item {
@@ -592,4 +591,5 @@ body > .body > .create .output h2 { color: #0e3f05; }
 body > .body > .create .output p {
   background-color: white;
   margin: 0 1em;
+  padding: 0.3em 1em;
 }

@@ -396,6 +396,7 @@ body > .copyright {
 .write-form .output p {
   background-color: white;
   margin: 0 1em;
+  padding: 0.3em 1em;
 }
 .functions {
   margin: 1em;
@@ -531,8 +532,9 @@ body > .body > .posts .output h2 { color: #0e3f05; }
 body > .body > .posts .output p {
   background-color: white;
   margin: 0 1em;
+  padding: 0.3em 1em;
 }
-body > .body > .revisions .body {
+body > .body > .revisions .revision {
   background-color: white;
   width: 40em;
   margin: 1em;
@@ -546,7 +548,7 @@ body > .body > .revisions .body {
   -icap-border-radius: 1em;
   font-size: small;
 }
-body > .body > .revisions .body .created-at {
+body > .body > .revisions .revision .created-at {
   text-align: right;
   color: #58a248;
 }

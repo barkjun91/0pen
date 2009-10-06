@@ -1,3 +1,5 @@
+require 'uri'
+
 class RevisionsController < ApplicationController
   # GET /revisions
   # GET /revisions.xml
@@ -17,10 +19,10 @@ class RevisionsController < ApplicationController
   # GET /revisions/1.xml
   def show
     @revision = Revision.find_revision_by_created_at(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @revision }
-    end
+    redirect_to [
+      url_for([@revision.forum, @revision.subject, @revision.post]),
+      '#', @revision.created_at.xmlschema
+    ].join
   end
 
   # GET /revisions/new
