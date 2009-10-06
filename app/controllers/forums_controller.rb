@@ -1,5 +1,5 @@
 class ForumsController < ApplicationController
-  SUBJECTS_PER_PAGE = 30
+  SUBJECTS_PER_PAGE = 15.0
 
   # GET /forums
   # GET /forums.xml
@@ -17,7 +17,7 @@ class ForumsController < ApplicationController
   # GET /forums/1.xml
   def show
     @forum = Forum.find_by_name(params[:id])
-    @total_pages = @forum.subjects.size / SUBJECTS_PER_PAGE
+    @total_pages = (@forum.subjects.size / SUBJECTS_PER_PAGE).ceil
     @selected_page = [[1, params[:page].to_i].max, @total_pages].min
     @subjects = @forum.subjects.find(
                   :all,
