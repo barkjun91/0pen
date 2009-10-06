@@ -34,7 +34,7 @@ class Post < ActiveRecord::Base
     Post.find(:all, :order => %{
                                  ( select min(created_at)
                                    from revisions
-                                   where post_id == posts.id
+                                   where post_id = posts.id
                                  ) desc
                                 }, :limit => val[:limit])
   end
