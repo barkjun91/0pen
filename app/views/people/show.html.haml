@@ -26,7 +26,7 @@
           %th 포럼
           %th 글타래
       %tbody
-        - for post in @person.posts
+        - for post in @posts
           %tr
             %th.post-head
               =link_to(post.subject,forum_subject_path(post.forum,post.subject))
@@ -42,7 +42,7 @@
         - else
           %li{:class => flag.is_a?(String) ? flag : ''}
             %a{:href => "?page=#{page}"}= page
-            
+         
             
 
 /= link_to 'Back', people_path 

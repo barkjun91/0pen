@@ -372,3 +372,17 @@ body > .body > .post table .post-body .date {
   text-align: right;
 }
 body > .body > .post table .post-body .body { padding: 1em; }
+body > .body > .post .pager {
+  margin: 1em 0 -1em 1em;
+  padding: 0;
+}
+body > .body > .post .pager li {
+  display: inline;
+  font-size: small;
+}
+body > .body > .post .pager li.selected {
+  background-color: #0e3f05;
+  color: #def2c9;
+}
+body > .body > .post .pager li.last:before { content: '\22ef'; }
+body > .body > .post .pager li.first:after { content: '\22ef'; }

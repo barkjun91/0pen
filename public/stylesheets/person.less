@@ -102,5 +102,12 @@ body > .body > .post {
             .body{ padding: 1em; }
         }
     }
+    .pager {
+        margin: 1em 0 -1em 1em; padding: 0;
+        li { display: inline; font-size: small;}
+        li.selected { background-color: @color1; color: @color5; }
+        li.last:before { content: '\22ef'; }
+        li.first:after { content: '\22ef'; }
+    }
 }
 
