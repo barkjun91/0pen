@@ -30,13 +30,9 @@ class RevisionsController < ApplicationController
   def new
     @revision = Revision.new(:post_id => params[:post_id])
 
-    if self.person && @revision.post.person == self.person
-      respond_to do |format|
-        format.html # new.html.erb
-        format.xml  { render :xml => @revision }
-      end
-    else
-      redirect_to [@revision.forum, @revision.subject, @revision.post]
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @revision }
     end
   end
 
@@ -48,14 +44,16 @@ class RevisionsController < ApplicationController
   # POST /revisions
   # POST /revisions.xml
   def create
+    
     @revision = Revision.new(params[:revision])
     @revision.post = Post.find(params[:post_id])
     respond_to do |format|
-      if @revision.save
+      if self.person == @revision.post.person && @revision.save
         flash[:notice] = 'Revision was successfully created.'
         format.html { redirect_to [@revision.forum, @revision.subject, @revision.post, @revision]  }
         format.xml  { render :xml => @revision, :status => :created, :location => @revision }
       else
+        flash[:notice] = "로그인이 필요하거나, 글쓴이가 아닙니다"
         format.html { render :action => "new" }
         format.xml  { render :xml => @revision.errors, :status => :unprocessable_entity }
       end
