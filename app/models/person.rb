@@ -9,6 +9,12 @@ class Person < ActiveRecord::Base
                    :group => "posts.id, posts.subject_id, posts.person_id",
                    :order => "max(revisions.created_at) desc"
 
+  named_scope :with_role, lambda { |*roles|
+    roles = [roles].delete_if(&:nil?).flatten!.map! {|role| "%\n#{role}\n%" }
+    roles.unshift((['roles like ?'] * roles.size).join(' and '))
+    { :conditions => roles }
+  }
+
   validates_uniqueness_of :email
   validates_presence_of :email
   validates_presence_of :password
@@ -69,6 +75,11 @@ class Person < ActiveRecord::Base
   # 역할을 지정한다.
   def roles=(roles)
     write_attribute(:roles, %{\n#{roles.join("\n")}\n})
+  end
+
+  # 관리자면 true
+  def admin?
+    roles.include?(:admin)
   end
 
   def to_s

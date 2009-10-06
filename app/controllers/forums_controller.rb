@@ -56,6 +56,11 @@ class ForumsController < ApplicationController
   # POST /forums
   # POST /forums.xml
   def create
+    unless self.person && self.person.admin?
+      redirect_to '/' 
+      return
+    end
+
     @forum = Forum.new(params[:forum])
 
     respond_to do |format|
