@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  POSTS_PER_PAGE = 3
+  POSTS_PER_PAGE = 3.0
 
   # GET /people
   # GET /people.xml
@@ -16,7 +16,7 @@ class PeopleController < ApplicationController
   # GET /people/1.xml
   def show
     @person = Person.find_by_param(params[:id])
-    @total_pages = @person.posts.size / POSTS_PER_PAGE
+    @total_pages = (@person.posts.size / POSTS_PER_PAGE).ceil
     @selected_page = [[1, params[:page].to_i].max, @total_pages].min
     @posts = @person.posts.find(
       :all,
