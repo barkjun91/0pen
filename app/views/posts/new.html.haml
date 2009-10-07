@@ -4,8 +4,7 @@
   - form_for [@post.subject.forum, @post.subject, @post] do |f|
     = f.error_messages
     %fieldset
-      %textarea{:id=>"revision_body",:name=>"revision[body]",:cols=>80,:rows=>21}
- 
+      %textarea{:id=>"revision_body",:name=>"revision[body]",:cols=>80,:rows=>21}&= blackquote(@quote)
     .function
       %select#converter-selector
         %option(value="preview") Preview

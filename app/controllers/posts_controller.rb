@@ -26,6 +26,11 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new(:subject_id => params[:subject_id])
+    @quote = begin
+               Post.find(params[:quote]).revisions.first.body
+             rescue
+              ''
+             end
     if self.person
       respond_to do |format|
         format.html # new.html.erb

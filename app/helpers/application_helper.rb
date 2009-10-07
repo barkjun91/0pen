@@ -51,4 +51,14 @@ module ApplicationHelper
     end
     yield("last", length) if [selection, to].max + 1 < length
   end
+
+  def blackquote(text)
+    return '' if text.empty?
+    blackquote_post = ''
+    texts = text.split("\n")
+    for text in texts
+      blackquote_post += %{> #{text}\n}
+    end
+    blackquote_post
+  end
 end
