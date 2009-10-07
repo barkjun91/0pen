@@ -85,8 +85,8 @@ body > .services {
 body > .services > li {
   display: block;
   float: left;
-  width: 5em;
-  height: 1em;
+  width: 7em;
+  height: 1.7em;
   margin-right: 0.2em;
   background-color: #58a248;
   border-top-left-radius: 0.5em;
@@ -101,12 +101,17 @@ body > .services > li {
   -khtml-border-radius-topright: 0.5em;
   -icap-border-radius-topleft: 0.5 em;
   -icap-border-radius-topright: 0.5em;
-  padding: 0.4em 1em;
   font-size: small;
 }
 body > .services > li.selected { background-color: #0e3f05; }
 body > .services > li:hover { background-color: #0e3f05; }
-body > .services > li > a { color: white; }
+body > .services > li > a {
+  color: white;
+  display: block;
+  width: 5em;
+  height: 1.1em;
+  padding: 0.3em 1em;
+}
 body > .session {
   position: absolute;
   right: 0;
@@ -231,8 +236,8 @@ body > .services {
 body > .services > li {
   display: block;
   float: left;
-  width: 5em;
-  height: 1em;
+  width: 7em;
+  height: 1.7em;
   margin-right: 0.2em;
   background-color: #58a248;
   border-top-left-radius: 0.5em;
@@ -247,12 +252,17 @@ body > .services > li {
   -khtml-border-radius-topright: 0.5em;
   -icap-border-radius-topleft: 0.5 em;
   -icap-border-radius-topright: 0.5em;
-  padding: 0.4em 1em;
   font-size: small;
 }
 body > .services > li.selected { background-color: #0e3f05; }
 body > .services > li:hover { background-color: #0e3f05; }
-body > .services > li > a { color: white; }
+body > .services > li > a {
+  color: white;
+  display: block;
+  width: 5em;
+  height: 1.1em;
+  padding: 0.3em 1em;
+}
 body > .session {
   position: absolute;
   right: 0;
@@ -396,6 +406,7 @@ body > .copyright {
 .write-form .output p {
   background-color: white;
   margin: 0 1em;
+  padding: 0.3em 1em;
 }
 body > .body > .revision {
   background-color: white;
@@ -503,4 +514,5 @@ body > .body > .revision .output h2 { color: #0e3f05; }
 body > .body > .revision .output p {
   background-color: white;
   margin: 0 1em;
+  padding: 0.3em 1em;
 }
