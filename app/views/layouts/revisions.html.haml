@@ -21,10 +21,10 @@
         %a(href="irc://irc.ozinger.org:8080/levdev%2B0pen") IRC
       - if controller.person
         %li
-          %a= link_to '내 정보', person_path(controller.person)
+          = link_to '내 정보', person_path(controller.person)
       - else
         %li
-          %a= link_to '회원 가입', people_path+"/new"
+          = link_to '회원 가입', people_path+"/new"
     - if controller.person
       - form_tag({:controller => :session}, :method => :delete, :class => "logout session") do
         %fieldset
