@@ -2,8 +2,12 @@ require 'openssl'
 require 'base64'
 
 module ApplicationHelper
+  MARKDOWN_FORMAT = ::Pandoku::Formats::Markdown.new(:smart => true)
+  HTML_FORMAT = ::Pandoku::Formats::HTML.new(:parse_raw => true,
+                                             :email_obfuscation => :javascript)
+
   def markdown(text)
-    text.blank? ? "" : Maruku.new(text).to_html
+    text.blank? ? '' : MARKDOWN_FORMAT.parse(text).compile(HTML_FORMAT)
   end
 
   def url_to_email(email)
