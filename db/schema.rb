@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091006114342) do
+ActiveRecord::Schema.define(:version => 20091012064055) do
 
   create_table "forums", :force => true do |t|
     t.string "name",        :null => false
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20091006114342) do
   add_index "posts", ["subject_id"], :name => "index_posts_on_thread_id"
 
   create_table "revisions", :force => true do |t|
-    t.integer  "post_id",    :null => false
-    t.string   "body",       :null => false
-    t.datetime "created_at", :null => false
+    t.integer  "post_id",                   :null => false
+    t.text     "body",       :limit => 255, :null => false
+    t.datetime "created_at",                :null => false
   end
 
   add_index "revisions", ["created_at"], :name => "index_revisions_on_created_at"
