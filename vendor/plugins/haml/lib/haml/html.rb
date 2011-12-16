@@ -175,7 +175,7 @@ module Haml
       end
 
       private
-      
+
       def dynamic_attributes
         @dynamic_attributes ||= begin
           Haml::Util.map_hash(attributes) do |name, value|
@@ -202,15 +202,15 @@ module Haml
       def static_attribute?(name, options)
         attributes[name] and !dynamic_attribute?(name, options)
       end
-      
+
       def dynamic_attribute?(name, options)
         options[:rhtml] and dynamic_attributes.key?(name)
       end
-      
+
       def static_id?(options)
         static_attribute?('id', options)
       end
-      
+
       def static_classname?(options)
         static_attribute?('class', options)
       end

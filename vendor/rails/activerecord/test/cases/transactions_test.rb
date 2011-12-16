@@ -187,12 +187,12 @@ class TransactionTest < ActiveRecord::TestCase
     #
     # We go back to the connection for the column queries because
     # Topic.columns is cached and won't report changes to the DB
-    
+
     assert_nothing_raised do
       Topic.reset_column_information
       Topic.connection.add_column('topics', 'stuff', :string)
       assert Topic.column_names.include?('stuff')
-      
+
       Topic.reset_column_information
       Topic.connection.remove_column('topics', 'stuff')
       assert !Topic.column_names.include?('stuff')

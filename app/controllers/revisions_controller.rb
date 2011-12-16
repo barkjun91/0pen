@@ -44,7 +44,7 @@ class RevisionsController < ApplicationController
   # POST /revisions
   # POST /revisions.xml
   def create
-    
+
     @revision = Revision.new(params[:revision])
     @revision.post = Post.find(params[:post_id])
     respond_to do |format|

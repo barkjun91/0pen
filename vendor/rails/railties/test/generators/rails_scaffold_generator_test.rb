@@ -1,7 +1,7 @@
 require 'generators/generator_test_helper'
 
 class RailsScaffoldGeneratorTest < GeneratorTestCase
-  
+
   def test_scaffolded_names
     g = Rails::Generator::Base.instance('scaffold', %w(ProductLine))
     assert_equal "ProductLines", g.controller_name

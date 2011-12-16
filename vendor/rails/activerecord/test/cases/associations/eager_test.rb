@@ -232,13 +232,13 @@ class EagerAssociationTest < ActiveRecord::TestCase
     subscriber =Subscriber.find(subscribers(:second).id, :include => :subscriptions)
     assert_equal subscriptions, subscriber.subscriptions.sort_by(&:id)
   end
-  
+
   def test_eager_load_has_many_through_with_string_keys
     books = books(:awdr, :rfr)
     subscriber = Subscriber.find(subscribers(:second).id, :include => :books)
     assert_equal books, subscriber.books.sort_by(&:id)
   end
-  
+
   def test_eager_load_belongs_to_with_string_keys
     subscriber = subscribers(:second)
     subscription = Subscription.find(subscriptions(:webster_awdr).id, :include => :subscriber)
@@ -340,7 +340,7 @@ class EagerAssociationTest < ActiveRecord::TestCase
     author_posts_without_comments = author.posts.select { |post| post.comments.blank? }
     assert_equal author_posts_without_comments.size, author.posts.count(:all, :include => :comments, :conditions => 'comments.id is null')
   end
-  
+
   def test_eager_count_performed_on_a_has_many_through_association_with_multi_table_conditional
     person = people(:michael)
     person_posts_without_comments = person.posts.select { |post| post.comments.blank? }

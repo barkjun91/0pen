@@ -44,7 +44,7 @@ class ForumsController < ApplicationController
       format.xml  { render :xml => @forum }
     end
     #else
-    # rendor :text => 'you are not admin', :status => 401.4 
+    # rendor :text => 'you are not admin', :status => 401.4
     #end
   end
 
@@ -57,7 +57,7 @@ class ForumsController < ApplicationController
   # POST /forums.xml
   def create
     unless self.person && self.person.admin?
-      redirect_to '/' 
+      redirect_to '/'
       return
     end
 

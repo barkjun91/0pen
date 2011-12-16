@@ -1,12 +1,12 @@
 !!! XML
 %feed(xmlns="http://www.w3.org/2005/Atom")
-  %id&= polymorphic_url([@subject.forum, @subject]) 
+  %id&= polymorphic_url([@subject.forum, @subject])
   %title&= @subject
   %updated= @subject.posts.first.updated_at.xmlschema
-  %link{:href => polymorphic_url([@subject.forum, @subject])+".xml", 
-        :rel => :self} 
-  %link{:href => polymorphic_url([@subject.forum, @subject]), 
-        :rel => :alternate} 
+  %link{:href => polymorphic_url([@subject.forum, @subject])+".xml",
+        :rel => :self}
+  %link{:href => polymorphic_url([@subject.forum, @subject]),
+        :rel => :alternate}
   - for post in @posts
     %entry
       %id&= polymorphic_url([post.forum, post.subject, post])
@@ -19,7 +19,7 @@
       %title&= post.subject.title
       %content(type="html")&= markdown(post.body)
 
- 
+
 
 
 

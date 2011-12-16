@@ -25,7 +25,7 @@ module ActionView
       # Returns an entire form with all needed input tags for a specified Active Record object. For example, if <tt>@post</tt>
       # has attributes named +title+ of type +VARCHAR+ and +body+ of type +TEXT+ then
       #
-      #   form("post") 
+      #   form("post")
       #
       # would yield a form like the following (modulus formatting):
       #
@@ -106,7 +106,7 @@ module ActionView
         if (obj = (object.respond_to?(:errors) ? object : instance_variable_get("@#{object}"))) &&
           (errors = obj.errors.on(method))
           content_tag("div", "#{prepend_text}#{errors.is_a?(Array) ? errors.first : errors}#{append_text}", :class => css_class)
-        else 
+        else
           ''
         end
       end
@@ -133,7 +133,7 @@ module ActionView
       #
       # To specify the display for one object, you simply provide its name as a parameter.
       # For example, for the <tt>@user</tt> model:
-      # 
+      #
       #   error_messages_for 'user'
       #
       # To specify more than one object, you simply list them; optionally, you can add an extra <tt>:object_name</tt> parameter, which

@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   # GET /people.xml
   def index
     @people = Person.find(:all)
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @people }
@@ -54,7 +54,7 @@ class PeopleController < ApplicationController
 
     if validation_ticket
       params[:person][:url] = nil if params[:person][:url].blank?
-      params[:person][:email] = validation_ticket.email 
+      params[:person][:email] = validation_ticket.email
       @person = Person.new(params[:person])
       respond_to do |format|
         if (!prod || verify_recaptcha(@person)) && @person.save

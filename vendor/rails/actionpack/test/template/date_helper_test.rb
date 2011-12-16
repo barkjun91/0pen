@@ -17,7 +17,7 @@ class DateHelperTest < ActionView::TestCase
       end
     end
   end
-  
+
   def assert_distance_of_time_in_words(from, to=nil)
     to ||= from
 
@@ -86,13 +86,13 @@ class DateHelperTest < ActionView::TestCase
     from = Time.mktime(2004, 6, 6, 21, 45, 0)
     assert_distance_of_time_in_words(from)
   end
-  
+
   def test_distance_in_words_with_time_zones
     from = Time.mktime(2004, 6, 6, 21, 45, 0)
     assert_distance_of_time_in_words(from.in_time_zone('Alaska'))
     assert_distance_of_time_in_words(from.in_time_zone('Hawaii'))
   end
-  
+
   def test_distance_in_words_with_different_time_zones
     from = Time.mktime(2004, 6, 6, 21, 45, 0)
     assert_distance_of_time_in_words(
@@ -100,13 +100,13 @@ class DateHelperTest < ActionView::TestCase
       from.in_time_zone('Hawaii')
     )
   end
-  
+
   def test_distance_in_words_with_dates
     start_date = Date.new 1975, 1, 31
     end_date = Date.new 1977, 1, 31
     assert_equal("over 2 years", distance_of_time_in_words(start_date, end_date))
   end
-  
+
   def test_distance_in_words_with_integers
     assert_equal "less than a minute", distance_of_time_in_words(59)
     assert_equal "about 1 hour", distance_of_time_in_words(60*60)
@@ -933,7 +933,7 @@ class DateHelperTest < ActionView::TestCase
     assert_dom_equal expected, select_time(Time.mktime(2003, 8, 16, 8, 4, 18), {}, :class => 'selector')
     assert_dom_equal expected, select_time(Time.mktime(2003, 8, 16, 8, 4, 18), {:include_seconds => false}, :class => 'selector')
   end
-  
+
   uses_mocha 'TestDatetimeAndTimeSelectUseTimeCurrentAsDefault' do
     def test_select_datetime_uses_time_current_as_default
       time = stub(:year => 2004, :month => 6, :day => 15, :hour => 16, :min => 35, :sec => 0)
@@ -942,7 +942,7 @@ class DateHelperTest < ActionView::TestCase
       expects(:select_time).with(time, anything, anything).returns('')
       select_datetime
     end
-    
+
     def test_select_time_uses_time_current_as_default
       time = stub(:year => 2004, :month => 6, :day => 15, :hour => 16, :min => 35, :sec => 0)
       Time.expects(:current).returns time
@@ -950,7 +950,7 @@ class DateHelperTest < ActionView::TestCase
       expects(:select_minute).with(time, anything, anything).returns('')
       select_time
     end
-    
+
     def test_select_date_uses_date_current_as_default
       date = stub(:year => 2004, :month => 6, :day => 15)
       Date.expects(:current).returns date
@@ -1246,7 +1246,7 @@ class DateHelperTest < ActionView::TestCase
 
     assert_dom_equal expected, datetime_select("post", "updated_at")
   end
-  
+
   uses_mocha 'TestDatetimeSelectDefaultsToTimeZoneNowWhenConfigTimeZoneIsSet' do
     def test_datetime_select_defaults_to_time_zone_now_when_config_time_zone_is_set
       time = stub(:year => 2004, :month => 6, :day => 15, :hour => 16, :min => 35, :sec => 0)
@@ -1722,19 +1722,19 @@ class DateHelperTest < ActionView::TestCase
         assert_equal 2, dummy_instance_tag.send!(:default_time_from_options, :hour => 2).hour
       end
     end
-    
+
     def test_instance_tag_default_time_from_options_handles_far_future_date
       dummy_instance_tag = ActionView::Helpers::InstanceTag.new(1,2,3)
       time = dummy_instance_tag.send!(:default_time_from_options, :year => 2050, :month => 2, :day => 10, :hour => 15, :min => 30, :sec => 45)
       assert_equal 2050, time.year
     end
   end
-  
+
   protected
     def with_env_tz(new_tz = 'US/Eastern')
       old_tz, ENV['TZ'] = ENV['TZ'], new_tz
       yield
     ensure
       old_tz ? ENV['TZ'] = old_tz : ENV.delete('TZ')
-    end  
+    end
 end

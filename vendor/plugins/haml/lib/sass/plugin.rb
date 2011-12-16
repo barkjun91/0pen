@@ -93,7 +93,7 @@ module Sass
         file.print(result)
       end
     end
-    
+
     # Create any successive directories required to be able to write a file to: File.join(base,name)
     def mkpath(base, name)
       dirs = [base]
@@ -104,7 +104,7 @@ module Sass
     def load_paths(opts = options)
       (opts[:load_paths] || []) + template_locations
     end
-    
+
     def template_locations
       location = (options[:template_location] || File.join(options[:css_location],'sass'))
       if location.is_a?(String)
@@ -113,7 +113,7 @@ module Sass
         location.to_a.map { |l| l.first }
       end
     end
-    
+
     def css_locations
       if options[:template_location] && !options[:template_location].is_a?(String)
         options[:template_location].to_a.map { |l| l.last }

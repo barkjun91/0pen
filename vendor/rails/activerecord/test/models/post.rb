@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   named_scope :containing_the_letter_a, :conditions => "body LIKE '%a%'"
-  
+
   belongs_to :author do
     def greeting
       "hello"
@@ -57,7 +57,7 @@ class Post < ActiveRecord::Base
   def self.reset_log
     @log = []
   end
-  
+
   def self.log(message=nil, side=nil, new_record=nil)
     return @log if message.nil?
     @log << [message, side, new_record]

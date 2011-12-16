@@ -1,4 +1,4 @@
-# Extends the module object with module and instance accessors for class attributes, 
+# Extends the module object with module and instance accessors for class attributes,
 # just like the native attr* accessors for instance attributes.
 #
 #  module AppConfiguration
@@ -18,7 +18,7 @@ class Module
         unless defined? @@#{sym}
           @@#{sym} = nil
         end
-        
+
         def self.#{sym}
           @@#{sym}
         end
@@ -29,7 +29,7 @@ class Module
       EOS
     end
   end
-  
+
   def mattr_writer(*syms)
     options = syms.extract_options!
     syms.each do |sym|
@@ -37,11 +37,11 @@ class Module
         unless defined? @@#{sym}
           @@#{sym} = nil
         end
-        
+
         def self.#{sym}=(obj)
           @@#{sym} = obj
         end
-        
+
         #{"
         def #{sym}=(obj)
           @@#{sym} = obj
@@ -50,7 +50,7 @@ class Module
       EOS
     end
   end
-  
+
   def mattr_accessor(*syms)
     mattr_reader(*syms)
     mattr_writer(*syms)

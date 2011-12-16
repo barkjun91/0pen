@@ -4,9 +4,9 @@ module ActiveSupport #:nodoc:
   module CoreExtensions #:nodoc:
     module Array #:nodoc:
       module Grouping
-        # Iterates over the array in groups of size +number+, padding any remaining 
+        # Iterates over the array in groups of size +number+, padding any remaining
         # slots with +fill_with+ unless it is +false+.
-        # 
+        #
         #   %w(1 2 3 4 5 6 7).in_groups_of(3) {|g| p g}
         #   ["1", "2", "3"]
         #   ["4", "5", "6"]

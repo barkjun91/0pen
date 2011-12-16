@@ -48,7 +48,7 @@ module ActiveRecord
           association_proxy.target.push(*[associated_record].flatten)
         end
       end
-      
+
       def add_preloaded_record_to_collection(parent_records, reflection_name, associated_record)
         parent_records.each do |parent_record|
           association_proxy = parent_record.send(reflection_name)
@@ -110,7 +110,7 @@ module ActiveRecord
       end
 
       def preload_has_one_association(records, reflection, preload_options={})
-        id_to_record_map, ids = construct_id_map(records)        
+        id_to_record_map, ids = construct_id_map(records)
         options = reflection.options
         if options[:through]
           records.each {|record| record.send(reflection.name) && record.send(reflection.name).loaded}
@@ -155,7 +155,7 @@ module ActiveRecord
                                              reflection.primary_key_name)
         end
       end
-      
+
       def preload_through_records(records, reflection, through_association)
         through_reflection = reflections[through_association]
         through_primary_key = through_reflection.primary_key_name

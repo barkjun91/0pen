@@ -30,7 +30,7 @@ uses_mocha 'polymorphic URL helpers' do
       @article = Article.new
       @response = Response.new
     end
-  
+
     def test_with_record
       @article.save
       expects(:article_url).with(@article)

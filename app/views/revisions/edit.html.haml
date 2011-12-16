@@ -8,12 +8,12 @@
   %p
     = f.label :body
     %br
-    = f.text_field :body 
+    = f.text_field :body
     %p
-    = f.label :created_at 
+    = f.label :created_at
     %br
-    = f.datetime_select :created_at 
-  %p= f.submit "Update" 
-  
+    = f.datetime_select :created_at
+  %p= f.submit "Update"
+
 #{link_to 'Show', [@revision.forum, @revision.subject, @revision.post, @revision]} |
 =link_to 'Back', [@revision.forum, @revision.subject, @revision.post]

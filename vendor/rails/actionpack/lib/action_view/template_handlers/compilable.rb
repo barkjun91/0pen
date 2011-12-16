@@ -24,7 +24,7 @@ module ActionView
           true
         end
       end
-      
+
       def render(template)
         @view.send :execute, template
       end

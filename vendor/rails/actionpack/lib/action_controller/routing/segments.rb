@@ -175,7 +175,7 @@ module ActionController
       end
 
       def regexp_chunk
-        if regexp 
+        if regexp
           if regexp_has_modifiers?
             "(#{regexp.to_s})"
           else

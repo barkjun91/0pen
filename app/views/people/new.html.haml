@@ -2,20 +2,20 @@
 
 .register
   - if @validation_ticket
-    - form_for(@person) do |f| 
+    - form_for(@person) do |f|
       - unless f.error_messages
         .error-message-box= f.error_messages
       %fieldset
         = f.label :email, '이메일'
         = f.text_field :email, :value => @validation_ticket.email, :readonly => true
-        = f.label :password, '비밀번호' 
-        = f.password_field :password, :value => '' 
+        = f.label :password, '비밀번호'
+        = f.password_field :password, :value => ''
         = f.label :name, '이름'
-        = f.text_field :name 
-        = f.label :nick, '닉네임' 
-        = f.text_field :nick 
+        = f.text_field :name
+        = f.label :nick, '닉네임'
+        = f.text_field :nick
         = f.label :url, '홈페이지 주소'
-        = f.text_field :url 
+        = f.text_field :url
         = hidden_field_tag 'key', @validation_ticket.key
       %fieldset
         = recaptcha_tags

@@ -12,12 +12,12 @@ end
 
 class SessionTest < Test::Unit::TestCase
   include IntegrationSessionStubbing
-  
+
   def setup
     @session = ActionController::Integration::Session.new
     stub_integration_session(@session)
   end
-  
+
   def test_https_bang_works_and_sets_truth_by_default
     assert !@session.https?
     @session.https!
@@ -196,7 +196,7 @@ class SessionTest < Test::Unit::TestCase
     @session.expects(:process).with(:head,path,params,headers_after_xhr)
     @session.xml_http_request(:head,path,params,headers)
   end
-  
+
   def test_xml_http_request_override_accept
     path = "/index"; params = "blah"; headers = {:location => 'blah', "Accept" => "application/xml"}
     headers_after_xhr = headers.merge(

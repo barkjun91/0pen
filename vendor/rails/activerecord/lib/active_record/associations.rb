@@ -485,14 +485,14 @@ module ActiveRecord
     #
     # Since only one table is loaded at a time, conditions or orders cannot reference tables other than the main one. If this is the case
     # Active Record falls back to the previously used LEFT OUTER JOIN based strategy. For example
-    #  
+    #
     #   Post.find(:all, :include => [ :author, :comments ], :conditions => ['comments.approved = ?', true])
     #
     # will result in a single SQL query with joins along the lines of: <tt>LEFT OUTER JOIN comments ON comments.post_id = posts.id</tt> and
     # <tt>LEFT OUTER JOIN authors ON authors.id = posts.author_id</tt>. Note that using conditions like this can have unintended consequences.
     # In the above example posts with no approved comments are not returned at all, because the conditions apply to the SQL statement as a whole
     # and not just to the association. You must disambiguate column references for this fallback to happen, for example
-    # <tt>:order => "author.name DESC"</tt> will work but <tt>:order => "name DESC"</tt> will not. 
+    # <tt>:order => "author.name DESC"</tt> will work but <tt>:order => "name DESC"</tt> will not.
     #
     # If you do want eagerload only some members of an association it is usually more natural to <tt>:include</tt> an association
     # which has conditions defined on it:
@@ -518,10 +518,10 @@ module ActiveRecord
     #
     #   Address.find(:all, :include => :addressable)
     #
-    # will execute one query to load the addresses and load the addressables with one query per addressable type. 
+    # will execute one query to load the addresses and load the addressables with one query per addressable type.
     # For example if all the addressables are either of class Person or Company then a total of 3 queries will be executed. The list of
     # addressable types to load is determined on the back of the addresses loaded. This is not supported if Active Record has to fallback
-    # to the previous implementation of eager loading and will raise ActiveRecord::EagerLoadPolymorphicError. The reason is that the parent 
+    # to the previous implementation of eager loading and will raise ActiveRecord::EagerLoadPolymorphicError. The reason is that the parent
     # model's type is a column value so its corresponding table name cannot be put in the +FROM+/+JOIN+ clauses of that query.
     #
     # == Table Aliasing
@@ -761,13 +761,13 @@ module ActiveRecord
       # * <tt>:select</tt> - By default, this is <tt>*</tt> as in <tt>SELECT * FROM</tt>, but can be changed if, for example, you want to do a join
       #   but not include the joined columns. Do not forget to include the primary and foreign keys, otherwise it will raise an error.
       # * <tt>:through</tt>: Specifies a Join Model through which to perform the query.  Options for <tt>:class_name</tt> and <tt>:foreign_key</tt>
-      #   are ignored, as the association uses the source reflection. You can only use a <tt>:through</tt> query through a 
+      #   are ignored, as the association uses the source reflection. You can only use a <tt>:through</tt> query through a
       #   <tt>has_one</tt> or <tt>belongs_to</tt> association on the join model.
       # * <tt>:source</tt> - Specifies the source association name used by <tt>has_one :through</tt> queries.  Only use it if the name cannot be
       #   inferred from the association.  <tt>has_one :favorite, :through => :favorites</tt> will look for a
-      #   <tt>:favorite</tt> on Favorite, unless a <tt>:source</tt> is given.      
+      #   <tt>:favorite</tt> on Favorite, unless a <tt>:source</tt> is given.
       # * <tt>:source_type</tt> - Specifies type of the source association used by <tt>has_one :through</tt> queries where the source
-      #   association is a polymorphic +belongs_to+.      
+      #   association is a polymorphic +belongs_to+.
       # * <tt>:readonly</tt> - If true, the associated object is readonly through the association.
       #
       # Option examples:
@@ -799,7 +799,7 @@ module ActiveRecord
           end
           after_save method_name
 
-          add_single_associated_save_callbacks(reflection.name) 
+          add_single_associated_save_callbacks(reflection.name)
           association_accessor_methods(reflection, HasOneAssociation)
           association_constructor_method(:build,  reflection, HasOneAssociation)
           association_constructor_method(:create, reflection, HasOneAssociation)
@@ -849,7 +849,7 @@ module ActiveRecord
       #   destroyed. This requires that a column named <tt>#{table_name}_count</tt> (such as +comments_count+ for a belonging Comment class)
       #   is used on the associate class (such as a Post class). You can also specify a custom counter cache column by providing
       #   a column name instead of a +true+/+false+ value to this option (e.g., <tt>:counter_cache => :my_custom_counter</tt>.)
-      #   When creating a counter cache column, the database statement or migration must specify a default value of <tt>0</tt>, failing to do 
+      #   When creating a counter cache column, the database statement or migration must specify a default value of <tt>0</tt>, failing to do
       #   this results in a counter with +NULL+ value, which will never increment.
       #   Note: Specifying a counter cache will add it to that model's list of readonly attributes using +attr_readonly+.
       # * <tt>:include</tt> - Specify second-order associations that should be eager loaded when this object is loaded.
@@ -1006,8 +1006,8 @@ module ActiveRecord
       #   guessed to be the name of the associated class in lower-case and "_id" suffixed. So if the associated class is Project,
       #   the +has_and_belongs_to_many+ association will use "project_id" as the default <tt>:association_foreign_key</tt>.
       # * <tt>:conditions</tt> - Specify the conditions that the associated object must meet in order to be included as a +WHERE+
-      #   SQL fragment, such as <tt>authorized = 1</tt>.  Record creations from the association are scoped if a hash is used.  
-      #   <tt>has_many :posts, :conditions => {:published => true}</tt> will create published posts with <tt>@blog.posts.create</tt> 
+      #   SQL fragment, such as <tt>authorized = 1</tt>.  Record creations from the association are scoped if a hash is used.
+      #   <tt>has_many :posts, :conditions => {:published => true}</tt> will create published posts with <tt>@blog.posts.create</tt>
       #   or <tt>@blog.posts.build</tt>.
       # * <tt>:order</tt> - Specify the order in which the associated objects are returned as an <tt>ORDER BY</tt> SQL fragment,
       #   such as <tt>last_name, first_name DESC</tt>
@@ -1103,7 +1103,7 @@ module ActiveRecord
               association.create_through_record(new_value)
               self.send(reflection.name, new_value)
             else
-              association.replace(new_value)              
+              association.replace(new_value)
             end
 
             instance_variable_set(ivar, new_value.nil? ? nil : association)
@@ -1156,7 +1156,7 @@ module ActiveRecord
             end
           end
         end
-        
+
         def add_single_associated_save_callbacks(association_name)
           method_name = "validate_associated_records_for_#{association_name}".to_sym
           define_method(method_name) do
@@ -1165,10 +1165,10 @@ module ActiveRecord
               errors.add "#{association_name}" unless association.target.nil? || association.valid?
             end
           end
-        
+
           validate method_name
         end
-        
+
         def add_multiple_associated_save_callbacks(association_name)
           method_name = "validate_associated_records_for_#{association_name}".to_sym
           ivar = "@#{association_name}"
@@ -1358,7 +1358,7 @@ module ActiveRecord
 
           create_reflection(:has_one, association_id, options, self)
         end
-        
+
         def create_has_one_through_reflection(association_id, options)
           options.assert_valid_keys(
             :class_name, :foreign_key, :remote, :select, :conditions, :order, :include, :dependent, :counter_cache, :extend, :as, :through, :source, :source_type
@@ -1790,11 +1790,11 @@ module ActiveRecord
               @aliased_prefix     = "t#{ join_dependency.joins.size }"
               @parent_table_name  = parent.active_record.table_name
               @aliased_table_name = aliased_table_name_for(table_name)
-              
+
               if reflection.macro == :has_and_belongs_to_many
                 @aliased_join_table_name = aliased_table_name_for(reflection.options[:join_table], "_join")
               end
-        
+
               if reflection.macro == :has_many && reflection.options[:through]
                 @aliased_join_table_name = aliased_table_name_for(reflection.through_reflection.klass.table_name, "_join")
               end
@@ -1933,7 +1933,7 @@ module ActiveRecord
             end
 
             protected
-            
+
               def aliased_table_name_for(name, suffix = nil)
                 if !parent.table_joins.blank? && parent.table_joins.to_s.downcase =~ %r{join(\s+\w+)?\s+#{name.downcase}\son}
                   @join_dependency.table_aliases[name] += 1
@@ -1951,7 +1951,7 @@ module ActiveRecord
 
                 name
               end
-              
+
               def pluralize(table_name)
                 ActiveRecord::Base.pluralize_table_names ? table_name.to_s.pluralize : table_name
               end

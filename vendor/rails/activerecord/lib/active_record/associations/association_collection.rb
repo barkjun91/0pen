@@ -7,7 +7,7 @@ module ActiveRecord
         super
         construct_sql
       end
-      
+
       def find(*args)
         options = args.extract_options!
 
@@ -28,7 +28,7 @@ module ActiveRecord
           if sanitized_conditions = sanitize_sql(options[:conditions])
             conditions << " AND (#{sanitized_conditions})"
           end
-          
+
           options[:conditions] = conditions
 
           if options[:order] && @reflection.options[:order]
@@ -36,18 +36,18 @@ module ActiveRecord
           elsif @reflection.options[:order]
             options[:order] = @reflection.options[:order]
           end
-          
+
           # Build options specific to association
           construct_find_options!(options)
-          
+
           merge_options_from_reflection!(options)
-          
+
           # Pass through args exactly as we received them.
           args << options
           @reflection.klass.find(*args)
         end
       end
-      
+
       # Fetches the first one using SQL if possible.
       def first(*args)
         if fetch_first_or_last_using_find? args
@@ -86,7 +86,7 @@ module ActiveRecord
         end
       end
 
-      # Add +records+ to this association.  Returns +self+ so method calls may be chained.  
+      # Add +records+ to this association.  Returns +self+ so method calls may be chained.
       # Since << flattens its argument list and inserts each record, +push+ and +concat+ behave identically.
       def <<(*records)
         result = true
@@ -113,7 +113,7 @@ module ActiveRecord
         delete(@target)
         reset_target!
       end
-      
+
       # Calculate sum using SQL, not Enumerable
       def sum(*args)
         if block_given?
@@ -127,13 +127,13 @@ module ActiveRecord
       def delete(*records)
         records = flatten_deeper(records)
         records.each { |record| raise_on_type_mismatch(record) }
-        
+
         @owner.transaction do
           records.each { |record| callback(:before_remove, record) }
-          
+
           old_records = records.reject {|r| r.new_record? }
           delete_records(old_records) if old_records.any?
-          
+
           records.each do |record|
             @target.delete(record)
             callback(:after_remove, record)
@@ -147,13 +147,13 @@ module ActiveRecord
 
         if @reflection.options[:dependent] && @reflection.options[:dependent] == :destroy
           destroy_all
-        else          
+        else
           delete_all
         end
 
         self
       end
-      
+
       def destroy_all
         @owner.transaction do
           each { |record| record.destroy }
@@ -161,7 +161,7 @@ module ActiveRecord
 
         reset_target!
       end
-      
+
       def create(attrs = {})
         if attrs.is_a?(Array)
           attrs.collect { |attr| create(attr) }
@@ -248,7 +248,7 @@ module ActiveRecord
       protected
         def construct_find_options!(options)
         end
-        
+
         def load_target
           if !@owner.new_record? || foreign_key_present
             begin
@@ -267,7 +267,7 @@ module ActiveRecord
           loaded if target
           target
         end
-        
+
         def method_missing(method, *args)
           if @target.respond_to?(method) || (!@reflection.klass.respond_to?(method) && Class.respond_to?(method))
             if block_given?
@@ -277,7 +277,7 @@ module ActiveRecord
             end
           elsif @reflection.klass.scopes.include?(method)
             @reflection.klass.scopes[method].call(self, *args)
-          else          
+          else
             with_scope(construct_scope) do
               if block_given?
                 @reflection.klass.send(method, *args) { |*block_args| yield(*block_args) }
@@ -349,8 +349,8 @@ module ActiveRecord
         def callbacks_for(callback_name)
           full_callback_name = "#{callback_name}_for_#{@reflection.name}"
           @owner.class.read_inheritable_attribute(full_callback_name.to_sym) || []
-        end   
-        
+        end
+
         def ensure_owner_is_not_new
           if @owner.new_record?
             raise ActiveRecord::RecordNotSaved, "You cannot call create unless the parent is saved"

@@ -11,7 +11,7 @@ $("document").ready(function(){
       converterSelector = $(this).val();
     });
   });
-  
+
   input.keypress(function(){
     output.empty();
     text = converter.makeHtml($(this).val());

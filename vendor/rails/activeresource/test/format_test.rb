@@ -5,10 +5,10 @@ class FormatTest < Test::Unit::TestCase
   def setup
     @matz  = { :id => 1, :name => 'Matz' }
     @david = { :id => 2, :name => 'David' }
-    
+
     @programmers = [ @matz, @david ]
   end
-  
+
   def test_formats_on_single_element
     for format in [ :json, :xml ]
       using_format(Person, format) do
@@ -40,7 +40,7 @@ class FormatTest < Test::Unit::TestCase
       end
     end
   end
-  
+
   def test_formats_on_custom_element_method
     for format in [ :json, :xml ]
       using_format(Person, format) do
@@ -63,14 +63,14 @@ class FormatTest < Test::Unit::TestCase
       end
     end
   end
-  
+
   def test_setting_format_before_site
     resource = Class.new(ActiveResource::Base)
     resource.format = :json
     resource.site   = 'http://37s.sunrise.i:3000'
     assert_equal ActiveResource::Formats[:json], resource.connection.format
   end
-  
+
   private
     def using_format(klass, mime_type_reference)
       previous_format = klass.format

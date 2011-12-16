@@ -346,7 +346,7 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
     company = companies(:first_firm)
     new_client = assert_no_queries { company.clients_of_firm.build("name" => "Another Client") }
     assert !company.clients_of_firm.loaded?
-    
+
     assert_equal "Another Client", new_client.name
     assert new_client.new_record?
     assert_equal new_client, company.clients_of_firm.last
@@ -359,7 +359,7 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
   def test_build_many
     company = companies(:first_firm)
     new_clients = assert_no_queries { company.clients_of_firm.build([{"name" => "Another Client"}, {"name" => "Another Client II"}]) }
-    
+
     assert_equal 2, new_clients.size
     company.name += '-changed'
     assert_queries(3) { assert company.save }
@@ -567,10 +567,10 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
 
   def test_creation_respects_hash_condition
     ms_client = companies(:first_firm).clients_like_ms_with_hash_conditions.build
-    
+
     assert        ms_client.save
     assert_equal  'Microsoft', ms_client.name
-    
+
     another_ms_client = companies(:first_firm).clients_like_ms_with_hash_conditions.create
 
     assert        !another_ms_client.new_record?
@@ -812,7 +812,7 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
     assert_equal 4, authors(:david).limited_comments.find(:all, :conditions => "comments.type = 'SpecialComment'", :limit => 9_000).length
     assert_equal 4, authors(:david).limited_comments.find_all_by_type('SpecialComment', :limit => 9_000).length
   end
-  
+
   def test_find_all_include_over_the_same_table_for_through
     assert_equal 2, people(:michael).posts.find(:all, :include => :people).length
   end
@@ -849,13 +849,13 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
   def test_include_loads_collection_if_target_uses_finder_sql
     firm = companies(:first_firm)
     client = firm.clients_using_sql.first
-    
+
     firm.reload
     assert ! firm.clients_using_sql.loaded?
     assert firm.clients_using_sql.include?(client)
     assert firm.clients_using_sql.loaded?
   end
-  
+
 
   def test_include_returns_false_for_non_matching_record_to_verify_scoping
     firm = companies(:first_firm)

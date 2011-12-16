@@ -41,7 +41,7 @@ module ConformanceTest
   def test_normalizations_C
     each_line_of_norm_tests do |*cols|
       col1, col2, col3, col4, col5, comment = *cols
-      
+
       # CONFORMANCE:
       # 1. The following invariants must be true for all conformant implementations
       #
@@ -56,7 +56,7 @@ module ConformanceTest
       assert_equal col4.ui, @handler.normalize(col5, :c).ui, "Form C - Col 4 has to be C(5) - #{comment}"
     end
   end
-  
+
   def test_normalizations_D
     each_line_of_norm_tests do |*cols|
       col1, col2, col3, col4, col5, comment = *cols
@@ -71,10 +71,10 @@ module ConformanceTest
       assert_equal col5.ui, @handler.normalize(col5, :d).ui, "Form D - Col 5 has to be NFD(5) - #{comment}"
     end
   end
-  
+
   def test_normalizations_KC
     each_line_of_norm_tests do | *cols |
-      col1, col2, col3, col4, col5, comment = *cols  
+      col1, col2, col3, col4, col5, comment = *cols
       #
       #    NFKC
       #      c4 == NFKC(c1) == NFKC(c2) == NFKC(c3) == NFKC(c4) == NFKC(c5)
@@ -85,10 +85,10 @@ module ConformanceTest
       assert_equal col4.ui, @handler.normalize(col5, :kc).ui, "Form D - Col 4 has to be NFKC(5) - #{comment}"
     end
   end
-  
+
   def test_normalizations_KD
     each_line_of_norm_tests do | *cols |
-      col1, col2, col3, col4, col5, comment = *cols  
+      col1, col2, col3, col4, col5, comment = *cols
       #
       #    NFKD
       #      c5 == NFKD(c1) == NFKD(c2) == NFKD(c3) == NFKD(c4) == NFKD(c5)
@@ -99,7 +99,7 @@ module ConformanceTest
       assert_equal col5.ui, @handler.normalize(col5, :kd).ui, "Form KD - Col 5 has to be NFKD(5) - #{comment}"
     end
   end
-  
+
   protected
     def each_line_of_norm_tests(&block)
       lines = 0
@@ -108,16 +108,16 @@ module ConformanceTest
         until f.eof? || (max_test_lines > 38 and lines > max_test_lines)
           lines += 1
           line = f.gets.chomp!
-          next if (line.empty? || line =~ /^\#/)      
-          
+          next if (line.empty? || line =~ /^\#/)
+
           cols, comment = line.split("#")
           cols = cols.split(";").map{|e| e.strip}.reject{|e| e.empty? }
           next unless cols.length == 5
-          
+
           # codepoints are in hex in the test suite, pack wants them as integers
           cols.map!{|c| c.split.map{|codepoint| codepoint.to_i(16)}.pack("U*") }
           cols << comment
-          
+
           yield(*cols)
         end
       end

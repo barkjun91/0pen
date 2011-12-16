@@ -10,11 +10,11 @@ module ActiveSupport #:nodoc:
             alias_method :to_s, :to_formatted_s
           end
         end
-        
+
         def to_formatted_s(format="F")
           _original_to_s(format)
         end
-        
+
         yaml_as "tag:yaml.org,2002:float"
         def to_yaml( opts = {} )
           YAML::quick_emit( nil, opts ) do |out|

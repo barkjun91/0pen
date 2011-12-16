@@ -27,9 +27,9 @@ class Post < ActiveRecord::Base
   end
 
   def author?(p)
-    p && person.id == p.id  
+    p && person.id == p.id
   end
-  
+
   def self.find_order_by_created_at(val = {})
     Post.find(:all, :order => %{
                                  ( select min(created_at)

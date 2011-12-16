@@ -39,13 +39,13 @@ class EagerLoadPolyAssocsTest < ActiveRecord::TestCase
   def setup
     generate_test_object_graphs
   end
-  
+
   def teardown
-    [Circle, Square, Triangle, PaintColor, PaintTexture, 
+    [Circle, Square, Triangle, PaintColor, PaintTexture,
      ShapeExpression, NonPolyOne, NonPolyTwo].each do |c|
       c.delete_all
     end
-    
+
   end
 
 

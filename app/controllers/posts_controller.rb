@@ -59,7 +59,7 @@ class PostsController < ApplicationController
         if @rev.save
           flash[:notice] = 'Post was successfully created.'
           format.html {redirect_to [@post.subject.forum, @post.subject, @post] }
-          format.xml  {render :xml => @post, 
+          format.xml  {render :xml => @post,
                               :status => :created, :location => @post }
         else
           format.html { render :action => "new" }

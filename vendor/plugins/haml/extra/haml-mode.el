@@ -351,7 +351,7 @@ whichever comes first."
 (defun haml-output-region (start end)
   "Displays the HTML output for the current block of Haml code."
   (interactive "r")
-  (kill-new (buffer-substring start end)) 
+  (kill-new (buffer-substring start end))
   (with-temp-buffer
     (yank)
     (haml-indent-region (point-min) (point-max))
@@ -507,7 +507,7 @@ beginning the hash."
     (when (eq (char-before) ?,) (return-from haml-unclosed-attr-hash-p t))
     (re-search-backward "(\\|^")
     (haml-move "(")
-    (haml-parse-new-attr-hash)))  
+    (haml-parse-new-attr-hash)))
 
 (defun* haml-parse-new-attr-hash (&optional (fn (lambda (type beg end) ())))
   "Parse a new-style attribute hash on this line, and returns

@@ -26,7 +26,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/new.xml
   def new
     @subject = Subject.new
-    @person_log = self.person  
+    @person_log = self.person
     @subject.forum = Forum.find_by_name(params[:forum_id])
     if self.person
       respond_to do |format|
@@ -34,7 +34,7 @@ class SubjectsController < ApplicationController
         format.xml  { render :xml => @subject }
       end
     else
-      render :text => 'please log in', :status => 401.1  
+      render :text => 'please log in', :status => 401.1
     end
   end
 
@@ -52,9 +52,9 @@ class SubjectsController < ApplicationController
     @subject.forum = Forum.find_by_name(params[:forum_id])
     respond_to do |format|
       if @subject.save
-        @post.subject_id = @subject.id 
+        @post.subject_id = @subject.id
         if @post.save
-          @revision.post_id = @post.id 
+          @revision.post_id = @post.id
           if @revision.save
           flash[:notice] = 'Subject was successfully created.'
           format.html { redirect_to [@subject.forum, @subject] }

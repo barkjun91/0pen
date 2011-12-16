@@ -103,7 +103,7 @@ module ActiveRecord
   #
   # The Rails package has several tools to help create and apply migrations.
   #
-  # To generate a new migration, you can use 
+  # To generate a new migration, you can use
   #   script/generate migration MyNewMigration
   #
   # where MyNewMigration is the name of your migration. The generator will
@@ -121,12 +121,12 @@ module ActiveRecord
   #     def self.up
   #       add_column :tablenames, :fieldname, :string
   #     end
-  # 
+  #
   #     def self.down
   #       remove_column :tablenames, :fieldname
   #     end
   #   end
-  # 
+  #
   # To run migrations against the currently configured database, use
   # <tt>rake db:migrate</tt>. This will update the database by running all of the
   # pending migrations, creating the <tt>schema_migrations</tt> table
@@ -346,9 +346,9 @@ module ActiveRecord
       def rollback(migrations_path, steps=1)
         migrator = self.new(:down, migrations_path)
         start_index = migrator.migrations.index(migrator.current_migration)
-        
+
         return unless start_index
-        
+
         finish = migrator.migrations[start_index + steps]
         down(migrations_path, finish ? finish.version : 0)
       end
@@ -360,7 +360,7 @@ module ActiveRecord
       def down(migrations_path, target_version = nil)
         self.new(:down, migrations_path, target_version).migrate
       end
-      
+
       def run(direction, migrations_path, target_version)
         self.new(direction, migrations_path, target_version).run
       end
@@ -385,17 +385,17 @@ module ActiveRecord
     def initialize(direction, migrations_path, target_version = nil)
       raise StandardError.new("This database does not yet support migrations") unless Base.connection.supports_migrations?
       Base.connection.initialize_schema_migrations_table
-      @direction, @migrations_path, @target_version = direction, migrations_path, target_version      
+      @direction, @migrations_path, @target_version = direction, migrations_path, target_version
     end
 
     def current_version
       self.class.current_version
     end
-    
+
     def current_migration
       migrations.detect { |m| m.version == current_version }
     end
-    
+
     def run
       target = migrations.detect { |m| m.version == @target_version }
       raise UnknownMigrationVersionError.new(@target_version) if target.nil?
@@ -409,14 +409,14 @@ module ActiveRecord
       if target.nil? && !@target_version.nil? && @target_version > 0
         raise UnknownMigrationVersionError.new(@target_version)
       end
-      
+
       start = up? ? 0 : (migrations.index(current) || 0)
       finish = migrations.index(target) || migrations.size - 1
       runnable = migrations[start..finish]
-      
+
       # skip the last migration if we're headed down, but not ALL the way down
       runnable.pop if down? && !target.nil?
-      
+
       runnable.each do |migration|
         Base.logger.info "Migrating to #{migration} (#{migration.version})"
 
@@ -436,29 +436,29 @@ module ActiveRecord
     def migrations
       @migrations ||= begin
         files = Dir["#{@migrations_path}/[0-9]*_*.rb"]
-        
+
         migrations = files.inject([]) do |klasses, file|
           version, name = file.scan(/([0-9]+)_([_a-z0-9]*).rb/).first
-          
+
           raise IllegalMigrationNameError.new(file) unless version
           version = version.to_i
-          
+
           if klasses.detect { |m| m.version == version }
-            raise DuplicateMigrationVersionError.new(version) 
+            raise DuplicateMigrationVersionError.new(version)
           end
 
           if klasses.detect { |m| m.name == name.camelize }
-            raise DuplicateMigrationNameError.new(name.camelize) 
+            raise DuplicateMigrationNameError.new(name.camelize)
           end
-          
+
           load(file)
-          
+
           klasses << returning(name.camelize.constantize) do |klass|
             class << klass; attr_accessor :version end
             klass.version = version
           end
         end
-        
+
         migrations = migrations.sort_by(&:version)
         down? ? migrations.reverse : migrations
       end
