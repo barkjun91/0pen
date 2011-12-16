@@ -110,7 +110,7 @@ module Sass::Tree
           if filename
             relative_filename = if @options[:css_filename]
               begin
-                Pathname.new(filename).relative_path_from(  
+                Pathname.new(filename).relative_path_from(
                   Pathname.new(File.dirname(@options[:css_filename]))).to_s
               rescue ArgumentError
                 nil

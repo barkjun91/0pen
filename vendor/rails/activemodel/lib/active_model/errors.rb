@@ -1,7 +1,7 @@
 module ActiveModel
   class Errors < Hash
     include DeprecatedErrorMethods
-    
+
     @@default_error_messages = {
       :inclusion                => "is not included in the list",
       :exclusion                => "is reserved",
@@ -23,7 +23,7 @@ module ActiveModel
       :odd                      => "must be odd",
       :even                     => "must be even"
     }
-  
+
     # Holds a hash with all the default error messages that can be replaced by your own copy or localizations.
     cattr_accessor :default_error_messages
 
@@ -43,7 +43,7 @@ module ActiveModel
     end
 
     def each
-      each_key do |attribute| 
+      each_key do |attribute|
         self[attribute].each { |error| yield attribute, error }
       end
     end

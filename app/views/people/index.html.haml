@@ -8,12 +8,12 @@
       %th Nick
       %th Url
       %th Created at
-  %body 
-    - for person in @people 
+  %body
+    - for person in @people
       %tr
         %td
           %a{:href => person_path(person)}= link_to_email(person.email)
-        %td&= person.name 
+        %td&= person.name
         %td&= person.nick
         %td&= person.url
         %td&= person.created_at

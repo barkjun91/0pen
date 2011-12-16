@@ -13,7 +13,7 @@ module ActionView #:nodoc:
       @view.first_render ||= @path
       @source = nil # Don't read the source until we know that it is required
       set_extension_and_file_name(use_full_path)
-      
+
       @locals = locals || {}
       @handler = self.class.handler_class_for_extension(@extension).new(@view)
     end
@@ -29,7 +29,7 @@ module ActionView #:nodoc:
         raise TemplateError.new(self, @view.assigns, e)
       end
     end
-    
+
     def render
       prepare!
       @handler.render(self)
@@ -46,11 +46,11 @@ module ActionView #:nodoc:
     def base_path_for_exception
       @finder.find_base_path_for("#{@path_without_extension}.#{@extension}") || @finder.view_paths.first
     end
-    
+
     def prepare!
       @view.send :evaluate_assigns
       @view.current_render_extension = @extension
-      
+
       if @handler.compilable?
         @handler.compile_template(self) # compile the given template, if necessary
         @method = @view.method_names[method_key] # Set the method name for this template and run it
@@ -67,7 +67,7 @@ module ActionView #:nodoc:
         else
           @extension = @finder.pick_template_extension(@path).to_s
           raise_missing_template_exception unless @extension
-          
+
           @filename = @finder.pick_template(@path, @extension)
           @extension = @extension.gsub(/^.+\./, '') # strip off any formats
         end
@@ -77,7 +77,7 @@ module ActionView #:nodoc:
 
       raise_missing_template_exception if @filename.blank?
     end
-    
+
     def raise_missing_template_exception
       full_template_path = @path.include?('.') ? @path : "#{@path}.#{@view.template_format}.erb"
       display_paths = @finder.view_paths.join(':')
@@ -86,10 +86,10 @@ module ActionView #:nodoc:
     end
 
     # Template Handlers
-    
+
     @@template_handlers = HashWithIndifferentAccess.new
     @@default_template_handlers = nil
-    
+
     # Register a class that knows how to handle template files with the given
     # extension. This can be used to implement new template types.
     # The constructor for the class must take the ActiveView::Base instance
@@ -122,6 +122,6 @@ module ActionView #:nodoc:
     # TODO: Depreciate old template extensions
     register_template_handler :rhtml, TemplateHandlers::ERB
     register_template_handler :rxml, TemplateHandlers::Builder
-    
+
   end
 end

@@ -137,7 +137,7 @@ class AttributeMethodsTest < ActiveRecord::TestCase
       end
     end
   end
-  
+
   def test_time_attributes_are_retrieved_in_current_time_zone
     in_time_zone "Pacific Time (US & Canada)" do
       utc_time = Time.utc(2008, 1, 1)
@@ -186,7 +186,7 @@ class AttributeMethodsTest < ActiveRecord::TestCase
       end
     end
   end
-  
+
   def test_setting_time_zone_aware_attribute_to_blank_string_returns_nil
     in_time_zone "Pacific Time (US & Canada)" do
       record   = @target.new
@@ -223,7 +223,7 @@ class AttributeMethodsTest < ActiveRecord::TestCase
   def time_related_columns_on_topic
     Topic.columns.select{|c| [:time, :date, :datetime, :timestamp].include?(c.type)}.map(&:name)
   end
-  
+
   def in_time_zone(zone)
     old_zone  = Time.zone
     old_tz    = ActiveRecord::Base.time_zone_aware_attributes

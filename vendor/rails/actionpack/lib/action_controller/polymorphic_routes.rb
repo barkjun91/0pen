@@ -11,7 +11,7 @@ module ActionController
   #   polymorphic_url([:admin, @article, @comment])
   #
   # results in:
-  #   
+  #
   #   admin_article_comment_url(@article, @comment)
   #
   # == Usage within the framework
@@ -76,7 +76,7 @@ module ActionController
       record    = extract_record(record_or_hash_or_array)
       format    = extract_format(record_or_hash_or_array, options)
       namespace = extract_namespace(record_or_hash_or_array)
-      
+
       args = case record_or_hash_or_array
         when Hash;  [ record_or_hash_or_array ]
         when Array; record_or_hash_or_array.dup
@@ -96,7 +96,7 @@ module ActionController
         else
           :singular
         end
-      
+
       named_route = build_named_route_call(record_or_hash_or_array, namespace, inflection, options)
       send!(named_route, *args)
     end
@@ -152,7 +152,7 @@ module ActionController
           else        record_or_hash_or_array
         end
       end
-      
+
       def extract_format(record_or_hash_or_array, options)
         if options[:action].to_s == "formatted" && record_or_hash_or_array.is_a?(Array)
           record_or_hash_or_array.pop
@@ -162,7 +162,7 @@ module ActionController
           nil
         end
       end
-      
+
       def extract_namespace(record_or_hash_or_array)
         returning "" do |namespace|
           if record_or_hash_or_array.is_a?(Array)
@@ -171,7 +171,7 @@ module ActionController
                 namespace << "#{record_or_namespace}_"
               end
             end
-          end  
+          end
         end
       end
   end

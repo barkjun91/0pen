@@ -1,16 +1,16 @@
 !!! XML
 %feed(xmlns="http://www.w3.org/2005/Atom")
   %id&= url_for :controller => 'forums', :only_path => false
-  %title&= '제로픈 포럼' 
+  %title&= '제로픈 포럼'
   %updated= @posts.first.updated_at.xmlschema
-  %link{:href => url_for(:controller => 'forums',:only_path => false)+".xml", 
-        :rel => :self} 
+  %link{:href => url_for(:controller => 'forums',:only_path => false)+".xml",
+        :rel => :self}
   %link{:href => url_for(:controller => 'forums',:only_path => false),
         :rel => :alternate}
   - for post in @posts
     %entry
-      %id&= polymorphic_url([post.forum, post.subject, post]) 
-      %link{:href => polymorphic_url([post.forum, post.subject, post]), 
+      %id&= polymorphic_url([post.forum, post.subject, post])
+      %link{:href => polymorphic_url([post.forum, post.subject, post]),
             :rel => :alternate}
       %author
         %name&= post.person
@@ -19,7 +19,7 @@
       %title&= post.subject.title
       %content(type="html")&= markdown(post.body)
 
- 
+
 
 
 

@@ -3,11 +3,11 @@
   - for post in @subject.posts
     .setBorder_body
       .info
-        .avatar= gravatar_for post.person 
+        .avatar= gravatar_for post.person
         .nick&= post.person.nick
         .name&= post.person.name
       .content
-        .item 
+        .item
           %ul
             - if post.author? @person_log
               %li
@@ -21,5 +21,5 @@
               %a{:href => url_for([@subject.forum, @subject, post, revision])}&= revision.created_at.strftime('%m-%d-%Y, %l:%M %p에 수정하셨습니다.')
   .functions
     %a{:href=>forum_path(@subject.forum)} 목록으로
-    - if @person_log 
+    - if @person_log
       %a{:href=>new_forum_subject_post_path(@subject.forum, @subject)}글 추가

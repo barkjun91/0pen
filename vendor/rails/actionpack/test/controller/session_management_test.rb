@@ -121,7 +121,7 @@ class SessionManagementTest < Test::Unit::TestCase
     assert_instance_of Hash, @request.session_options
     assert_equal false, @request.session_options[:disabled]
   end
-  
+
   def test_session_off_conditionally
     @controller = TestController.new
     get :show
@@ -146,7 +146,7 @@ class SessionManagementTest < Test::Unit::TestCase
     get :conditional, :ws => "ws"
     assert_equal false, @request.session_options
   end
-  
+
   def test_session_store_setting
     ActionController::Base.session_store = :drb_store
     assert_equal CGI::Session::DRbStore, ActionController::Base.session_store
@@ -156,7 +156,7 @@ class SessionManagementTest < Test::Unit::TestCase
       assert_equal CGI::Session::ActiveRecordStore, ActionController::Base.session_store
     end
   end
-  
+
   def test_process_cleanup_with_session_management_support
     @controller = AssociationCachingTestController.new
     get :show
@@ -164,14 +164,14 @@ class SessionManagementTest < Test::Unit::TestCase
     get :tell
     assert_equal "does not have cached associations", @response.body
   end
-  
+
   def test_session_is_enabled
     @controller = TestController.new
     get :show
     assert_nothing_raised do
       assert_equal false, @controller.session_enabled?
     end
-    
+
     get :tell
     assert @controller.session_enabled?
   end

@@ -64,7 +64,7 @@ module ActionController #:nodoc:
       end
 
 
-    private    
+    private
       def cache_configured?
         self.class.cache_configured?
       end

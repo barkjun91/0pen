@@ -41,8 +41,8 @@ module ActionView
 
       indent = ' ' * indentation
       line_counter = start_on_line
-      return unless source_code = source_code[start_on_line..end_on_line] 
-      
+      return unless source_code = source_code[start_on_line..end_on_line]
+
       source_code.sum do |line|
         line_counter += 1
         "#{indent}#{line_counter}: #{line}"
@@ -74,7 +74,7 @@ module ActionView
         "#{source_extract}\n    #{clean_backtrace.join("\n    ")}\n\n"
     end
 
-    # don't do anything nontrivial here. Any raised exception from here becomes fatal 
+    # don't do anything nontrivial here. Any raised exception from here becomes fatal
     # (and can't be rescued).
     def backtrace
       @backtrace

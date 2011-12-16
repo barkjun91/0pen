@@ -6,7 +6,7 @@ class Module
   #     end
   #   end
   #   X = M::N
-  #   
+  #
   #   p M::N.parent # => M
   #   p X.parent    # => M
   #
@@ -28,7 +28,7 @@ class Module
   #     end
   #   end
   #   X = M::N
-  #   
+  #
   #   p M.parents    # => [Object]
   #   p M::N.parents # => [M, Object]
   #   p X.parents    # => [M, Object]

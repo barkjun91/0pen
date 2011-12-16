@@ -28,7 +28,7 @@ namespace :gems do
       puts "Built gem: '#{gem_dir}'"
     end
   end
-  
+
   desc "Installs all required gems for this application."
   task :install => :base do
     require 'rubygems'
@@ -45,7 +45,7 @@ namespace :gems do
       gem.unpack_to(File.join(RAILS_ROOT, 'vendor', 'gems')) if gem.loaded?
     end
   end
-  
+
   namespace :unpack do
     desc "Unpacks the specified gems and its dependencies into vendor/gems"
     task :dependencies => :unpack do

@@ -1,8 +1,8 @@
 %h1&= @revision.subject.title
-%h2 고치기 
+%h2 고치기
 
 .revision
-  - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f| 
+  - form_for([@revision.forum, @revision.subject, @revision.post, @revision]) do |f|
     = f.error_messages
     %fieldset
       = f.text_area :body, :cols=>80, :rows=>15, :value => @revision.post.body
@@ -10,8 +10,8 @@
       %select#converter-selector
         %option(value="preview") Preview
         %option(value="HTML output") HTML output
-      = f.submit "수정" 
+      = f.submit "수정"
       =link_to '뒤로', [@revision.forum, @revision.subject]
-    %fieldset    
+    %fieldset
       .output
-        %h2 미리보기 
+        %h2 미리보기

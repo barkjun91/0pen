@@ -17,11 +17,11 @@ module RequestForgeryProtectionActions
   def index
     render :inline => "<%= form_tag('/') {} %>"
   end
-  
+
   def show_button
     render :inline => "<%= button_to('New', '/') {} %>"
   end
-  
+
   def remote_form
     render :inline => "<% form_remote_tag(:url => '/') {} %>"
   end
@@ -29,7 +29,7 @@ module RequestForgeryProtectionActions
   def unsafe
     render :text => 'pwn'
   end
-  
+
   def rescue_action(e) raise e end
 end
 
@@ -60,11 +60,11 @@ end
 
 class FreeCookieController < CsrfCookieMonsterController
   self.allow_forgery_protection = false
-  
+
   def index
     render :inline => "<%= form_tag('/') {} %>"
   end
-  
+
   def show_button
     render :inline => "<%= button_to('New', '/') {} %>"
   end
@@ -76,12 +76,12 @@ module RequestForgeryProtectionTests
   def teardown
     ActionController::Base.request_forgery_protection_token = nil
   end
-  
+
   def test_should_render_form_with_token_tag
     get :index
     assert_select 'form>div>input[name=?][value=?]', 'authenticity_token', @token
   end
-  
+
   def test_should_render_button_to_with_token_tag
     get :show_button
     assert_select 'form>div>input[name=?][value=?]', 'authenticity_token', @token
@@ -96,7 +96,7 @@ module RequestForgeryProtectionTests
     get :index
     assert_response :success
   end
-  
+
   def test_should_allow_post_without_token_on_unsafe_action
     post :unsafe
     assert_response :success
@@ -177,42 +177,42 @@ module RequestForgeryProtectionTests
   def test_should_not_allow_xhr_post_without_token
     assert_raises(ActionController::InvalidAuthenticityToken) { xhr :post, :index }
   end
-  
+
   def test_should_not_allow_xhr_put_without_token
     assert_raises(ActionController::InvalidAuthenticityToken) { xhr :put, :index }
   end
-  
+
   def test_should_not_allow_xhr_delete_without_token
     assert_raises(ActionController::InvalidAuthenticityToken) { xhr :delete, :index }
   end
-  
+
   def test_should_allow_post_with_token
     post :index, :authenticity_token => @token
     assert_response :success
   end
-  
+
   def test_should_allow_put_with_token
     put :index, :authenticity_token => @token
     assert_response :success
   end
-  
+
   def test_should_allow_delete_with_token
     delete :index, :authenticity_token => @token
     assert_response :success
   end
-  
+
   def test_should_allow_post_with_xml
     @request.env['CONTENT_TYPE'] = Mime::XML.to_s
     post :index, :format => 'xml'
     assert_response :success
   end
-  
+
   def test_should_allow_put_with_xml
     @request.env['CONTENT_TYPE'] = Mime::XML.to_s
     put :index, :format => 'xml'
     assert_response :success
   end
-  
+
   def test_should_allow_delete_with_xml
     @request.env['CONTENT_TYPE'] = Mime::XML.to_s
     delete :index, :format => 'xml'
@@ -247,7 +247,7 @@ class RequestForgeryProtectionWithoutSecretControllerTest < Test::Unit::TestCase
     @token = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new('SHA1'), 'abc', '123')
     ActionController::Base.request_forgery_protection_token = :authenticity_token
   end
-  
+
   def test_should_raise_error_without_secret
     assert_raises ActionController::InvalidAuthenticityToken do
       get :index
@@ -278,17 +278,17 @@ class FreeCookieControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @token      = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new('SHA1'), 'abc', '123')
   end
-  
+
   def test_should_not_render_form_with_token_tag
     get :index
     assert_select 'form>div>input[name=?][value=?]', 'authenticity_token', @token, false
   end
-  
+
   def test_should_not_render_button_to_with_token_tag
     get :show_button
     assert_select 'form>div>input[name=?][value=?]', 'authenticity_token', @token, false
   end
-  
+
   def test_should_allow_all_methods_without_token
     [:post, :put, :delete].each do |method|
       assert_nothing_raised { send(method, :index)}

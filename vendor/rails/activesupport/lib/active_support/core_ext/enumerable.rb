@@ -7,7 +7,7 @@ module Enumerable
   #
   # Example:
   #
-  #   latest_transcripts.group_by(&:day).each do |day, transcripts| 
+  #   latest_transcripts.group_by(&:day).each do |day, transcripts|
   #     p "#{day} -> #{transcripts.map(&:class).join(', ')}"
   #   end
   #   "2006-03-01 -> Transcript"
@@ -54,12 +54,12 @@ module Enumerable
   end
 
   # Convert an enumerable to a hash. Examples:
-  # 
+  #
   #   people.index_by(&:login)
   #     => { "nextangle" => <Person ...>, "chade-" => <Person ...>, ...}
   #   people.index_by { |person| "#{person.first_name} #{person.last_name}" }
   #     => { "Chade- Fowlersburg-e" => <Person ...>, "David Heinemeier Hansson" => <Person ...>, ...}
-  # 
+  #
   def index_by
     inject({}) do |accum, elem|
       accum[yield(elem)] = elem

@@ -7,7 +7,7 @@ module Ambethia
 
     SKIP_VERIFY_ENV = ['test']
 
-    module Helper 
+    module Helper
       # Your public API can be specified in the +options+ hash or preferably the environment
       # variable +RECAPTCHA_PUBLIC_KEY+.
       def recaptcha_tags(options = {})
@@ -16,7 +16,7 @@ module Ambethia
         error = options[:error] ||= session[:recaptcha_error]
         uri   = options[:ssl] ? RECAPTCHA_API_SECURE_SERVER : RECAPTCHA_API_SERVER
         xhtml = Builder::XmlMarkup.new :target => out=(''), :indent => 2 # Because I can.
-        if options[:display] 
+        if options[:display]
           xhtml.script(:type => "text/javascript"){ xhtml.text! "var RecaptchaOptions = #{options[:display].to_json};\n"}
         end
         xhtml.script(:type => "text/javascript", :src => "#{uri}/challenge?k=#{key}&error=#{error}") {}
@@ -35,7 +35,7 @@ module Ambethia
         return out
       end # recaptcha_tags
     end # Helpers
-    
+
     module Controller
       # Your private API key must be specified in the environment variable +RECAPTCHA_PRIVATE_KEY+
       def verify_recaptcha(model = nil)
@@ -59,11 +59,11 @@ module Ambethia
           end
         rescue Exception => e
           raise ReCaptchaError, e
-        end    
+        end
       end # verify_recaptcha
     end # ControllerHelpers
 
     class ReCaptchaError < StandardError; end
-    
+
   end # ReCaptcha
 end # Ambethia

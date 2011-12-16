@@ -38,7 +38,7 @@ class RequestTest < Test::Unit::TestCase
 
     @request.env['HTTP_X_FORWARDED_FOR'] = '10.0.0.1,3.4.5.6'
     assert_equal '3.4.5.6', @request.remote_ip
-    
+
     @request.env['HTTP_X_FORWARDED_FOR'] = '10.0.0.1, 10.0.0.1, 3.4.5.6'
     assert_equal '3.4.5.6', @request.remote_ip
 
@@ -279,7 +279,7 @@ class RequestTest < Test::Unit::TestCase
     @request.port = 80
     assert_equal "rubyonrails.org", @request.host_with_port
   end
-  
+
   def test_host_with_non_default_port
     @request.host = "rubyonrails.org"
     @request.port = 81
@@ -412,15 +412,15 @@ class RequestTest < Test::Unit::TestCase
     @request.env["CONTENT_TYPE"] = "application/xml; charset=UTF-8"
     assert_equal Mime::XML, @request.content_type
   end
-  
+
   def test_user_agent
     assert_not_nil @request.user_agent
   end
-  
+
   def test_parameters
     @request.instance_eval { @request_parameters = { "foo" => 1 } }
     @request.instance_eval { @query_parameters = { "bar" => 2 } }
-    
+
     assert_equal({"foo" => 1, "bar" => 2}, @request.parameters)
     assert_equal({"foo" => 1}, @request.request_parameters)
     assert_equal({"bar" => 2}, @request.query_parameters)
@@ -771,19 +771,19 @@ class MultipartRequestParameterParsingTest < Test::Unit::TestCase
 
     file = params['file']
     foo  = params['foo']
-    
+
     if RUBY_VERSION > '1.9'
       assert_kind_of File, file
     else
       assert_kind_of Tempfile, file
     end
-    
+
     assert_equal 'file.txt', file.original_filename
     assert_equal "text/plain", file.content_type
-    
+
     assert_equal 'bar', foo
   end
-  
+
   def test_large_text_file
     params = process('large_text_file')
     assert_equal %w(file foo), params.keys.sort

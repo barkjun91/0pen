@@ -84,7 +84,7 @@ namespace :rails do
 
       local = Dir["#{local_base}/**/*"].reject { |path| File.directory?(path) }
       edge  = Dir["#{edge_base}/**/*"].reject { |path| File.directory?(path) }
-  
+
       edge.each do |script|
         base_name = script[(edge_base.length+1)..-1]
         next if base_name == "rails"
@@ -98,7 +98,7 @@ namespace :rails do
 
     desc "Update your javascripts from your current rails install"
     task :javascripts do
-      require 'railties_path'  
+      require 'railties_path'
       project_dir = RAILS_ROOT + '/public/javascripts/'
       scripts = Dir[RAILTIES_PATH + '/html/javascripts/*.js']
       scripts.reject!{|s| File.basename(s) == 'application.js'} if File.exist?(project_dir + 'application.js')
@@ -107,7 +107,7 @@ namespace :rails do
 
     desc "Update config/boot.rb from your current rails install"
     task :configs do
-      require 'railties_path'  
+      require 'railties_path'
       FileUtils.cp(RAILTIES_PATH + '/environments/boot.rb', RAILS_ROOT + '/config/boot.rb')
     end
   end

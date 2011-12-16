@@ -63,7 +63,7 @@ module ActiveSupport #:nodoc:
         alias_method :titlecase, :titleize
 
         # The reverse of +camelize+. Makes an underscored, lowercase form from the expression in the string.
-        # 
+        #
         # +underscore+ will also change '::' to '/' to convert namespaces to paths.
         #
         #   "ActiveRecord".underscore         # => "active_record"
@@ -110,11 +110,11 @@ module ActiveSupport #:nodoc:
         def classify
           Inflector.classify(self)
         end
-        
+
         # Capitalizes the first word, turns underscores into spaces, and strips '_id'.
         # Like +titleize+, this is meant for creating pretty output.
         #
-        #   "employee_salary" # => "Employee salary" 
+        #   "employee_salary" # => "Employee salary"
         #   "author_id"       # => "Author"
         def humanize
           Inflector.humanize(self)

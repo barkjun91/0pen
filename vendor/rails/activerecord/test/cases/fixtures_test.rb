@@ -97,7 +97,7 @@ class FixturesTest < ActiveRecord::TestCase
       second_row = ActiveRecord::Base.connection.select_one("SELECT * FROM prefix_topics_suffix WHERE author_name = 'Mary'")
       assert_nil(second_row["author_email_address"])
 
-      # This checks for a caching problem which causes a bug in the fixtures 
+      # This checks for a caching problem which causes a bug in the fixtures
       # class-level configuration helper.
       assert_not_nil topics, "Fixture data inserted, but fixture objects not returned from create"
     ensure
@@ -364,7 +364,7 @@ end
 class CheckSetTableNameFixturesTest < ActiveRecord::TestCase
   set_fixture_class :funny_jokes => 'Joke'
   fixtures :funny_jokes
-  # Set to false to blow away fixtures cache and ensure our fixtures are loaded 
+  # Set to false to blow away fixtures cache and ensure our fixtures are loaded
   # and thus takes into account our set_fixture_class
   self.use_transactional_fixtures = false
 
@@ -376,7 +376,7 @@ end
 class CustomConnectionFixturesTest < ActiveRecord::TestCase
   set_fixture_class :courses => Course
   fixtures :courses
-  # Set to false to blow away fixtures cache and ensure our fixtures are loaded 
+  # Set to false to blow away fixtures cache and ensure our fixtures are loaded
   # and thus takes into account our set_fixture_class
   self.use_transactional_fixtures = false
 
@@ -388,7 +388,7 @@ end
 
 class InvalidTableNameFixturesTest < ActiveRecord::TestCase
   fixtures :funny_jokes
-  # Set to false to blow away fixtures cache and ensure our fixtures are loaded 
+  # Set to false to blow away fixtures cache and ensure our fixtures are loaded
   # and thus takes into account our lack of set_fixture_class
   self.use_transactional_fixtures = false
 
@@ -402,7 +402,7 @@ end
 class CheckEscapedYamlFixturesTest < ActiveRecord::TestCase
   set_fixture_class :funny_jokes => 'Joke'
   fixtures :funny_jokes
-  # Set to false to blow away fixtures cache and ensure our fixtures are loaded 
+  # Set to false to blow away fixtures cache and ensure our fixtures are loaded
   # and thus takes into account our set_fixture_class
   self.use_transactional_fixtures = false
 

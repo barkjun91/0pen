@@ -27,7 +27,7 @@ module ActionController
 
       def rescue_action(e)
         self.exception = e
-        
+
         if request.remote_addr == "0.0.0.0"
           raise(e)
         else
@@ -74,7 +74,7 @@ module ActionController
       @controller.request = @request = TestRequest.new
       @response = TestResponse.new
     end
-    
+
     # Cause the action to be rescued according to the regular rules for rescue_action when the visitor is not local
     def rescue_action_in_public!
       @request.remote_addr = '208.77.188.166' # example.com

@@ -18,15 +18,15 @@ module Rails
     def configuration
       @@configuration
     end
-  
+
     def configuration=(configuration)
       @@configuration = configuration
     end
-  
+
     def logger
       RAILS_DEFAULT_LOGGER
     end
-  
+
     def root
       if defined?(RAILS_ROOT)
         RAILS_ROOT
@@ -34,11 +34,11 @@ module Rails
         nil
       end
     end
-  
+
     def env
       RAILS_ENV
     end
-  
+
     def cache
       RAILS_CACHE
     end
@@ -55,7 +55,7 @@ module Rails
       @@public_path = path
     end
   end
-  
+
   # The Initializer is responsible for processing the Rails configuration, such
   # as setting the $LOAD_PATH, requiring the right frameworks, initializing
   # logging, and more. It can be run either as a single command that'll just
@@ -78,7 +78,7 @@ module Rails
 
     # The set of loaded plugins.
     attr_reader :loaded_plugins
-    
+
     # Runs the initializer. By default, this will invoke the #process method,
     # which simply executes all of the initialization routines. Alternately,
     # you can specify explicitly which initialization routine you want:
@@ -109,7 +109,7 @@ module Rails
       check_ruby_version
       install_gem_spec_stubs
       set_load_path
-      
+
       require_frameworks
       set_autoload_paths
       add_gem_load_paths
@@ -141,7 +141,7 @@ module Rails
       add_gem_load_paths
       load_gems
       check_gem_dependencies
-      
+
       load_application_initializers
 
       # the framework is now fully initialized
@@ -154,7 +154,7 @@ module Rails
       initialize_routing
 
       # Observers are loaded after plugins in case Observers or observed models are modified by plugins.
-      
+
       load_observers
     end
 
@@ -293,12 +293,12 @@ module Rails
       silence_warnings do
         return if @environment_loaded
         @environment_loaded = true
-        
+
         config = configuration
         constants = self.class.constants
-        
+
         eval(IO.read(configuration.environment_path), binding, configuration.environment_path)
-        
+
         (self.class.constants - constants).each do |const|
           Object.const_set(const, self.class.const_get(const))
         end
@@ -386,7 +386,7 @@ module Rails
       for framework in ([ :active_record, :action_controller, :action_mailer ] & configuration.frameworks)
         framework.to_s.camelize.constantize.const_get("Base").logger ||= RAILS_DEFAULT_LOGGER
       end
-      
+
       RAILS_CACHE.logger ||= RAILS_DEFAULT_LOGGER
     end
 
@@ -527,7 +527,7 @@ module Rails
     # The path to the database configuration file to use. (Defaults to
     # <tt>config/database.yml</tt>.)
     attr_accessor :database_configuration_file
-    
+
     # The path to the routes configuration file to use. (Defaults to
     # <tt>config/routes.rb</tt>.)
     attr_accessor :routes_configuration_file
@@ -593,7 +593,7 @@ module Rails
     # a sub class would have access to fine grained modification of the loading behavior. See
     # the implementation of Rails::Plugin::Loader for more details.
     attr_accessor :plugin_loader
-    
+
     # Enables or disables plugin reloading.  You can get around this setting per plugin.
     # If <tt>reload_plugins?</tt> is false, add this to your plugin's <tt>init.rb</tt>
     # to make it reloadable:
@@ -630,7 +630,7 @@ module Rails
     def gem(name, options = {})
       @gems << Rails::GemDependency.new(name, options)
     end
-    
+
     # Deprecated options:
     def breakpoint_server(_ = nil)
       $stderr.puts %(
@@ -689,7 +689,7 @@ module Rails
         else
           Pathname.new(::RAILS_ROOT).realpath.to_s
         end
-      
+
       Object.const_set(:RELATIVE_RAILS_ROOT, ::RAILS_ROOT.dup) unless defined?(::RELATIVE_RAILS_ROOT)
       ::RAILS_ROOT.replace @root_path
     end
@@ -730,7 +730,7 @@ module Rails
     #
     # See Dispatcher#to_prepare.
     def to_prepare(&callback)
-      after_initialize do 
+      after_initialize do
         require 'dispatcher' unless defined?(::Dispatcher)
         Dispatcher.to_prepare(&callback)
       end
@@ -744,11 +744,11 @@ module Rails
     def framework_paths
       paths = %w(railties railties/lib activesupport/lib)
       paths << 'actionpack/lib' if frameworks.include? :action_controller or frameworks.include? :action_view
-      
+
       [:active_record, :action_mailer, :active_resource, :action_web_service].each do |framework|
         paths << "#{framework.to_s.gsub('_', '')}/lib" if frameworks.include? framework
       end
-      
+
       paths.map { |dir| "#{framework_root_path}/#{dir}" }.select { |dir| File.directory?(dir) }
     end
 
@@ -763,7 +763,7 @@ module Rails
 
       def default_load_paths
         paths = []
-        
+
         # Add the old mock paths only if the directories exists
         paths.concat(Dir["#{root_path}/test/mocks/#{environment}"]) if File.exists?("#{root_path}/test/mocks/#{environment}")
 
@@ -849,7 +849,7 @@ module Rails
       def default_plugin_loader
         Plugin::Loader
       end
-      
+
       def default_cache_store
         if File.exist?("#{root_path}/tmp/cache/")
           [ :file_store, "#{root_path}/tmp/cache/" ]
@@ -857,7 +857,7 @@ module Rails
           :memory_store
         end
       end
-      
+
       def default_gems
         []
       end

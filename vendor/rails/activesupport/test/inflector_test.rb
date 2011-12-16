@@ -147,7 +147,7 @@ class InflectorTest < Test::Unit::TestCase
       assert_equal(lower_camel, Inflector.camelize(underscored, false))
     end
   end
-  
+
   %w{plurals singulars uncountables}.each do |inflection_type|
     class_eval "
       def test_clear_#{inflection_type}
@@ -158,7 +158,7 @@ class InflectorTest < Test::Unit::TestCase
       end
     "
   end
-  
+
   def test_clear_all
     cached_values = Inflector.inflections.plurals, Inflector.inflections.singulars, Inflector.inflections.uncountables
     Inflector.inflections.clear :all
@@ -169,7 +169,7 @@ class InflectorTest < Test::Unit::TestCase
     Inflector.inflections.instance_variable_set :@singulars, cached_values[1]
     Inflector.inflections.instance_variable_set :@uncountables, cached_values[2]
   end
-  
+
   def test_clear_with_default
     cached_values = Inflector.inflections.plurals, Inflector.inflections.singulars, Inflector.inflections.uncountables
     Inflector.inflections.clear

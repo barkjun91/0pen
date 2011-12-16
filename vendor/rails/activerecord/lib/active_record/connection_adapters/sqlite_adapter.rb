@@ -83,7 +83,7 @@ module ActiveRecord
       def requires_reloading?
         true
       end
- 
+
       def disconnect!
         super
         @connection.close rescue nil
@@ -217,7 +217,7 @@ module ActiveRecord
         if @connection.respond_to?(:transaction_active?) && @connection.transaction_active?
           raise StatementInvalid, 'Cannot add columns to a SQLite database while inside a transaction'
         end
-        
+
         super(table_name, column_name, type, options)
         # See last paragraph on http://www.sqlite.org/lang_altertable.html
         execute "VACUUM"
@@ -302,7 +302,7 @@ module ActiveRecord
                 (options[:rename][column.name] ||
                  options[:rename][column.name.to_sym] ||
                  column.name) : column.name
-              
+
               @definition.column(column_name, column.type,
                 :limit => column.limit, :default => column.default,
                 :null => column.null)

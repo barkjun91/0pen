@@ -44,7 +44,7 @@ RenderPartialWithRecordIdentificationController.view_paths = [ File.dirname(__FI
 
 class RenderPartialWithRecordIdentificationTest < ActiveRecordTestCase
   fixtures :developers, :projects, :developers_projects, :topics, :replies, :companies, :mascots
-  
+
   def setup
     @controller = RenderPartialWithRecordIdentificationController.new
     @request    = ActionController::TestRequest.new
@@ -56,22 +56,22 @@ class RenderPartialWithRecordIdentificationTest < ActiveRecordTestCase
     get :render_with_has_many_and_belongs_to_association
     assert_template 'projects/_project'
   end
-  
+
   def test_rendering_partial_with_has_many_association
     get :render_with_has_many_association
     assert_template 'replies/_reply'
   end
-  
+
   def test_rendering_partial_with_named_scope
     get :render_with_named_scope
     assert_template 'replies/_reply'
   end
-  
+
   def test_render_with_record
     get :render_with_record
     assert_template 'developers/_developer'
   end
-  
+
   def test_render_with_record_collection
     get :render_with_record_collection
     assert_template 'developers/_developer'

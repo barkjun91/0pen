@@ -169,7 +169,7 @@ module Sass::Script
       other_num = other.is_a? Number
       other_val = other.value
       if other_num && !other.unitless?
-        raise Sass::SyntaxError.new("Cannot add a number with units (#{other}) to a color (#{self}).") 
+        raise Sass::SyntaxError.new("Cannot add a number with units (#{other}) to a color (#{self}).")
       end
 
       rgb = []

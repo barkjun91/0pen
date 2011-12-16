@@ -86,7 +86,7 @@ class BufferedLoggerTest < Test::Unit::TestCase
       assert !@output.string.empty?, @logger.buffer.size
     end
   end
-  
+
   def test_should_know_if_its_loglevel_is_below_a_given_level
     ActiveSupport::BufferedLogger::Severity.constants.each do |level|
       @logger.level = ActiveSupport::BufferedLogger::Severity.const_get(level) - 1
@@ -105,7 +105,7 @@ class BufferedLoggerTest < Test::Unit::TestCase
     @logger.info 'there it is.'
     assert !@output.string.empty?, @output.string
   end
-  
+
   def test_should_create_the_log_directory_if_it_doesnt_exist
     tmp_directory = File.join(File.dirname(__FILE__), "tmp")
     log_file = File.join(tmp_directory, "development.log")

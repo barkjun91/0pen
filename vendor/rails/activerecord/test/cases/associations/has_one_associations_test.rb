@@ -14,7 +14,7 @@ class HasOneAssociationsTest < ActiveRecord::TestCase
     assert_equal companies(:first_firm).account, Account.find(1)
     assert_equal Account.find(1).credit_limit, companies(:first_firm).account.credit_limit
   end
-  
+
   def test_has_one_cache_nils
     firm = companies(:another_firm)
     assert_queries(1) { assert_nil firm.account }
@@ -262,13 +262,13 @@ class HasOneAssociationsTest < ActiveRecord::TestCase
     assert_equal a, firm.account
     assert_equal a, firm.account(true)
   end
-  
+
   def test_save_fails_for_invalid_has_one
     firm = Firm.find(:first)
     assert firm.valid?
-    
+
     firm.account = Account.new
-    
+
     assert !firm.account.valid?
     assert !firm.valid?
     assert !firm.save

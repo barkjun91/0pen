@@ -1,7 +1,7 @@
 - content_for :head do
   %link{:rel => :alternate, :type => 'application/atom+xml',:title => @forum,
         :href=> polymorphic_url(@forum)+'.atom'}
-%h1.forum-title&= @forum.title 
+%h1.forum-title&= @forum.title
 .description&= @forum.description
 / #{link_to 'Edit', edit_forum_path(@forum)} |
 / = link_to 'Back', forums_path
@@ -29,5 +29,5 @@
           %li{:class => flag.is_a?(String) ? flag : ''}
             %a{:href => "?page=#{page}"}= page
   .functions
-    - if @person_log 
+    - if @person_log
       %a.button{:href => new_forum_subject_path(@forum)} 글타래 열기

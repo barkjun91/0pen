@@ -52,11 +52,11 @@ module Sass::Tree
       end
       real_name = name
       real_name = "#{parent_name}-#{real_name}" if parent_name
-      
+
       if value.empty? && children.empty?
         raise Sass::SyntaxError.new("Invalid property: #{declaration.dump} (no value).", @line)
       end
-      
+
       join_string = case style
                     when :compact; ' '
                     when :compressed; ''
@@ -67,12 +67,12 @@ module Sass::Tree
       if !value.empty?
         to_return << "#{spaces}#{real_name}:#{style == :compressed ? '' : ' '}#{value};#{join_string}"
       end
-      
+
       children.each do |kid|
         next if kid.invisible?
         to_return << kid.to_s(tabs, real_name) << join_string
       end
-      
+
       (style == :compressed && parent_name) ? to_return : to_return[0...-1]
     end
 

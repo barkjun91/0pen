@@ -134,7 +134,7 @@ class ValidationsTest < ActiveRecord::TestCase
       Reply.create!([ { "title" => "OK" }, { "title" => "Wrong Create" }])
     end
   end
-  
+
   def test_exception_on_create_bang_with_block
     assert_raises(ActiveRecord::RecordInvalid) do
       Reply.create!({ "title" => "OK" }) do |r|
@@ -142,7 +142,7 @@ class ValidationsTest < ActiveRecord::TestCase
       end
     end
   end
-  
+
   def test_exception_on_create_bang_many_with_block
     assert_raises(ActiveRecord::RecordInvalid) do
       Reply.create!([{ "title" => "OK" }, { "title" => "Wrong Create" }]) do |r|

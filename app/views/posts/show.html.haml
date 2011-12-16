@@ -4,7 +4,7 @@
   - for revision in @post.revisions.all(:order => "created_at desc")
     .revision{:id => revision.created_at.xmlschema}
       = markdown(revision.body)
-      .created-at  
+      .created-at
         &= revision.created_at.strftime('작성일 : %m-%d-%Y, %l:%M %p')
 
 / = link_to '수정', new_forum_subject_post_revision_path(@post.forum, @post.subject, @post)

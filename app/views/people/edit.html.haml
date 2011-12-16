@@ -2,7 +2,7 @@
 
 .register
   - form_for(@person) do |f|
-    -unless f.error_messages  
+    -unless f.error_messages
       .error-message-box = f.error_messages
     %fieldset
       = f.label :email, '이메일'
@@ -16,5 +16,5 @@
       = f.label :url, '홈페이지'
       = f.text_field :url
       .functions
-        = f.submit "수정하기" 
+        = f.submit "수정하기"
         = link_to '뒤로가기', @person
